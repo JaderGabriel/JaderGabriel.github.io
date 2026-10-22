@@ -136,35 +136,48 @@
         .status { margin-top: .5rem; font-size: .82rem; color: var(--muted); min-height: 1.15em; }
         footer { border-top: 1px solid var(--line); padding: 1rem 0 1.6rem; color: var(--muted); font-size: .8rem; }
 
+        #cv-host {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 80;
+            background: #fff;
+            overflow: auto;
+        }
+        #cv-host.is-exporting { display: block; }
         #cv {
-            position: absolute; left: -14000px; top: 0;
-            width: 210mm; min-height: 297mm; background: #fff; color: #111;
-            font-family: "Calibri", "Source Sans 3", Arial, sans-serif;
-            padding: 12mm 14mm 12mm; font-size: 10pt; line-height: 1.38;
+            width: 794px;
+            margin: 0 auto;
+            background: #fff;
+            color: #111;
+            font-family: "Source Sans 3", Arial, sans-serif;
+            padding: 36px 42px 40px;
+            font-size: 13.5px;
+            line-height: 1.4;
         }
         #cv * { box-sizing: border-box; }
-        #cv h1 { font-size: 18pt; letter-spacing: 0; margin: 0; font-family: "Calibri", Arial, sans-serif; }
-        #cv .title { font-size: 11pt; font-weight: 700; color: #1f3b57; margin-top: 2pt; }
+        #cv h1 { font-size: 26px; letter-spacing: 0; margin: 0; }
+        #cv .title { font-size: 14px; font-weight: 700; color: #1f3b57; margin-top: 4px; }
         #cv h2 {
-            font-family: "Calibri", Arial, sans-serif;
-            font-size: 11pt; letter-spacing: .08em; text-transform: uppercase;
+            font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
             color: #1f3b57; border-bottom: 1.5px solid #1f3b57;
-            margin: 9pt 0 5pt; padding-bottom: 2pt;
+            margin: 16px 0 8px; padding-bottom: 3px;
         }
-        #cv h3 { font-size: 10.5pt; margin: 0; }
-        #cv .cv-head { display: flex; gap: 10pt; align-items: flex-start; }
-        #cv .cv-head img { width: 24mm; height: 24mm; object-fit: cover; object-position: top; border: 1px solid #c9d3de; }
-        #cv .cv-contacts { margin-top: 4pt; font-size: 9pt; color: #334; }
-        #cv .cv-contacts span { margin-right: 8pt; white-space: nowrap; }
-        #cv .kwline { font-size: 8.5pt; color: #1f3b57; margin-top: 6pt; }
-        #cv ul { margin: 2pt 0 0 12pt; }
-        #cv li + li { margin-top: 1.5pt; }
-        #cv .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12pt; }
+        #cv h3 { font-size: 13.5px; margin: 0; }
+        #cv .cv-head { display: flex; gap: 14px; align-items: flex-start; }
+        #cv .cv-head img { width: 88px; height: 88px; object-fit: cover; object-position: top; border: 1px solid #c9d3de; }
+        #cv .cv-contacts { margin-top: 6px; font-size: 12px; color: #334; }
+        #cv .cv-contacts span { margin-right: 10px; }
+        #cv .kwline { font-size: 11.5px; color: #1f3b57; margin-top: 8px; }
+        #cv ul { margin: 4px 0 0 18px; }
+        #cv li + li { margin-top: 3px; }
+        #cv .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
         #cv .muted { color: #445; font-weight: 400; }
-        #cv .roleline { display: flex; justify-content: space-between; gap: 8pt; }
+        #cv .roleline { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; }
         @media print {
-            nav, .hero, .layout, footer, .btn-row { display: none !important; }
-            #cv { position: static; left: auto; width: auto; min-height: 0; padding: 0; }
+            nav, .hero, .layout, footer { display: none !important; }
+            #cv-host { display: block !important; position: static; overflow: visible; }
+            #cv { width: auto; }
             body { background: #fff; }
         }
     </style>
@@ -363,9 +376,10 @@
         <div class="shell">Jader Gabriel · BURI-TI — Tecnologia para Pessoas · jadergabriel.github.io</div>
     </footer>
 
-    <div id="cv" aria-hidden="true">
+    <div id="cv-host" hidden>
+    <div id="cv">
         <div class="cv-head">
-            <img src="./assets/jader-gabriel.jpg" alt="">
+            <img src="./assets/jader-gabriel.jpg" alt="Jader Gabriel" width="88" height="88" crossorigin="anonymous">
             <div>
                 <h1>Jader Gabriel</h1>
                 <p class="title">Analista de Sistemas e Projetos · Desenvolvedor Full Stack</p>
@@ -442,29 +456,63 @@
             <li><strong>Odin</strong> — gestão Moodle (código confidencial).</li>
         </ul>
     </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
     <script>
         const button = document.getElementById('btn-pdf');
         const status = document.getElementById('pdf-status');
+        const host = document.getElementById('cv-host');
+        const cv = document.getElementById('cv');
+
+        async function inlineImages(root) {
+            for (const img of root.querySelectorAll('img')) {
+                if (img.src.startsWith('data:')) continue;
+                const res = await fetch(img.getAttribute('src'));
+                const blob = await res.blob();
+                img.src = await new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = reject;
+                    reader.readAsDataURL(blob);
+                });
+                if (img.decode) await img.decode().catch(() => {});
+            }
+        }
+
         button.addEventListener('click', async () => {
             status.textContent = 'Gerando PDF…';
             button.disabled = true;
+            host.hidden = false;
+            host.classList.add('is-exporting');
             try {
                 if (!window.html2pdf) throw new Error('Biblioteca PDF indisponível.');
+                await inlineImages(cv);
+                await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
                 await html2pdf().set({
-                    margin: 0,
+                    margin: 8,
                     filename: 'Jader-Gabriel-Curriculo.pdf',
-                    image: { type: 'jpeg', quality: 0.96 },
-                    html2canvas: { scale: 2, useCORS: true, logging: false },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                    pagebreak: { mode: ['css', 'legacy'] }
-                }).from(document.getElementById('cv')).save();
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: {
+                        scale: 2,
+                        useCORS: true,
+                        allowTaint: true,
+                        backgroundColor: '#ffffff',
+                        logging: false,
+                        scrollX: 0,
+                        scrollY: 0,
+                        windowWidth: cv.scrollWidth,
+                        windowHeight: cv.scrollHeight
+                    },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                }).from(cv).save();
                 status.textContent = 'Currículo baixado em PDF.';
             } catch (err) {
-                status.textContent = 'Falha na geração automática. Abrindo impressão do navegador (Salvar como PDF).';
+                status.textContent = 'Falha na geração automática. Use Salvar como PDF na impressão.';
                 window.print();
             } finally {
+                host.classList.remove('is-exporting');
+                host.hidden = true;
                 button.disabled = false;
             }
         });
