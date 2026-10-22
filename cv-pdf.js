@@ -227,8 +227,12 @@
         const M = 14;
         const PAGE = 297;
         const W = 210 - M * 2;
-        const BOTTOM = PAGE - 12;
+        const BOTTOM = PAGE - 14;
+        const DATE_COL = 38;
         let y = M;
+        let afterSection = false;
+
+        pdf.setLineHeightFactor(1.15);
 
         const sans = (style, size) => {
             pdf.setFont('IBMPlexSans', style);
@@ -238,187 +242,185 @@
             pdf.setFont('IBMPlexSerif', 'bold');
             pdf.setFontSize(size);
         };
-        const lh = (size) => size * 0.42;
+        const step = (size) => size * 0.42;
+
+        function linesOf(text, width, size, style) {
+            sans(style, size);
+            return pdf.splitTextToSize(text, width);
+        }
+
+        function writeLines(lines, x, size, style, color) {
+            sans(style, size);
+            pdf.setTextColor(...color);
+            const leading = step(size);
+            lines.forEach((line) => {
+                pdf.text(line, x, y);
+                y += leading;
+            });
+            return leading;
+        }
 
         function ensure(need, contTitle) {
-            if (y + need > BOTTOM) {
-                pdf.addPage();
-                y = M;
-                if (contTitle) section(contTitle);
-            }
+            if (y + need <= BOTTOM) return;
+            pdf.addPage();
+            y = M;
+            if (contTitle) section(contTitle);
         }
 
         function section(title) {
-            ensure(12);
-            y += 2.5;
+            ensure(16);
+            y += 2.8;
+            const barH = 7;
             pdf.setFillColor(...NAVY);
-            pdf.rect(M, y, W, 6.6, 'F');
+            pdf.rect(M, y, W, barH, 'F');
             pdf.setTextColor(255, 255, 255);
             sans('bold', 9);
-            pdf.text(title.toUpperCase(), M + 2.4, y + 4.5);
-            y += 9.2;
+            pdf.text(title.toUpperCase(), M + 2.6, y + 4.8);
+            y += barH + 3.6;
             pdf.setTextColor(...INK);
+            afterSection = true;
         }
 
-        function wrapped(text, x, width, size, style, color, leading) {
-            sans(style, size);
-            pdf.setTextColor(...color);
-            const lines = pdf.splitTextToSize(text, width);
-            const step = leading || lh(size);
-            ensure(lines.length * step);
-            pdf.text(lines, x, y);
-            y += lines.length * step;
-            return lines.length;
+        function roleLine(title, when) {
+            const tLines = linesOf(title, W - DATE_COL - 4, 10.5, 'bold');
+            const top = y;
+            writeLines(tLines, M, 10.5, 'bold', INK);
+            sans('bold', 9.5);
+            pdf.setTextColor(...CORAL);
+            pdf.text(when, M + W, top, { align: 'right' });
+            pdf.setTextColor(...INK);
         }
 
         const photoW = 28;
         const photoH = 37.3;
+        const headerTop = y;
         if (photo) {
             pdf.setDrawColor(...RULE);
-            pdf.setLineWidth(0.2);
+            pdf.setLineWidth(0.25);
             pdf.rect(M, y, photoW, photoH);
             pdf.addImage(photo, 'JPEG', M, y, photoW, photoH);
         }
 
-        const tx = M + photoW + 5;
-        const tw = W - photoW - 5;
-        let ty = y + 5;
+        const tx = M + photoW + 5.5;
+        const tw = W - photoW - 5.5;
+        y = headerTop + 5.2;
         serif(16);
         pdf.setTextColor(...NAVY);
-        pdf.text(DATA.name, tx, ty);
-        ty += 6.2;
-        sans('bold', 10);
-        pdf.setTextColor(...CORAL);
-        const titleLines = pdf.splitTextToSize(DATA.title, tw);
-        pdf.text(titleLines, tx, ty);
-        ty += titleLines.length * 4.4 + 1.5;
-        sans('normal', 9);
-        pdf.setTextColor(...MUTED);
-        const contact = DATA.contacts.join('  ·  ');
-        const contactLines = pdf.splitTextToSize(contact, tw);
-        pdf.text(contactLines, tx, ty);
-        ty += contactLines.length * 4 + 1.8;
-        sans('normal', 9);
-        pdf.setTextColor(...NAVY);
-        const kwLines = pdf.splitTextToSize('Palavras-chave: ' + DATA.keywords, tw);
-        pdf.text(kwLines, tx, ty);
-        ty += (kwLines.length - 1) * 4;
-        y = Math.max(y + photoH, ty) + 5;
+        pdf.text(DATA.name, tx, y);
+        y += 6.4;
+        writeLines(linesOf(DATA.title, tw, 10, 'bold'), tx, 10, 'bold', CORAL);
+        y += 1.2;
+        writeLines(linesOf(DATA.contacts.join('  ·  '), tw, 9, 'normal'), tx, 9, 'normal', MUTED);
+        y += 1.4;
+        writeLines(linesOf('Palavras-chave: ' + DATA.keywords, tw, 9, 'normal'), tx, 9, 'normal', NAVY);
+        y = Math.max(headerTop + photoH, y) + 4.5;
         pdf.setDrawColor(...NAVY);
-        pdf.setLineWidth(0.7);
+        pdf.setLineWidth(0.6);
         pdf.line(M, y, M + W, y);
-        y += 3;
+        y += 1.5;
 
         section('Resumo profissional');
-        wrapped(DATA.summary, M, W, 10, 'normal', INK, 4.5);
-        y += 1;
+        const summary = linesOf(DATA.summary, W, 10, 'normal');
+        ensure(summary.length * step(10) + 2);
+        writeLines(summary, M, 10, 'normal', INK);
 
         section('Formação acadêmica');
-        DATA.education.forEach((item) => {
-            ensure(12);
-            sans('bold', 10.5);
-            pdf.setTextColor(...CORAL);
-            pdf.text(item.when, M + W, y, { align: 'right' });
-            const dateW = pdf.getTextWidth(item.when);
-            pdf.setTextColor(...INK);
-            const titleLines = pdf.splitTextToSize(item.title, W - dateW - 4);
-            pdf.text(titleLines, M, y);
-            y += titleLines.length * 4.4;
-            sans('normal', 9);
-            pdf.setTextColor(...MUTED);
-            pdf.text(item.org, M, y);
-            y += 5.4;
+        DATA.education.forEach((item, i) => {
+            const tLines = linesOf(item.title, W - DATE_COL - 4, 10.5, 'bold');
+            const oLines = linesOf(item.org, W, 9, 'normal');
+            ensure(tLines.length * step(10.5) + oLines.length * step(9) + 4);
+            if (i > 0) y += 1.8;
+            roleLine(item.title, item.when);
+            writeLines(oLines, M, 9, 'normal', MUTED);
         });
 
         section('Competências');
-        const gap = 4;
+        const gap = 6;
         const colW = (W - gap * 2) / 3;
-        sans('bold', 9);
-        const bodies = DATA.skills.map((col) => {
-            sans('normal', 9);
-            return pdf.splitTextToSize(col.body, colW);
-        });
-        const rows = Math.max(...bodies.map((b) => b.length));
-        ensure(6 + rows * 3.9);
-        DATA.skills.forEach((col, i) => {
+        const skillCols = DATA.skills.map((col) => ({
+            label: col.label,
+            lines: linesOf(col.body, colW, 9, 'normal')
+        }));
+        const skillRows = Math.max(...skillCols.map((c) => c.lines.length));
+        ensure(6 + skillRows * step(9) + 2);
+        skillCols.forEach((col, i) => {
             const x = M + i * (colW + gap);
-            sans('bold', 9);
+            sans('bold', 8.5);
             pdf.setTextColor(...CORAL);
             pdf.text(col.label.toUpperCase(), x, y);
         });
-        y += 4.4;
-        DATA.skills.forEach((col, i) => {
-            const x = M + i * (colW + gap);
-            sans('normal', 9);
-            pdf.setTextColor(...INK);
-            pdf.text(bodies[i], x, y);
+        y += 5;
+        const bodyTop = y;
+        skillCols.forEach((col, i) => {
+            y = bodyTop;
+            writeLines(col.lines, M + i * (colW + gap), 9, 'normal', INK);
         });
-        y += rows * 3.9 + 1.5;
+        y = bodyTop + skillRows * step(9) + 1;
 
         section('Experiência profissional');
-        DATA.experience.forEach((job) => {
-            const bulletLines = job.bullets.map((b) => {
-                sans('normal', 9.5);
-                return pdf.splitTextToSize(b, W - 5);
-            });
-            const blockH = 10 + bulletLines.reduce((n, l) => n + l.length * 4.1, 0);
+        DATA.experience.forEach((job, i) => {
+            const tLines = linesOf(job.title, W - DATE_COL - 4, 10.5, 'bold');
+            const oLines = linesOf(job.org, W, 9, 'normal');
+            const bLines = job.bullets.map((b) => linesOf(b, W - 6, 9.5, 'normal'));
+            const blockH =
+                tLines.length * step(10.5) +
+                oLines.length * step(9) +
+                bLines.reduce((n, l) => n + l.length * step(9.5), 0) +
+                6;
             ensure(blockH, 'Experiência profissional');
-            sans('bold', 10.5);
-            pdf.setTextColor(...CORAL);
-            pdf.text(job.when, M + W, y, { align: 'right' });
-            const dateW = pdf.getTextWidth(job.when);
-            pdf.setTextColor(...INK);
-            const tLines = pdf.splitTextToSize(job.title, W - dateW - 4);
-            pdf.text(tLines, M, y);
-            y += tLines.length * 4.3;
-            sans('normal', 9);
-            pdf.setTextColor(...MUTED);
-            const orgLines = pdf.splitTextToSize(job.org, W);
-            pdf.text(orgLines, M, y);
-            y += orgLines.length * 4 + 0.6;
-            sans('normal', 9.5);
-            pdf.setTextColor(...INK);
-            job.bullets.forEach((bullet, idx) => {
-                const lines = bulletLines[idx];
-                pdf.text('•', M, y);
-                pdf.text(lines, M + 4, y);
-                y += lines.length * 4.1;
+            if (!afterSection) {
+                y += 1.1;
+                pdf.setDrawColor(...RULE);
+                pdf.setLineWidth(0.18);
+                pdf.line(M, y, M + W, y);
+                y += 2.6;
+            }
+            afterSection = false;
+            roleLine(job.title, job.when);
+            writeLines(oLines, M, 9, 'normal', MUTED);
+            y += 0.6;
+            bLines.forEach((lines) => {
+                const top = y;
+                sans('normal', 9.5);
+                pdf.setTextColor(...INK);
+                pdf.text('•', M, top);
+                writeLines(lines, M + 4.2, 9.5, 'normal', INK);
             });
-            y += 1.6;
         });
 
         section('Projetos selecionados');
         DATA.projects.forEach(([name, rest]) => {
-            sans('bold', 9.5);
-            const full = name + ' ' + rest;
-            const lines = pdf.splitTextToSize(full, W - 5);
-            ensure(lines.length * 4.2 + 1);
-            pdf.setTextColor(...INK);
-            pdf.text('•', M, y);
-            pdf.text(name, M + 4, y);
-            const nameW = pdf.getTextWidth(name + ' ');
+            const full = name + '  ' + rest;
+            const pLines = linesOf(full, W - 6, 9.5, 'normal');
+            ensure(pLines.length * step(9.5) + 2.4);
+            const top = y;
             sans('normal', 9.5);
-            const first = lines[0].slice((name + ' ').length);
-            pdf.text(first, M + 4 + nameW, y);
-            if (lines.length > 1) {
-                pdf.text(lines.slice(1), M + 4, y + 4.2);
-            }
-            y += lines.length * 4.2 + 0.8;
+            pdf.setTextColor(...INK);
+            pdf.text('•', M, top);
+            sans('bold', 9.5);
+            pdf.text(name, M + 4.2, top);
+            const nameW = pdf.getTextWidth(name + '  ');
+            sans('normal', 9.5);
+            const remainder = pLines[0].slice((name + '  ').length);
+            pdf.text(remainder, M + 4.2 + nameW, top);
+            y = top + step(9.5);
+            if (pLines.length > 1) writeLines(pLines.slice(1), M + 4.2, 9.5, 'normal', INK);
+            y += 1.1;
         });
 
         section('Idiomas e informações adicionais');
-        const extraW = (W - 4) / 2;
-        DATA.extras.forEach((line, i) => {
-            const col = i % 2;
-            const x = M + col * (extraW + 4);
-            if (col === 0) ensure(10);
-            sans('normal', 9.5);
-            pdf.setTextColor(...INK);
-            const lines = pdf.splitTextToSize(line, extraW);
-            pdf.text(lines, x, y);
-            if (col === 1) y += Math.max(8, lines.length * 4.2 + 1.2);
-        });
-        if (DATA.extras.length % 2) y += 8;
+        const extraW = (W - 8) / 2;
+        for (let i = 0; i < DATA.extras.length; i += 2) {
+            const left = linesOf(DATA.extras[i], extraW, 9.5, 'normal');
+            const right = DATA.extras[i + 1] ? linesOf(DATA.extras[i + 1], extraW, 9.5, 'normal') : [];
+            const rows = Math.max(left.length, right.length);
+            ensure(rows * step(9.5) + 3);
+            const top = y;
+            writeLines(left, M, 9.5, 'normal', INK);
+            y = top;
+            if (right.length) writeLines(right, M + extraW + 8, 9.5, 'normal', INK);
+            y = top + rows * step(9.5) + 2.2;
+        }
     }
 
     window.generateCurriculumPdf = async function generateCurriculumPdf() {
