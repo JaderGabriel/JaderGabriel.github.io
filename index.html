@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jader Gabriel — Analista de Sistemas e Projetos · PHP, Laravel, Moodle, BI</title>
+    <title>Jader Gabriel da Silva Alves — Analista de Sistemas e Projetos</title>
     <meta name="description" content="Analista de sistemas e projetos. PHP, Laravel, Moodle (LMS/AVA), educação corporativa, i-Educar, Power BI, SQL e integrações. Currículo e portfólio.">
-    <meta name="keywords" content="Analista de Sistemas, Desenvolvedor Full Stack, PHP, Laravel, Moodle, LMS, AVA, Educação Corporativa, i-Educar, Power BI, Business Intelligence, SQL, WordPress, Gestão de Projetos, AWS, Linux">
+    <meta name="keywords" content="Analista de Sistemas, Desenvolvedor Full Stack, PHP, Laravel, Moodle, LMS, AVA, Educação Corporativa, i-Educar, Power BI, Business Intelligence, SQL, WordPress, Ruby on Rails, Gestão de Projetos, AWS, Linux">
     <link rel="icon" href="./assets/logo-buriti.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,6 @@
             --brand: #c74634;
             --brand-d: #9a3224;
             --navy: #0c1c2e;
-            --ok: #176b45;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
@@ -69,19 +68,14 @@
         .contacts { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin-top: .55rem; font-size: .9rem; color: var(--muted); }
         .contacts a { text-decoration: none; }
         .lead { margin-top: .9rem; max-width: 78ch; font-size: 1.05rem; }
-        .keywords {
-            display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem;
-        }
+        .keywords { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
         .kw {
             font-size: .78rem; font-weight: 700; letter-spacing: .02em;
             border: 1px solid var(--line); background: var(--white);
             padding: .22rem .55rem;
         }
 
-        .layout {
-            display: grid; gap: 1.5rem;
-            padding-bottom: 2.4rem;
-        }
+        .layout { display: grid; gap: 1.5rem; padding-bottom: 2.4rem; }
         @media (min-width: 960px) {
             .hero-grid { grid-template-columns: 88px minmax(0, 1.5fr) minmax(240px, .7fr); align-items: center; }
             .layout { grid-template-columns: 280px minmax(0, 1fr); align-items: start; }
@@ -113,7 +107,7 @@
         .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .2rem 1rem; margin-bottom: .2rem; }
         .when { color: var(--brand); font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
         .org { color: var(--muted); font-size: .9rem; margin-bottom: .35rem; }
-        .job ul { margin-left: 1.1rem; color: var(--ink); }
+        .job ul { margin-left: 1.1rem; }
         .job li + li { margin-top: .28rem; }
 
         .projects { display: grid; gap: .85rem; }
@@ -136,48 +130,65 @@
         .status { margin-top: .5rem; font-size: .82rem; color: var(--muted); min-height: 1.15em; }
         footer { border-top: 1px solid var(--line); padding: 1rem 0 1.6rem; color: var(--muted); font-size: .8rem; }
 
+        /* Currículo A4 — duas páginas fixas, capturadas inteiras */
         #cv-host {
-            display: none;
             position: fixed;
-            inset: 0;
+            left: 0;
+            top: 0;
             z-index: 80;
             background: #fff;
-            overflow: auto;
+            display: none;
         }
         #cv-host.is-exporting { display: block; }
-        #cv {
+        #cv { background: #fff; }
+        .cv-page {
             width: 794px;
-            margin: 0 auto;
+            height: 1123px;
+            padding: 36px 42px 32px;
             background: #fff;
-            color: #111;
+            color: #1a1a1a;
+            font-family: "Source Sans 3", Arial, Helvetica, sans-serif;
+            font-size: 12.2px;
+            line-height: 1.38;
+            overflow: hidden;
+            page-break-after: always;
+            break-after: page;
+        }
+        .cv-page:last-child { page-break-after: auto; break-after: auto; }
+        .cv-page * { box-sizing: border-box; }
+        .cv-head { display: flex; gap: 16px; align-items: flex-start; padding-bottom: 12px; border-bottom: 2.5px solid #0c1c2e; }
+        .cv-head img { width: 86px; height: 86px; object-fit: cover; object-position: top; border: 1px solid #c9d3de; flex-shrink: 0; }
+        .cv-page h1 { font-family: "Source Serif 4", Georgia, serif; font-size: 24px; letter-spacing: -.01em; line-height: 1.1; margin: 0; color: #0c1c2e; }
+        .cv-title { font-size: 12.5px; font-weight: 700; color: #c74634; margin-top: 4px; }
+        .cv-contacts { margin-top: 7px; font-size: 11px; color: #334155; line-height: 1.5; }
+        .cv-contacts span { margin-right: 8px; white-space: nowrap; }
+        .cv-kw { margin-top: 6px; font-size: 10.5px; color: #1f3b57; }
+        .cv-page h2 {
             font-family: "Source Sans 3", Arial, sans-serif;
-            padding: 36px 42px 40px;
-            font-size: 13.5px;
-            line-height: 1.4;
+            font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase;
+            color: #0c1c2e; border-bottom: 1.25px solid #0c1c2e;
+            margin: 13px 0 7px; padding-bottom: 2px; font-weight: 700;
         }
-        #cv * { box-sizing: border-box; }
-        #cv h1 { font-size: 26px; letter-spacing: 0; margin: 0; }
-        #cv .title { font-size: 14px; font-weight: 700; color: #1f3b57; margin-top: 4px; }
-        #cv h2 {
-            font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
-            color: #1f3b57; border-bottom: 1.5px solid #1f3b57;
-            margin: 16px 0 8px; padding-bottom: 3px;
-        }
-        #cv h3 { font-size: 13.5px; margin: 0; }
-        #cv .cv-head { display: flex; gap: 14px; align-items: flex-start; }
-        #cv .cv-head img { width: 88px; height: 88px; object-fit: cover; object-position: top; border: 1px solid #c9d3de; }
-        #cv .cv-contacts { margin-top: 6px; font-size: 12px; color: #334; }
-        #cv .cv-contacts span { margin-right: 10px; }
-        #cv .kwline { font-size: 11.5px; color: #1f3b57; margin-top: 8px; }
-        #cv ul { margin: 4px 0 0 18px; }
-        #cv li + li { margin-top: 3px; }
-        #cv .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
-        #cv .muted { color: #445; font-weight: 400; }
-        #cv .roleline { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; }
+        .cv-page h3 { font-size: 12.2px; margin: 0; color: #0c1c2e; font-weight: 700; }
+        .cv-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 14px; }
+        .cv-grid.two { grid-template-columns: 1fr 1fr; }
+        .cv-grid p { margin: 0; }
+        .cv-job { margin-top: 8px; }
+        .cv-job:first-of-type { margin-top: 0; }
+        .cv-page:last-child .cv-job { margin-top: 10px; }
+        .cv-role { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+        .cv-when { color: #c74634; font-size: 10.5px; font-weight: 700; white-space: nowrap; }
+        .cv-org { color: #445566; font-size: 11.2px; margin: 1px 0 3px; }
+        .cv-page ul { margin: 0 0 0 16px; }
+        .cv-page li + li { margin-top: 2px; }
+        .cv-compact { margin-top: 5px; font-size: 11.5px; }
+        .cv-compact strong { color: #0c1c2e; }
+        .cv-edu { margin-bottom: 4px; }
+        .cv-edu .cv-role { margin: 0; }
         @media print {
             nav, .hero, .layout, footer { display: none !important; }
-            #cv-host { display: block !important; position: static; overflow: visible; }
-            #cv { width: auto; }
+            #cv-host { display: block !important; position: static; }
+            .cv-page { box-shadow: none; }
             body { background: #fff; }
         }
     </style>
@@ -197,16 +208,16 @@
 
     <header class="shell hero" id="topo">
         <div class="hero-grid">
-            <img src="./assets/jader-gabriel.jpg" alt="Foto de Jader Gabriel" width="88" height="88">
+            <img src="./assets/jader-gabriel.jpg" alt="Foto de Jader Gabriel da Silva Alves" width="88" height="88">
             <div>
-                <h1>Jader Gabriel</h1>
+                <h1>Jader Gabriel da Silva Alves</h1>
                 <p class="role">Analista de Sistemas e Projetos · Desenvolvedor Full Stack · Fundador da BURI-TI</p>
                 <p class="contacts">
                     <a href="mailto:jadergabriel8@gmail.com">jadergabriel8@gmail.com</a>
-                    <a href="https://wa.me/jadergabriel" target="_blank" rel="noopener">WhatsApp</a>
+                    <a href="https://wa.me/5538991758416" target="_blank" rel="noopener">+55 38 99175-8416</a>
                     <a href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener">LinkedIn</a>
                     <a href="https://github.com/JaderGabriel" target="_blank" rel="noopener">GitHub</a>
-                    <span>Pirapora / MG · Brasil</span>
+                    <span>Pirapora / Buritizeiro · MG</span>
                 </p>
                 <p class="lead">
                     Atuação em <strong>TI aplicada à educação</strong>: desenvolvimento PHP/Laravel, implantação e operação de
@@ -216,7 +227,7 @@
                 <div class="keywords" aria-label="Palavras-chave">
                     <span class="kw">PHP</span><span class="kw">Laravel</span><span class="kw">Moodle / LMS / AVA</span>
                     <span class="kw">Educação corporativa</span><span class="kw">i-Educar</span>
-                    <span class="kw">Power BI</span><span class="kw">SQL</span><span class="kw">Integrações</span>
+                    <span class="kw">Power BI</span><span class="kw">SQL</span><span class="kw">Ruby on Rails</span>
                     <span class="kw">Gestão de projetos</span>
                 </div>
             </div>
@@ -255,6 +266,11 @@
                     <li>Integrações (biometria, catracas, APIs)</li>
                     <li>Pacotes open source e entregas NDA</li>
                 </ul>
+                <h3>Formação</h3>
+                <ul>
+                    <li>Especialização em Tecnologias Aplicadas à Educação — IFNMG (2020–2022)</li>
+                    <li>Bacharelado em Sistemas de Informação — UNIMONTES (2011–2015)</li>
+                </ul>
             </div>
         </aside>
 
@@ -266,9 +282,9 @@
                 <article class="job">
                     <div class="job-head">
                         <h3>CEO e analista de sistemas e projetos</h3>
-                        <p class="when">Atual</p>
+                        <p class="when">Dez/2020 – atual</p>
                     </div>
-                    <p class="org">BURI-TI Tecnologia — consultoria, software e indicadores</p>
+                    <p class="org">BURI-TI Tecnologia — Buritizeiro / MG</p>
                     <ul>
                         <li>Conduz governança de TI, desenvolvimento sob medida e BI para educação e gestão pública/privada.</li>
                         <li>Entrega sistemas Laravel, painéis Power BI e integrações com i-Educar, do levantamento de requisitos à operação.</li>
@@ -278,50 +294,59 @@
 
                 <article class="job">
                     <div class="job-head">
-                        <h3>Gestão de AVA Moodle e plataformas web</h3>
-                        <p class="when">Educação corporativa</p>
+                        <h3>Product owner e consultor de TI</h3>
+                        <p class="when">Fev/2026 – atual</p>
                     </div>
-                    <p class="org">Operação de aprendizagem corporativa · Moodle, WordPress e dados</p>
+                    <p class="org">Serventec Assessoria — gestão de dados e indicadores educacionais</p>
                     <ul>
-                        <li>Operou AVA Moodle em jornadas com dezenas de milhares de colaboradores, com reporting para a gestão.</li>
-                        <li>Implantou e evoluiu cursos, papéis, conteúdos e integrações com WordPress e e-commerce educacional.</li>
-                        <li>Capacitou gestores e equipes no uso contínuo da plataforma.</li>
+                        <li>Gestão, desenvolvimento, implantação e suporte a equipes no uso de software livre para indicadores educacionais.</li>
                     </ul>
                 </article>
 
                 <article class="job">
                     <div class="job-head">
-                        <h3>Consultor Moodle</h3>
-                        <p class="when">Consultoria</p>
+                        <h3>Consultor sênior — Moodle</h3>
+                        <p class="when">Dez/2024 – atual</p>
                     </div>
-                    <p class="org">PISAC e clientes · educação corporativa e segurança do trabalho</p>
+                    <p class="org">CERTRO — Centro de Estudo em Reabilitação Traumortopédica</p>
                     <ul>
-                        <li>Configurou e sustentou Moodle para capacitação corporativa e treinamentos de segurança do trabalho.</li>
-                        <li>Prestou suporte técnico e treinamento de uso a gestores e instrutores.</li>
+                        <li>Consultoria, suporte e apoio ao uso do Moodle como ferramenta de ensino-aprendizagem.</li>
                     </ul>
                 </article>
 
                 <article class="job">
                     <div class="job-head">
-                        <h3>Desenvolvedor full-stack · Laravel, Rails, i-Educar e BI</h3>
-                        <p class="when">Engenharia</p>
+                        <h3>Gerente de TI e analista de educação corporativa</h3>
+                        <p class="when">Jan/2021 – Set/2025</p>
                     </div>
-                    <p class="org">Sistemas educacionais, ERPs e entregas sob contrato</p>
+                    <p class="org">TecnoCursos — plataforma de aprendizagem corporativa</p>
                     <ul>
-                        <li>Desenvolveu pacotes e customizações PHP/Laravel para i-Educar (matrícula, frequência, relatórios, QR Code).</li>
-                        <li>Modelou indicadores e painéis Power BI a partir de bases educacionais (MySQL/PostgreSQL).</li>
-                        <li>Integrou i-Educar a biometria, catracas e pipeline Educacenso/INEP; entregas também sob NDA (ex.: Odin).</li>
+                        <li>Operou AVA Moodle e ERP de dados de aprendizagem/segurança, com jornadas de mais de 100 mil colaboradores.</li>
+                        <li>Integração e compliance com ERPs de multinacionais (Nestlé, Coca-Cola FEMSA, Grupo ADEO, Heineken).</li>
+                        <li>Gestão de projetos, code review, testes e reporting gerencial contínuo.</li>
                     </ul>
                 </article>
 
                 <article class="job">
                     <div class="job-head">
                         <h3>Assistente educacional</h3>
-                        <p class="when">Educação pública</p>
+                        <p class="when">Abr/2016 – Ago/2024</p>
                     </div>
-                    <p class="org">Prefeitura de Pirapora / MG</p>
+                    <p class="org">Prefeitura Municipal de Pirapora / MG</p>
                     <ul>
                         <li>Apoiou a implantação de sistemas educacionais e ambientes virtuais de aprendizagem na rede municipal.</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <div class="job-head">
+                        <h3>Consultor Moodle e plataformas web</h3>
+                        <p class="when">2020 – 2023</p>
+                    </div>
+                    <p class="org">PISAC, Colégio IESC, LH Idiomas e INEPpsin</p>
+                    <ul>
+                        <li>Implantação e gestão de AVA Moodle, WordPress, e-commerce educacional e recursos AWS.</li>
+                        <li>Capacitação de gestores e instrutores; integrações entre conteúdo, matrícula e dados.</li>
                     </ul>
                 </article>
             </section>
@@ -339,7 +364,7 @@
                     <article class="project">
                         <p class="tag">BI · Laravel</p>
                         <h3>Servlitcys</h3>
-                        <p>Plataforma de análise educacional por município, ligada a bases i-Educar (MySQL ou PostgreSQL).</p>
+                        <p>Plataforma de análise educacional por município, ligada a bases i-Educar e CadÚnico (MySQL ou PostgreSQL).</p>
                         <div class="project-links">
                             <a href="https://github.com/JaderGabriel/serventec-servlitcys" target="_blank" rel="noopener">GitHub</a>
                             <a href="https://analise.serventecassessoria.com.br" target="_blank" rel="noopener">Produção</a>
@@ -362,7 +387,7 @@
             <section class="panel block" id="contato">
                 <p class="kicker">Currículo</p>
                 <h2>Exportar em PDF (padrão profissional)</h2>
-                <p>Arquivo A4 com foto, contatos, palavras-chave, competências em TI/educação/projetos e experiências realizadas.</p>
+                <p>Arquivo A4 (2 páginas) com foto, contatos, formação, competências, experiência com datas e projetos.</p>
                 <div class="btn-row">
                     <button class="btn" type="button" id="btn-pdf">Gerar currículo em PDF</button>
                     <a class="btn btn-navy" href="https://buriti.dev.br/#contato">Proposta comercial</a>
@@ -373,97 +398,204 @@
     </div>
 
     <footer>
-        <div class="shell">Jader Gabriel · BURI-TI — Tecnologia para Pessoas · jadergabriel.github.io</div>
+        <div class="shell">Jader Gabriel da Silva Alves · BURI-TI — Tecnologia para Pessoas · jadergabriel.github.io</div>
     </footer>
 
     <div id="cv-host" hidden>
-    <div id="cv">
-        <div class="cv-head">
-            <img src="./assets/jader-gabriel.jpg" alt="Jader Gabriel" width="88" height="88" crossorigin="anonymous">
-            <div>
-                <h1>Jader Gabriel</h1>
-                <p class="title">Analista de Sistemas e Projetos · Desenvolvedor Full Stack</p>
-                <p class="cv-contacts">
-                    <span>jadergabriel8@gmail.com</span>
-                    <span>WhatsApp: wa.me/jadergabriel</span>
-                    <span>Pirapora/MG</span><br>
-                    <span>linkedin.com/in/jadergabriel</span>
-                    <span>github.com/JaderGabriel</span>
-                    <span>buriti.dev.br</span>
-                </p>
-                <p class="kwline"><strong>Palavras-chave:</strong> PHP · Laravel · Moodle · LMS/AVA · Educação corporativa · i-Educar · Power BI · SQL · Integrações · Gestão de projetos · AWS · Linux</p>
-            </div>
+        <div id="cv">
+            <section class="cv-page">
+                <header class="cv-head">
+                    <img src="./assets/jader-gabriel.jpg" alt="Jader Gabriel da Silva Alves" width="86" height="86" crossorigin="anonymous">
+                    <div>
+                        <h1>Jader Gabriel da Silva Alves</h1>
+                        <p class="cv-title">Analista de Sistemas e Projetos · Desenvolvedor Full Stack · CEO, BURI-TI</p>
+                        <p class="cv-contacts">
+                            <span>jadergabriel8@gmail.com</span>
+                            <span>+55 38 99175-8416</span>
+                            <span>Pirapora / Buritizeiro, MG</span><br>
+                            <span>linkedin.com/in/jadergabriel</span>
+                            <span>github.com/JaderGabriel</span>
+                            <span>buriti.dev.br</span>
+                        </p>
+                        <p class="cv-kw"><strong>Palavras-chave:</strong> PHP · Laravel · Moodle · LMS/AVA · Educação corporativa · i-Educar · Power BI · SQL · Ruby on Rails · WordPress · AWS · Gestão de projetos</p>
+                    </div>
+                </header>
+
+                <h2>Resumo profissional</h2>
+                <p>Profissional de TI com mais de 10 anos em software, dados e operação. Atua na interseção de engenharia e educação: desenvolvimento PHP/Laravel e Ruby on Rails, implantação e gestão de Moodle (LMS/AVA), educação corporativa em escala (incluindo jornadas com mais de 100 mil colaboradores), ecossistema i-Educar e Business Intelligence. Perfil híbrido — requisitos, código, indicadores e capacitação de equipes.</p>
+
+                <h2>Formação acadêmica</h2>
+                <div class="cv-edu">
+                    <div class="cv-role"><h3>Especialização lato sensu em Tecnologias Aplicadas à Educação</h3><span class="cv-when">2020 – 2022</span></div>
+                    <p class="cv-org">Instituto Federal do Norte de Minas Gerais (IFNMG) — Campus Montes Claros</p>
+                </div>
+                <div class="cv-edu">
+                    <div class="cv-role"><h3>Bacharelado em Sistemas de Informação</h3><span class="cv-when">2011 – 2015</span></div>
+                    <p class="cv-org">Universidade Estadual de Montes Claros (UNIMONTES)</p>
+                </div>
+                <div class="cv-edu">
+                    <div class="cv-role"><h3>Técnico em Economia e Meio Ambiente</h3><span class="cv-when">2016 – 2017</span></div>
+                    <p class="cv-org">Instituto Federal do Norte de Minas Gerais (IFNMG) — Campus Montes Claros</p>
+                </div>
+
+                <h2>Competências</h2>
+                <div class="cv-grid">
+                    <div>
+                        <p><strong>Tecnologia</strong></p>
+                        <p>PHP, Laravel, APIs REST, Ruby on Rails, JavaScript, WordPress, SQL, MySQL, PostgreSQL, ETL, Linux, AWS, Docker, Git, Power BI, Datadog.</p>
+                    </div>
+                    <div>
+                        <p><strong>Educação</strong></p>
+                        <p>Moodle (implantação, operação, papéis e conteúdo); educação corporativa; i-Educar; Educacenso/INEP; capacitação de gestores e equipes.</p>
+                    </div>
+                    <div>
+                        <p><strong>Projetos</strong></p>
+                        <p>Análise de requisitos, gestão ágil, product ownership, integrações (biometria, catracas, ERPs), compliance de dados, code review e testes.</p>
+                    </div>
+                </div>
+
+                <h2>Experiência profissional</h2>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>CEO e analista de sistemas e projetos</h3><span class="cv-when">Dez/2020 – atual</span></div>
+                    <p class="cv-org">BURI-TI Tecnologia — Buritizeiro / MG</p>
+                    <ul>
+                        <li>Governança de TI, consultoria, desenvolvimento Laravel e BI para educação e gestão pública/privada.</li>
+                        <li>Sistemas, painéis Power BI e integrações i-Educar, do escopo à operação; pacotes open source e projetos NDA.</li>
+                    </ul>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Product owner e consultor de TI</h3><span class="cv-when">Fev/2026 – atual</span></div>
+                    <p class="cv-org">Serventec Assessoria</p>
+                    <ul>
+                        <li>Gestão, desenvolvimento, implantação e suporte a equipes no uso de software livre para dados e indicadores educacionais.</li>
+                    </ul>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Consultor sênior — Moodle</h3><span class="cv-when">Dez/2024 – atual</span></div>
+                    <p class="cv-org">CERTRO — Centro de Estudo em Reabilitação Traumortopédica · Campina Grande / PB</p>
+                    <ul>
+                        <li>Consultoria, suporte e apoio ao Moodle como ferramenta de ensino-aprendizagem.</li>
+                    </ul>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Gerente de TI e analista de educação corporativa</h3><span class="cv-when">Jan/2021 – Set/2025</span></div>
+                    <p class="cv-org">TecnoCursos</p>
+                    <ul>
+                        <li>Gestão de AVA Moodle e ERP de aprendizagem/segurança; jornada com mais de 100 mil colaboradores e reporting gerencial.</li>
+                        <li>Integração e compliance com ERPs de multinacionais (Nestlé, Coca-Cola FEMSA, Grupo ADEO, Heineken); code review e testes.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="cv-page">
+                <h2>Experiência profissional (continuação)</h2>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Assistente educacional</h3><span class="cv-when">Abr/2016 – Ago/2024</span></div>
+                    <p class="cv-org">Prefeitura Municipal de Pirapora / MG</p>
+                    <ul>
+                        <li>Apoio à implantação de sistemas educacionais e ambientes virtuais de aprendizagem na rede municipal.</li>
+                    </ul>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Gerente de consultoria de TI</h3><span class="cv-when">Jun/2022 – Set/2023</span></div>
+                    <p class="cv-org">Colégio IESC — Instituto Educacional Santa Cruz · Montes Claros / MG</p>
+                    <ul>
+                        <li>Gestão de AVA Moodle, site de vendas e conteúdos em WordPress.</li>
+                    </ul>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Gerente de sistemas da informação</h3><span class="cv-when">Out/2020 – Mar/2023</span></div>
+                    <p class="cv-org">LH Idioma Espanhol</p>
+                    <ul>
+                        <li>Integração WordPress–Moodle e de e-commerce com bases de gestão de escola de idiomas.</li>
+                    </ul>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Consultor Moodle</h3><span class="cv-when">Mai/2021 – Mai/2022</span></div>
+                    <p class="cv-org">PISAC — Parque de Inovação e Sustentabilidade do Ambiente Construído (UnB)</p>
+                    <ul>
+                        <li>Implantação e customização de Moodle; treinamento de gestores e instrutores (educação corporativa e segurança do trabalho).</li>
+                    </ul>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Consultor de TI</h3><span class="cv-when">Dez/2022 – Dez/2023</span></div>
+                    <p class="cv-org">INEPpsin</p>
+                    <ul>
+                        <li>Gestão de AVA Moodle e boas práticas de recursos AWS.</li>
+                    </ul>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Desenvolvedor web — Ruby on Rails</h3><span class="cv-when">Nov/2025 – Mar/2026</span></div>
+                    <p class="cv-org">Nobe Sistemas · MG</p>
+                    <ul>
+                        <li>Desenvolvimento Rails com metodologias ágeis no dia a dia.</li>
+                    </ul>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Consultor de tecnologia da educação</h3><span class="cv-when">Set/2025 – Dez/2025</span></div>
+                    <p class="cv-org">Nobug Tecnologia</p>
+                    <ul>
+                        <li>Manutenção, uso e criação de conteúdo para LMS Moodle.</li>
+                    </ul>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Professor de informática</h3><span class="cv-when">Fev/2025 – Jul/2025</span></div>
+                    <p class="cv-org">Instituto Educacional AlfaUnipac · Buritizeiro / MG</p>
+                    <ul>
+                        <li>Introdução à Informática em cursos técnicos do programa Trilhas de Futuro (SEE-MG).</li>
+                    </ul>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Gerente de projetos</h3><span class="cv-when">Mai/2024 – Set/2024</span></div>
+                    <p class="cv-org">UNIMONTES — Universidade Estadual de Montes Claros</p>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Especialista em integração</h3><span class="cv-when">Mar/2022 – Ago/2022</span></div>
+                    <p class="cv-org">Cento e Vinte — Conversão Digital · Buritizeiro / MG</p>
+                </article>
+                <article class="cv-job">
+                    <div class="cv-role"><h3>Professor</h3><span class="cv-when">Out/2015 – Dez/2017</span></div>
+                    <p class="cv-org">Secretaria de Estado de Educação de Minas Gerais (SEE-MG) · Pirapora / MG</p>
+                </article>
+
+                <h2>Projetos selecionados</h2>
+                <ul>
+                    <li><strong>Servlitcys</strong> (2026 – atual) — sistema gerencial de dados educacionais e CadÚnico para redes municipais (Laravel + i-Educar).</li>
+                    <li><strong>GIDE</strong> (2026 – atual) — conexão de dados biométricos do i-Educar para presença e comunicação com responsáveis.</li>
+                    <li><strong>i-Educar Relatórios Avançados</strong> — PDF/Excel/QR Code (open source).</li>
+                    <li><strong>Power BI, Pulse e Educacenso</strong> — indicadores, monitoramento e carga INEP no i-Educar.</li>
+                    <li><strong>Odin</strong> (2023 – atual) — gestão Moodle para educação corporativa e segurança do trabalho (código confidencial).</li>
+                </ul>
+
+                <h2>Idiomas e informações adicionais</h2>
+                <div class="cv-grid two">
+                    <div>
+                        <p><strong>Idioma:</strong> Português — nativo.</p>
+                        <p><strong>Disponibilidade:</strong> consultoria e desenvolvimento (remoto e presencial no Norte de Minas).</p>
+                    </div>
+                    <div>
+                        <p><strong>Certificação:</strong> TEEHIP — Tecnologia Educacional, Ensino Híbrido e Inovação Pedagógica (2024).</p>
+                        <p><strong>Portfólio:</strong> jadergabriel.github.io · buriti.dev.br</p>
+                    </div>
+                </div>
+            </section>
         </div>
-
-        <h2>Resumo profissional</h2>
-        <p>Profissional de TI com mais de 10 anos em software, dados e operação. Atua na interseção de engenharia e educação: desenvolvimento PHP/Laravel, implantação e gestão de Moodle (LMS/AVA), educação corporativa em escala, ecossistema i-Educar e Business Intelligence. Perfil híbrido — requisitos, código, indicadores e capacitação.</p>
-
-        <h2>Competências</h2>
-        <div class="two">
-            <div>
-                <p><strong>Tecnologia da informação</strong></p>
-                <p>PHP, Laravel, APIs REST, SQL, MySQL, PostgreSQL, ETL, JavaScript, WordPress, Ruby on Rails, Linux, AWS, Docker, Git, Power BI, Datadog.</p>
-            </div>
-            <div>
-                <p><strong>Educação e projetos</strong></p>
-                <p>Moodle (implantação, operação, papéis e conteúdo); educação corporativa; i-Educar; Educacenso/INEP; análise de requisitos; gestão de entregas; integrações (biometria, catracas); capacitação de equipes.</p>
-            </div>
-        </div>
-
-        <h2>Experiência profissional</h2>
-        <article>
-            <div class="roleline"><h3>CEO e analista de sistemas e projetos — BURI-TI Tecnologia</h3><span class="muted">Atual</span></div>
-            <ul>
-                <li>Lidera consultoria de TI, desenvolvimento Laravel e BI para educação e gestão.</li>
-                <li>Entrega sistemas, painéis e integrações i-Educar, do escopo à operação.</li>
-                <li>Mantém pacotes educacionais open source e projetos sob contrato (NDA).</li>
-            </ul>
-        </article>
-        <article>
-            <div class="roleline"><h3>Gestão de AVA Moodle e plataformas web — educação corporativa</h3><span class="muted">Experiência consolidada</span></div>
-            <ul>
-                <li>Operou Moodle em jornadas com dezenas de milhares de colaboradores e reporting gerencial.</li>
-                <li>Implantou cursos, papéis e integrações Moodle–WordPress–e-commerce educacional.</li>
-                <li>Capacitou gestores e colaboradores na operação do AVA.</li>
-            </ul>
-        </article>
-        <article>
-            <div class="roleline"><h3>Consultor Moodle — PISAC e clientes</h3><span class="muted">Consultoria</span></div>
-            <ul>
-                <li>Moodle para educação corporativa e segurança do trabalho; suporte e treinamento de uso.</li>
-            </ul>
-        </article>
-        <article>
-            <div class="roleline"><h3>Desenvolvedor full-stack — Laravel, Rails, i-Educar e BI</h3><span class="muted">Engenharia</span></div>
-            <ul>
-                <li>Pacotes PHP/Laravel para i-Educar: relatórios, Pulse, frequência/biometria, Educacenso.</li>
-                <li>Modelagem Power BI e painéis municipais a partir de bases educacionais.</li>
-                <li>Plataforma Moodle sob NDA (Odin) e customizações em repositório privado.</li>
-            </ul>
-        </article>
-        <article>
-            <div class="roleline"><h3>Assistente educacional — Prefeitura de Pirapora/MG</h3><span class="muted">Educação pública</span></div>
-            <ul>
-                <li>Apoio à implantação de sistemas educacionais e ambientes virtuais de aprendizagem.</li>
-            </ul>
-        </article>
-
-        <h2>Projetos selecionados</h2>
-        <ul>
-            <li><strong>i-Educar Relatórios Avançados</strong> — PDF/Excel/QR Code (open source).</li>
-            <li><strong>Servlitcys</strong> — painéis educacionais por município (Laravel + i-Educar).</li>
-            <li><strong>Power BI, Pulse, GIDE, Educacenso</strong> — indicadores, monitoramento, frequência e carga INEP.</li>
-            <li><strong>Odin</strong> — gestão Moodle (código confidencial).</li>
-        </ul>
-    </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
         const button = document.getElementById('btn-pdf');
         const status = document.getElementById('pdf-status');
         const host = document.getElementById('cv-host');
         const cv = document.getElementById('cv');
+
+        if (new URLSearchParams(location.search).has('cv')) {
+            host.hidden = false;
+            host.classList.add('is-exporting');
+            host.style.position = 'static';
+            document.body.style.background = '#fff';
+        }
 
         async function inlineImages(root) {
             for (const img of root.querySelectorAll('img')) {
@@ -480,20 +612,28 @@
             }
         }
 
+        function waitFrames() {
+            return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+        }
+
         button.addEventListener('click', async () => {
             status.textContent = 'Gerando PDF…';
             button.disabled = true;
             host.hidden = false;
             host.classList.add('is-exporting');
             try {
-                if (!window.html2pdf) throw new Error('Biblioteca PDF indisponível.');
+                if (!window.html2canvas || !window.jspdf) throw new Error('Biblioteca PDF indisponível.');
+                if (document.fonts && document.fonts.ready) await document.fonts.ready;
                 await inlineImages(cv);
-                await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-                await html2pdf().set({
-                    margin: 8,
-                    filename: 'Jader-Gabriel-Curriculo.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: {
+                await waitFrames();
+
+                const pages = [...cv.querySelectorAll('.cv-page')];
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait', compress: true });
+
+                for (let i = 0; i < pages.length; i++) {
+                    const page = pages[i];
+                    const canvas = await html2canvas(page, {
                         scale: 2,
                         useCORS: true,
                         allowTaint: true,
@@ -501,12 +641,18 @@
                         logging: false,
                         scrollX: 0,
                         scrollY: 0,
-                        windowWidth: cv.scrollWidth,
-                        windowHeight: cv.scrollHeight
-                    },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-                }).from(cv).save();
-                status.textContent = 'Currículo baixado em PDF.';
+                        width: page.offsetWidth,
+                        height: page.offsetHeight,
+                        windowWidth: page.offsetWidth,
+                        windowHeight: page.offsetHeight
+                    });
+                    const img = canvas.toDataURL('image/jpeg', 0.95);
+                    if (i > 0) pdf.addPage();
+                    pdf.addImage(img, 'JPEG', 0, 0, 210, 297, undefined, 'FAST');
+                }
+
+                pdf.save('Jader-Gabriel-Curriculo.pdf');
+                status.textContent = 'Currículo baixado em PDF (2 páginas A4).';
             } catch (err) {
                 status.textContent = 'Falha na geração automática. Use Salvar como PDF na impressão.';
                 window.print();
