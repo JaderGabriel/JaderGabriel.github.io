@@ -131,7 +131,7 @@
         .status { margin-top: .5rem; font-size: .82rem; color: var(--muted); min-height: 1.15em; }
         footer { border-top: 1px solid var(--line); padding: 1rem 0 1.6rem; color: var(--muted); font-size: .8rem; }
 
-        /* Currículo A4 — duas páginas fixas, capturadas inteiras */
+        /* Currículo — páginas fixas, capturadas inteiras */
         #cv-host {
             position: fixed;
             left: 0;
@@ -280,7 +280,7 @@
                 <a href="#experiencia">Experiência</a>
                 <a href="#projetos">Projetos</a>
                 <a href="#competencias">Competências</a>
-                <a href="#contato">Currículo PDF</a>
+                <a href="#contato">Currículo e contato</a>
             </div>
         </div>
     </nav>
@@ -466,9 +466,9 @@
             </section>
 
             <section class="panel block" id="contato">
-                <p class="kicker">Currículo</p>
-                <h2>Exportar em PDF (padrão profissional)</h2>
-                <p>Arquivo A4 (2 páginas) com foto, contatos, formação, competências, experiência com datas e projetos.</p>
+                <p class="kicker">Contato</p>
+                <h2>Currículo e contato</h2>
+                <p>Arquivo com informações relevantes.</p>
                 <div class="btn-row">
                     <button class="btn" type="button" id="btn-pdf">Gerar currículo em PDF</button>
                     <a class="btn btn-navy" href="https://buriti.dev.br/#contato">Proposta comercial</a>
@@ -749,7 +749,7 @@
                 }
 
                 pdf.save('Jader-Gabriel-Curriculo.pdf');
-                status.textContent = 'Currículo baixado em PDF (2 páginas A4).';
+                status.textContent = 'Currículo baixado.';
             } catch (err) {
                 status.textContent = 'Falha na geração automática. Use Salvar como PDF na impressão.';
                 window.print();
