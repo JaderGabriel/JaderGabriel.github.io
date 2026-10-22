@@ -55,10 +55,11 @@
             grid-template-columns: auto minmax(0, 1fr);
             align-items: start;
         }
-        .hero-grid img {
-            width: 88px; height: 88px; object-fit: cover; object-position: top;
+        .hero-photo {
+            width: 88px; height: 117px; overflow: hidden; flex-shrink: 0;
             border: 1px solid var(--line); background: var(--white);
         }
+        .hero-photo img { width: 88px; height: 117px; object-fit: cover; object-position: top center; }
         h1 {
             font-family: "Source Serif 4", Georgia, serif;
             font-size: clamp(1.7rem, 2.4vw, 2.35rem);
@@ -144,47 +145,125 @@
         .cv-page {
             width: 794px;
             height: 1123px;
-            padding: 36px 42px 32px;
+            padding: 32px 40px 28px;
             background: #fff;
-            color: #1a1a1a;
+            color: #1b2430;
             font-family: "Source Sans 3", Arial, Helvetica, sans-serif;
-            font-size: 12.2px;
-            line-height: 1.38;
+            font-size: 11.6px;
+            line-height: 1.42;
             overflow: hidden;
             page-break-after: always;
             break-after: page;
         }
         .cv-page:last-child { page-break-after: auto; break-after: auto; }
         .cv-page * { box-sizing: border-box; }
-        .cv-head { display: flex; gap: 16px; align-items: flex-start; padding-bottom: 12px; border-bottom: 2.5px solid #0c1c2e; }
-        .cv-head img { width: 86px; height: 86px; object-fit: cover; object-position: top; border: 1px solid #c9d3de; flex-shrink: 0; }
-        .cv-page h1 { font-family: "Source Serif 4", Georgia, serif; font-size: 24px; letter-spacing: -.01em; line-height: 1.1; margin: 0; color: #0c1c2e; }
-        .cv-title { font-size: 12.5px; font-weight: 700; color: #c74634; margin-top: 4px; }
-        .cv-contacts { margin-top: 7px; font-size: 11px; color: #334155; line-height: 1.5; }
-        .cv-contacts span { margin-right: 8px; white-space: nowrap; }
-        .cv-kw { margin-top: 6px; font-size: 10.5px; color: #1f3b57; }
-        .cv-page h2 {
-            font-family: "Source Sans 3", Arial, sans-serif;
-            font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase;
-            color: #0c1c2e; border-bottom: 1.25px solid #0c1c2e;
-            margin: 13px 0 7px; padding-bottom: 2px; font-weight: 700;
+        .cv-page img { max-width: none; }
+        .cv-head {
+            display: grid;
+            grid-template-columns: 90px minmax(0, 1fr);
+            gap: 16px;
+            align-items: start;
+            padding-bottom: 12px;
+            margin-bottom: 2px;
+            border-bottom: 3px solid #0c1c2e;
         }
-        .cv-page h3 { font-size: 12.2px; margin: 0; color: #0c1c2e; font-weight: 700; }
-        .cv-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 14px; }
+        .cv-photo {
+            width: 90px;
+            height: 120px;
+            overflow: hidden;
+            background: #e8eef4;
+            border: 1px solid #c5d0dc;
+        }
+        .cv-photo img {
+            display: block;
+            width: 90px;
+            height: 120px;
+        }
+        .cv-page h1 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 23px;
+            letter-spacing: -0.015em;
+            line-height: 1.12;
+            margin: 0;
+            color: #0c1c2e;
+            font-weight: 700;
+        }
+        .cv-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #c74634;
+            margin-top: 5px;
+            line-height: 1.3;
+        }
+        .cv-contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px 0;
+            margin-top: 8px;
+            font-size: 10.8px;
+            color: #3d4d5c;
+            line-height: 1.45;
+        }
+        .cv-contacts span { white-space: nowrap; }
+        .cv-kw {
+            margin-top: 8px;
+            font-size: 10.4px;
+            color: #1f3b57;
+            line-height: 1.4;
+        }
+        .cv-page h2 {
+            font-family: "Source Sans 3", Arial, Helvetica, sans-serif;
+            font-size: 10.4px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #fff;
+            background: #0c1c2e;
+            margin: 12px 0 8px;
+            padding: 5px 10px 4px;
+            font-weight: 700;
+            line-height: 1.25;
+            border: 0;
+        }
+        .cv-page h3 {
+            font-size: 12.2px;
+            margin: 0;
+            color: #0c1c2e;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+        .cv-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 16px; }
         .cv-grid.two { grid-template-columns: 1fr 1fr; }
         .cv-grid p { margin: 0; }
-        .cv-job { margin-top: 8px; }
+        .cv-label {
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #c74634;
+            margin-bottom: 3px;
+        }
+        .cv-job { margin-top: 7px; }
         .cv-job:first-of-type { margin-top: 0; }
-        .cv-page:last-child .cv-job { margin-top: 10px; }
-        .cv-role { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
-        .cv-when { color: #c74634; font-size: 10.5px; font-weight: 700; white-space: nowrap; }
-        .cv-org { color: #445566; font-size: 11.2px; margin: 1px 0 3px; }
-        .cv-page ul { margin: 0 0 0 16px; }
+        .cv-page:last-child .cv-job { margin-top: 9px; }
+        .cv-role {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            column-gap: 12px;
+            align-items: start;
+        }
+        .cv-when {
+            color: #c74634;
+            font-size: 10.4px;
+            font-weight: 700;
+            white-space: nowrap;
+            padding-top: 1px;
+        }
+        .cv-org { color: #4a5a6a; font-size: 11px; margin: 1px 0 3px; }
+        .cv-page ul { margin: 0 0 0 15px; padding: 0; }
+        .cv-page li { margin: 0; padding: 0; }
         .cv-page li + li { margin-top: 2px; }
-        .cv-compact { margin-top: 5px; font-size: 11.5px; }
-        .cv-compact strong { color: #0c1c2e; }
-        .cv-edu { margin-bottom: 4px; }
-        .cv-edu .cv-role { margin: 0; }
+        .cv-edu { margin-bottom: 6px; }
+        .cv-edu:last-of-type { margin-bottom: 0; }
         @media print {
             nav, .hero, .layout, footer { display: none !important; }
             #cv-host { display: block !important; position: static; }
@@ -208,7 +287,9 @@
 
     <header class="shell hero" id="topo">
         <div class="hero-grid">
-            <img src="./assets/jader-gabriel.jpg" alt="Foto de Jader Gabriel da Silva Alves" width="88" height="88">
+            <div class="hero-photo">
+                <img src="./assets/jader-gabriel-cv.jpg" alt="Foto de Jader Gabriel da Silva Alves" width="88" height="117">
+            </div>
             <div>
                 <h1>Jader Gabriel da Silva Alves</h1>
                 <p class="role">Analista de Sistemas e Projetos · Desenvolvedor Full Stack · Fundador da BURI-TI</p>
@@ -405,24 +486,31 @@
         <div id="cv">
             <section class="cv-page">
                 <header class="cv-head">
-                    <img src="./assets/jader-gabriel.jpg" alt="Jader Gabriel da Silva Alves" width="86" height="86" crossorigin="anonymous">
+                    <div class="cv-photo">
+                        <img src="./assets/jader-gabriel-cv.jpg" alt="Jader Gabriel da Silva Alves" width="90" height="120" crossorigin="anonymous">
+                    </div>
                     <div>
                         <h1>Jader Gabriel da Silva Alves</h1>
                         <p class="cv-title">Analista de Sistemas e Projetos · Desenvolvedor Full Stack · CEO, BURI-TI</p>
                         <p class="cv-contacts">
                             <span>jadergabriel8@gmail.com</span>
-                            <span>+55 38 99175-8416</span>
-                            <span>Pirapora / Buritizeiro, MG</span><br>
+                            <span>&nbsp;·&nbsp;</span>
+                            <span>+55 (38) 99175-8416</span>
+                            <span>&nbsp;·&nbsp;</span>
+                            <span>Pirapora / Buritizeiro, MG</span>
+                            <span>&nbsp;·&nbsp;</span>
                             <span>linkedin.com/in/jadergabriel</span>
+                            <span>&nbsp;·&nbsp;</span>
                             <span>github.com/JaderGabriel</span>
+                            <span>&nbsp;·&nbsp;</span>
                             <span>buriti.dev.br</span>
                         </p>
-                        <p class="cv-kw"><strong>Palavras-chave:</strong> PHP · Laravel · Moodle · LMS/AVA · Educação corporativa · i-Educar · Power BI · SQL · Ruby on Rails · WordPress · AWS · Gestão de projetos</p>
+                        <p class="cv-kw"><strong>Palavras-chave:</strong> PHP · Laravel · Moodle/LMS · educação corporativa · i-Educar · Power BI · SQL · Rails · WordPress · AWS · gestão de projetos</p>
                     </div>
                 </header>
 
                 <h2>Resumo profissional</h2>
-                <p>Profissional de TI com mais de 10 anos em software, dados e operação. Atua na interseção de engenharia e educação: desenvolvimento PHP/Laravel e Ruby on Rails, implantação e gestão de Moodle (LMS/AVA), educação corporativa em escala (incluindo jornadas com mais de 100 mil colaboradores), ecossistema i-Educar e Business Intelligence. Perfil híbrido — requisitos, código, indicadores e capacitação de equipes.</p>
+                <p>Profissional de TI com mais de 10 anos em software, dados e operação educacional. Atua na interseção de engenharia e aprendizagem: PHP/Laravel e Ruby on Rails, implantação e gestão de Moodle (LMS/AVA), educação corporativa em escala (jornadas com mais de 100 mil colaboradores), ecossistema i-Educar e Business Intelligence. Une requisitos, código, indicadores e capacitação no mesmo ciclo de entrega.</p>
 
                 <h2>Formação acadêmica</h2>
                 <div class="cv-edu">
@@ -441,15 +529,15 @@
                 <h2>Competências</h2>
                 <div class="cv-grid">
                     <div>
-                        <p><strong>Tecnologia</strong></p>
+                        <p class="cv-label">Tecnologia</p>
                         <p>PHP, Laravel, APIs REST, Ruby on Rails, JavaScript, WordPress, SQL, MySQL, PostgreSQL, ETL, Linux, AWS, Docker, Git, Power BI, Datadog.</p>
                     </div>
                     <div>
-                        <p><strong>Educação</strong></p>
+                        <p class="cv-label">Educação</p>
                         <p>Moodle (implantação, operação, papéis e conteúdo); educação corporativa; i-Educar; Educacenso/INEP; capacitação de gestores e equipes.</p>
                     </div>
                     <div>
-                        <p><strong>Projetos</strong></p>
+                        <p class="cv-label">Projetos</p>
                         <p>Análise de requisitos, gestão ágil, product ownership, integrações (biometria, catracas, ERPs), compliance de dados, code review e testes.</p>
                     </div>
                 </div>
@@ -472,7 +560,7 @@
                 </article>
                 <article class="cv-job">
                     <div class="cv-role"><h3>Consultor sênior — Moodle</h3><span class="cv-when">Dez/2024 – atual</span></div>
-                    <p class="cv-org">CERTRO — Centro de Estudo em Reabilitação Traumortopédica · Campina Grande / PB</p>
+                    <p class="cv-org">CERTRO · Campina Grande / PB</p>
                     <ul>
                         <li>Consultoria, suporte e apoio ao Moodle como ferramenta de ensino-aprendizagem.</li>
                     </ul>
@@ -548,14 +636,23 @@
                 <article class="cv-job">
                     <div class="cv-role"><h3>Gerente de projetos</h3><span class="cv-when">Mai/2024 – Set/2024</span></div>
                     <p class="cv-org">UNIMONTES — Universidade Estadual de Montes Claros</p>
+                    <ul>
+                        <li>Condução de projetos acadêmicos e de tecnologia na universidade.</li>
+                    </ul>
                 </article>
                 <article class="cv-job">
                     <div class="cv-role"><h3>Especialista em integração</h3><span class="cv-when">Mar/2022 – Ago/2022</span></div>
                     <p class="cv-org">Cento e Vinte — Conversão Digital · Buritizeiro / MG</p>
+                    <ul>
+                        <li>Integração de sistemas e dados em operação digital.</li>
+                    </ul>
                 </article>
                 <article class="cv-job">
                     <div class="cv-role"><h3>Professor</h3><span class="cv-when">Out/2015 – Dez/2017</span></div>
                     <p class="cv-org">Secretaria de Estado de Educação de Minas Gerais (SEE-MG) · Pirapora / MG</p>
+                    <ul>
+                        <li>Docência na rede estadual, com atuação em informática e formação de estudantes.</li>
+                    </ul>
                 </article>
 
                 <h2>Projetos selecionados</h2>
@@ -570,8 +667,8 @@
                 <h2>Idiomas e informações adicionais</h2>
                 <div class="cv-grid two">
                     <div>
-                        <p><strong>Idioma:</strong> Português — nativo.</p>
-                        <p><strong>Disponibilidade:</strong> consultoria e desenvolvimento (remoto e presencial no Norte de Minas).</p>
+                        <p><strong>Idioma:</strong> Português (nativo).</p>
+                        <p><strong>Disponibilidade:</strong> consultoria e desenvolvimento, remoto ou presencial no Norte de Minas.</p>
                     </div>
                     <div>
                         <p><strong>Certificação:</strong> TEEHIP — Tecnologia Educacional, Ensino Híbrido e Inovação Pedagógica (2024).</p>
