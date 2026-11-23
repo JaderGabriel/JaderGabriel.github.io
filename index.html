@@ -115,30 +115,22 @@
         }
         .brand-mark {
             font-family: Syne, sans-serif;
-            font-size: clamp(2.35rem, 6vw, 3.85rem);
+            font-size: clamp(2.6rem, 7vw, 4.4rem);
             font-weight: 800;
-            line-height: 0.96;
-            letter-spacing: -0.04em;
-            color: var(--snow);
-            margin-bottom: 0.95rem;
-            animation: rise 0.9s var(--ease) both;
-        }
-        .brand-mark span {
-            display: block;
+            line-height: 0.92;
+            letter-spacing: -0.045em;
             color: var(--brand);
-            font-size: 0.36em;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 0.55rem;
+            margin-bottom: 1.05rem;
+            animation: rise 0.9s var(--ease) both;
         }
         .hero h1 {
             font-family: Syne, sans-serif;
-            font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+            font-size: clamp(1.3rem, 2.4vw, 1.85rem);
             font-weight: 700;
             letter-spacing: -0.03em;
             line-height: 1.2;
             max-width: 24ch;
+            color: var(--snow);
             animation: rise 0.9s var(--ease) 0.08s both;
         }
         .hero-lead {
@@ -157,12 +149,6 @@
             display: flex; flex-wrap: wrap; gap: 0.5rem;
             margin-top: 1.35rem;
             animation: rise 0.9s var(--ease) 0.3s both;
-        }
-        .hero-meta .locale {
-            display: inline-flex; align-items: center;
-            color: var(--mist);
-            font-size: 0.86rem;
-            padding: 0 0.15rem;
         }
 
         .hero-id {
@@ -204,19 +190,25 @@
         }
         .hero-id-copy {
             min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.12rem;
         }
         .hero-id-copy strong {
             display: block;
             font-family: Syne, sans-serif;
-            font-size: 0.92rem;
+            font-size: 0.95rem;
+            font-weight: 700;
             letter-spacing: -0.02em;
-            margin-bottom: 0.15rem;
+            line-height: 1.15;
+            color: var(--snow);
         }
         .hero-id-copy span {
             display: block;
             color: var(--mist);
-            font-size: 0.82rem;
-            line-height: 1.35;
+            font-size: 0.78rem;
+            line-height: 1.3;
         }
         .hero-signals {
             display: grid;
@@ -612,7 +604,7 @@
         <div class="hero-media" aria-hidden="true"></div>
         <div class="hero-shell">
             <div class="hero-copy">
-                <p class="brand-mark"><span>BURI-TI</span>Jader Gabriel</p>
+                <p class="brand-mark">BURI-TI</p>
                 <h1>Do diagnóstico à operação em TI para educação</h1>
                 <p class="hero-lead">
                     Código, dados e capacitação no mesmo ciclo — Laravel, Moodle, i-Educar e Power BI.
@@ -621,12 +613,11 @@
                     <button class="btn btn-primary" type="button" id="btn-pdf">Gerar currículo em PDF</button>
                     <a class="btn btn-ghost" href="https://buriti.dev.br/#contato">Proposta comercial</a>
                 </div>
-                <div class="hero-meta">
+                <div class="hero-meta" aria-label="Canais de contacto">
                     <a class="btn btn-sm btn-channel" href="mailto:jadergabriel8@gmail.com">E-mail</a>
                     <a class="btn btn-sm btn-channel" href="https://wa.me/5538991758416" target="_blank" rel="noopener">WhatsApp</a>
                     <a class="btn btn-sm btn-channel" href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener">LinkedIn</a>
                     <a class="btn btn-sm btn-channel" href="https://github.com/JaderGabriel" target="_blank" rel="noopener">GitHub</a>
-                    <span class="locale">Pirapora / Buritizeiro · MG</span>
                 </div>
             </div>
             <aside class="hero-id" aria-label="Identidade profissional">
@@ -635,8 +626,8 @@
                         <img src="./assets/jader-gabriel-cv.jpg" alt="Retrato profissional de Jader Gabriel" width="60" height="60">
                     </div>
                     <div class="hero-id-copy">
-                        <strong>Analista de sistemas e projetos</strong>
-                        <span>Full stack · fundador da BURI-TI</span>
+                        <strong>Jader Gabriel</strong>
+                        <span>Analista de sistemas e projetos</span>
                     </div>
                 </div>
                 <div class="hero-signals">
