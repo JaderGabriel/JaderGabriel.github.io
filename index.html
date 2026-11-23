@@ -573,65 +573,61 @@
         .project-links a:hover { color: var(--snow); }
 
         /* —— GitHub activity —— */
+        #atividade .section-head { max-width: 40rem; }
         .gh-panel {
             display: grid;
-            gap: 1.25rem;
-            padding: 1.35rem 1.2rem 1.4rem;
-            background:
-                radial-gradient(ellipse 50% 55% at 100% 0%, rgba(61, 206, 176, 0.1), transparent 55%),
-                linear-gradient(160deg, rgba(18, 26, 36, 0.96), rgba(10, 15, 22, 0.88));
-            border: 1px solid var(--line);
-        }
-        @media (min-width: 900px) {
-            .gh-panel {
-                grid-template-columns: 1.15fr 0.85fr;
-                gap: 1.5rem;
-                padding: 1.5rem 1.45rem;
-            }
+            gap: 1.15rem;
         }
         .gh-metrics {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.65rem;
+            gap: 0.7rem;
         }
-        @media (min-width: 560px) {
+        @media (min-width: 720px) {
             .gh-metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
         }
         .gh-metric {
-            padding: 0.85rem 0.8rem;
-            background: rgba(7, 11, 16, 0.45);
+            position: relative;
+            padding: 1.05rem 1rem 0.95rem;
+            background: linear-gradient(165deg, rgba(18, 26, 36, 0.95), rgba(10, 15, 22, 0.8));
             border: 1px solid var(--line);
+            border-top: 2px solid transparent;
+            overflow: hidden;
         }
+        .gh-metric.is-push { border-top-color: #7cbcff; }
+        .gh-metric.is-star { border-top-color: #f2c14e; }
+        .gh-metric.is-pr { border-top-color: #a78bfa; }
+        .gh-metric.is-open { border-top-color: var(--brand); }
         .gh-metric-top {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
-            margin-bottom: 0.4rem;
+            gap: 0.65rem;
+            margin-bottom: 0.55rem;
         }
         .gh-metric-ico {
-            width: 1.55rem;
-            height: 1.55rem;
+            width: 2rem;
+            height: 2rem;
             display: grid;
             place-items: center;
+            background: rgba(7, 11, 16, 0.55);
             border: 1px solid var(--line);
-            background: rgba(18, 26, 36, 0.9);
             color: var(--teal);
+            flex: 0 0 auto;
         }
         .gh-metric-ico svg {
-            width: 0.95rem;
-            height: 0.95rem;
+            width: 1.05rem;
+            height: 1.05rem;
             fill: currentColor;
         }
-        .gh-metric-ico.is-push { color: #7cbcff; }
-        .gh-metric-ico.is-star { color: #f2c14e; }
-        .gh-metric-ico.is-pr { color: #a78bfa; }
-        .gh-metric-ico.is-repo { color: var(--brand); }
+        .gh-metric.is-push .gh-metric-ico { color: #7cbcff; }
+        .gh-metric.is-star .gh-metric-ico { color: #f2c14e; }
+        .gh-metric.is-pr .gh-metric-ico { color: #a78bfa; }
+        .gh-metric.is-open .gh-metric-ico { color: var(--brand); }
         .gh-metric b {
             display: block;
             font-family: Syne, sans-serif;
-            font-size: 1.35rem;
-            letter-spacing: -0.03em;
+            font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+            letter-spacing: -0.04em;
             line-height: 1;
         }
         .gh-metric span {
@@ -639,109 +635,148 @@
             color: var(--mist);
             font-size: 0.72rem;
             font-weight: 600;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
         }
-        .gh-heat-head {
+        .gh-pulse {
+            display: grid;
+            gap: 0.75rem;
+            padding: 1.05rem 1.1rem 1.1rem;
+            background: linear-gradient(160deg, rgba(18, 26, 36, 0.92), rgba(10, 15, 22, 0.78));
+            border: 1px solid var(--line);
+        }
+        .gh-pulse-head {
             display: flex;
             flex-wrap: wrap;
-            align-items: baseline;
+            align-items: center;
             justify-content: space-between;
-            gap: 0.5rem;
-            margin: 1.1rem 0 0.55rem;
+            gap: 0.55rem 1rem;
         }
-        .gh-heat-head p {
+        .gh-pulse-head p {
+            margin: 0;
+            font-family: Syne, sans-serif;
+            font-size: 0.92rem;
+            letter-spacing: -0.02em;
+        }
+        .gh-pulse-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem;
             color: var(--mist);
-            font-size: 0.82rem;
+            font-size: 0.76rem;
         }
-        .gh-heat-head a {
+        .gh-pulse-meta a {
             color: var(--teal);
             text-decoration: none;
-            font-size: 0.8rem;
             font-weight: 600;
         }
-        .gh-heat-head a:hover { color: var(--snow); }
+        .gh-pulse-meta a:hover { color: var(--snow); }
         .gh-heatmap {
             display: grid;
             grid-auto-flow: column;
-            grid-template-rows: repeat(7, 0.72rem);
-            grid-auto-columns: 0.72rem;
-            gap: 0.22rem;
+            grid-template-rows: repeat(7, 0.7rem);
+            grid-auto-columns: 0.7rem;
+            gap: 0.2rem;
             overflow-x: auto;
-            padding-bottom: 0.25rem;
+            padding-bottom: 0.15rem;
         }
         .gh-cell {
-            width: 0.72rem;
-            height: 0.72rem;
+            width: 0.7rem;
+            height: 0.7rem;
             background: rgba(180, 205, 230, 0.08);
-            border-radius: 0.1rem;
         }
-        .gh-cell.l1 { background: rgba(61, 206, 176, 0.28); }
-        .gh-cell.l2 { background: rgba(61, 206, 176, 0.48); }
-        .gh-cell.l3 { background: rgba(61, 206, 176, 0.72); }
+        .gh-cell.l1 { background: rgba(61, 206, 176, 0.25); }
+        .gh-cell.l2 { background: rgba(61, 206, 176, 0.45); }
+        .gh-cell.l3 { background: rgba(61, 206, 176, 0.7); }
         .gh-cell.l4 { background: var(--teal); }
-        .gh-updated {
-            margin-top: 0.7rem;
+        .gh-legend {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
             color: var(--mist);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
         }
-        .gh-side {
+        .gh-legend .gh-cell { flex: 0 0 auto; }
+        .gh-boards {
             display: grid;
-            gap: 1rem;
+            gap: 0.85rem;
+        }
+        @media (min-width: 900px) {
+            .gh-boards {
+                grid-template-columns: 1.35fr 0.85fr;
+                gap: 0.85rem;
+                align-items: stretch;
+            }
+        }
+        .gh-board {
+            display: grid;
             align-content: start;
+            gap: 0.85rem;
+            padding: 1.1rem 1.05rem 1.15rem;
+            background: linear-gradient(165deg, rgba(18, 26, 36, 0.95), rgba(10, 15, 22, 0.82));
+            border: 1px solid var(--line);
+            min-height: 100%;
         }
-        .gh-block-title {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--mist);
-            margin-bottom: 0.55rem;
-        }
-        .gh-recent-card {
-            padding: 1rem 0.95rem 1.05rem;
+        .gh-board.is-recent {
+            border-color: rgba(255, 106, 74, 0.28);
             background:
-                radial-gradient(ellipse 70% 80% at 0% 0%, rgba(255, 106, 74, 0.14), transparent 55%),
-                rgba(7, 11, 16, 0.55);
-            border: 1px solid rgba(255, 106, 74, 0.28);
-            box-shadow: 0 0 0 1px rgba(255, 106, 74, 0.05);
+                radial-gradient(ellipse 65% 55% at 0% 0%, rgba(255, 106, 74, 0.12), transparent 55%),
+                linear-gradient(165deg, rgba(18, 26, 36, 0.96), rgba(10, 15, 22, 0.84));
         }
-        .gh-recent-card .gh-block-title {
-            color: var(--brand);
-            margin-bottom: 0.75rem;
+        .gh-board-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding-bottom: 0.65rem;
+            border-bottom: 1px solid var(--line);
+        }
+        .gh-board-head h3 {
+            margin: 0;
+            font-family: Syne, sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: -0.02em;
+        }
+        .gh-board-head span {
+            color: var(--mist);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
         .gh-feed {
             list-style: none;
             display: grid;
-            gap: 0.45rem;
+            gap: 0.4rem;
         }
         .gh-feed li {
             display: grid;
             grid-template-columns: auto minmax(0, 1fr);
-            gap: 0.7rem;
+            gap: 0.75rem;
             align-items: center;
-            padding: 0.62rem 0.65rem;
-            background: rgba(18, 26, 36, 0.72);
-            border: 1px solid var(--line);
-            font-size: 0.86rem;
-            transition: border-color 0.25s, transform 0.25s var(--ease);
+            padding: 0.7rem 0.7rem;
+            background: rgba(7, 11, 16, 0.42);
+            border: 1px solid transparent;
+            border-bottom: 1px solid var(--line);
+            transition: border-color 0.25s, background 0.25s;
         }
         .gh-feed li:hover {
-            border-color: rgba(61, 206, 176, 0.4);
-            transform: translateX(2px);
+            background: rgba(7, 11, 16, 0.7);
+            border-color: rgba(61, 206, 176, 0.28);
         }
         .gh-feed .kind {
-            width: 2rem;
-            height: 2rem;
+            width: 2.15rem;
+            height: 2.15rem;
             display: grid;
             place-items: center;
             border: 1px solid var(--line);
-            background: rgba(7, 11, 16, 0.7);
+            background: rgba(18, 26, 36, 0.85);
             color: var(--teal);
         }
         .gh-feed .kind svg {
-            width: 1rem;
-            height: 1rem;
+            width: 1.05rem;
+            height: 1.05rem;
             fill: currentColor;
         }
         .gh-feed .kind.is-push { color: #7cbcff; }
@@ -755,7 +790,7 @@
         .gh-feed .feed-copy {
             min-width: 0;
             display: grid;
-            gap: 0.12rem;
+            gap: 0.15rem;
         }
         .gh-feed a {
             color: var(--snow);
@@ -764,11 +799,12 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             font-weight: 600;
+            font-size: 0.92rem;
         }
         .gh-feed a:hover { color: var(--teal); }
         .gh-feed .detail {
             color: var(--mist);
-            font-size: 0.74rem;
+            font-size: 0.76rem;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -780,36 +816,38 @@
         .gh-org {
             display: flex;
             align-items: center;
-            gap: 0.7rem;
-            padding: 0.65rem 0.7rem;
+            gap: 0.8rem;
+            padding: 0.85rem 0.85rem;
             border: 1px solid var(--line);
-            background: rgba(7, 11, 16, 0.4);
+            background: rgba(7, 11, 16, 0.42);
             text-decoration: none;
             color: inherit;
-            transition: border-color 0.25s, transform 0.25s var(--ease);
+            transition: border-color 0.25s, transform 0.25s var(--ease), background 0.25s;
         }
         .gh-org:hover {
             border-color: rgba(61, 206, 176, 0.45);
+            background: rgba(7, 11, 16, 0.7);
             transform: translateY(-1px);
             color: inherit;
         }
         .gh-org img {
-            width: 2rem;
-            height: 2rem;
-            border-radius: 0.3rem;
+            width: 2.4rem;
+            height: 2.4rem;
+            object-fit: contain;
+            background: #070b10;
             border: 1px solid var(--line);
         }
         .gh-org strong {
             display: block;
             font-family: Syne, sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.98rem;
             letter-spacing: -0.02em;
         }
         .gh-org span {
             display: block;
             color: var(--mist);
-            font-size: 0.76rem;
-            line-height: 1.3;
+            font-size: 0.78rem;
+            line-height: 1.35;
         }
 
         /* —— Skills —— */
@@ -1214,62 +1252,81 @@
             <div class="section-head">
                 <p class="kicker">Open source</p>
                 <h2>Atividade no GitHub</h2>
-                <p>Pushes, PRs e organizações — atualizado automaticamente a partir da API pública do Git.</p>
+                <p>Sinais públicos de entrega — pushes, PRs e organizações, atualizados automaticamente.</p>
             </div>
             <div class="gh-panel" id="gh-activity" data-source="./data/github-activity.json" aria-live="polite">
-                <div>
-                    <div class="gh-metrics">
-                        <div class="gh-metric">
-                            <div class="gh-metric-top">
-                                <span class="gh-metric-ico is-push" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2v13.2l3.6-3.6L17 13l-5 5-5-5 1.4-1.4 3.6 3.6V2h2Zm-7 18h14v2H5v-2Z"/></svg>
-                                </span>
-                                <b id="gh-pushes">—</b>
-                            </div>
-                            <span>Pushes · 30 dias</span>
+                <div class="gh-metrics">
+                    <div class="gh-metric is-push">
+                        <div class="gh-metric-top">
+                            <span class="gh-metric-ico" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><path d="M12 2v13.2l3.6-3.6L17 13l-5 5-5-5 1.4-1.4 3.6 3.6V2h2Zm-7 18h14v2H5v-2Z"/></svg>
+                            </span>
+                            <b id="gh-pushes">—</b>
                         </div>
-                        <div class="gh-metric">
-                            <div class="gh-metric-top">
-                                <span class="gh-metric-ico is-star" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24"><path d="m12 3.2 2.5 5.1 5.6.8-4 3.9.9 5.6L12 16.8 6.9 18.6l.9-5.6-4-3.9 5.6-.8L12 3.2Z"/></svg>
-                                </span>
-                                <b id="gh-stars">—</b>
-                            </div>
-                            <span>Stars · 30 dias</span>
-                        </div>
-                        <div class="gh-metric">
-                            <div class="gh-metric-top">
-                                <span class="gh-metric-ico is-pr" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24"><path d="M6.5 4.5a2 2 0 1 1-1.5 3.32V16.2a2 2 0 1 1-1.5 0V7.82A2 2 0 0 1 6.5 4.5Zm11 0a2 2 0 0 1 1.5 3.32v2.93c0 1.6-.84 2.5-2.2 3.2l-3.3 1.7v2.05a2 2 0 1 1-1.5 0v-2.55c0-.5.25-.95.67-1.17l3.53-1.82c.72-.37 1.1-.75 1.1-1.41V7.82A2 2 0 0 1 17.5 4.5Z"/></svg>
-                                </span>
-                                <b id="gh-prs-merged">—</b>
-                            </div>
-                            <span>PRs merged</span>
-                        </div>
-                        <div class="gh-metric">
-                            <div class="gh-metric-top">
-                                <span class="gh-metric-ico is-repo" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24"><path d="M5 3.5h10.5A2.5 2.5 0 0 1 18 6v13.2l-3.2-1.6L12 19.2l-2.8-1.6L6 19.2V6A2.5 2.5 0 0 1 8.5 3.5H5Zm3.5 1.5A1 1 0 0 0 7.5 6v10.05l1.7-.97L12 16.55l2.8-1.47 1.7.97V6a1 1 0 0 0-1-1H8.5Z"/></svg>
-                                </span>
-                                <b id="gh-prs-open">—</b>
-                            </div>
-                            <span>PRs abertos</span>
-                        </div>
+                        <span>Pushes · 30 dias</span>
                     </div>
-                    <div class="gh-heat-head">
-                        <p>Intensidade pública recente</p>
-                        <a id="gh-profile-link" href="https://github.com/JaderGabriel" target="_blank" rel="noopener">Ver perfil</a>
+                    <div class="gh-metric is-star">
+                        <div class="gh-metric-top">
+                            <span class="gh-metric-ico" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><path d="m12 3.2 2.5 5.1 5.6.8-4 3.9.9 5.6L12 16.8 6.9 18.6l.9-5.6-4-3.9 5.6-.8L12 3.2Z"/></svg>
+                            </span>
+                            <b id="gh-stars">—</b>
+                        </div>
+                        <span>Stars · 30 dias</span>
+                    </div>
+                    <div class="gh-metric is-pr">
+                        <div class="gh-metric-top">
+                            <span class="gh-metric-ico" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><path d="M6.5 4.5a2 2 0 1 1-1.5 3.32V16.2a2 2 0 1 1-1.5 0V7.82A2 2 0 0 1 6.5 4.5Zm11 0a2 2 0 0 1 1.5 3.32v2.93c0 1.6-.84 2.5-2.2 3.2l-3.3 1.7v2.05a2 2 0 1 1-1.5 0v-2.55c0-.5.25-.95.67-1.17l3.53-1.82c.72-.37 1.1-.75 1.1-1.41V7.82A2 2 0 0 1 17.5 4.5Z"/></svg>
+                            </span>
+                            <b id="gh-prs-merged">—</b>
+                        </div>
+                        <span>PRs merged</span>
+                    </div>
+                    <div class="gh-metric is-open">
+                        <div class="gh-metric-top">
+                            <span class="gh-metric-ico" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><path d="M5 3.5h10.5A2.5 2.5 0 0 1 18 6v13.2l-3.2-1.6L12 19.2l-2.8-1.6L6 19.2V6A2.5 2.5 0 0 1 8.5 3.5H5Zm3.5 1.5A1 1 0 0 0 7.5 6v10.05l1.7-.97L12 16.55l2.8-1.47 1.7.97V6a1 1 0 0 0-1-1H8.5Z"/></svg>
+                            </span>
+                            <b id="gh-prs-open">—</b>
+                        </div>
+                        <span>PRs abertos</span>
+                    </div>
+                </div>
+
+                <div class="gh-pulse">
+                    <div class="gh-pulse-head">
+                        <p>Pulso público</p>
+                        <div class="gh-pulse-meta">
+                            <span id="gh-updated">A carregar…</span>
+                            <a id="gh-profile-link" href="https://github.com/JaderGabriel" target="_blank" rel="noopener">Perfil no GitHub</a>
+                        </div>
                     </div>
                     <div class="gh-heatmap" id="gh-heatmap" aria-hidden="true"></div>
-                    <p class="gh-updated" id="gh-updated">A carregar atividade…</p>
+                    <div class="gh-legend" aria-hidden="true">
+                        <span>Menos</span>
+                        <span class="gh-cell"></span>
+                        <span class="gh-cell l1"></span>
+                        <span class="gh-cell l2"></span>
+                        <span class="gh-cell l3"></span>
+                        <span class="gh-cell l4"></span>
+                        <span>Mais</span>
+                    </div>
                 </div>
-                <div class="gh-side">
-                    <div class="gh-recent-card">
-                        <p class="gh-block-title">Recente</p>
+
+                <div class="gh-boards">
+                    <div class="gh-board is-recent">
+                        <div class="gh-board-head">
+                            <h3>Recente</h3>
+                            <span id="gh-feed-count">eventos</span>
+                        </div>
                         <ul class="gh-feed" id="gh-feed"></ul>
                     </div>
-                    <div>
-                        <p class="gh-block-title">Organizações · owner</p>
+                    <div class="gh-board">
+                        <div class="gh-board-head">
+                            <h3>Organizações</h3>
+                            <span>owner</span>
+                        </div>
                         <div class="gh-orgs" id="gh-orgs"></div>
                     </div>
                 </div>
@@ -1477,6 +1534,33 @@
             })}`;
         }
 
+        function shortenRepoName(repo) {
+            if (!repo) return 'atividade';
+            const parts = String(repo).split('/');
+            return parts.length > 1 ? parts.slice(1).join('/') : repo;
+        }
+
+        function cleanGhDetail(type, detail) {
+            if (!detail) return ghKindLabel[type] || type || 'evento';
+            if (/^0 commit/i.test(detail)) return 'Push';
+            if (type === 'star') return 'Star';
+            return detail;
+        }
+
+        function compactRecentFeed(items) {
+            const out = [];
+            (items || []).forEach((item) => {
+                const key = `${item.type || ''}|${item.repo || ''}|${item.detail || ''}`;
+                const prev = out[out.length - 1];
+                if (prev && prev._key === key) {
+                    prev._count += 1;
+                    return;
+                }
+                out.push({ ...item, _key: key, _count: 1 });
+            });
+            return out.slice(0, 6);
+        }
+
         function renderGithubActivity(data) {
             const setText = (id, value) => {
                 const el = document.getElementById(id);
@@ -1505,9 +1589,12 @@
             }
 
             const feed = document.getElementById('gh-feed');
+            const feedCount = document.getElementById('gh-feed-count');
             if (feed) {
                 feed.innerHTML = '';
-                (data.recent || []).slice(0, 7).forEach((item) => {
+                const items = compactRecentFeed(data.recent || []);
+                if (feedCount) feedCount.textContent = items.length ? `${items.length} itens` : 'vazio';
+                items.forEach((item) => {
                     const type = item.type || 'push';
                     const li = document.createElement('li');
                     const kind = document.createElement('span');
@@ -1520,14 +1607,12 @@
                     link.href = item.url || data.profile_url || '#';
                     link.target = '_blank';
                     link.rel = 'noopener';
-                    link.textContent = item.repo || item.detail || 'atividade';
-                    copy.appendChild(link);
-                    if (item.detail) {
-                        const detail = document.createElement('span');
-                        detail.className = 'detail';
-                        detail.textContent = item.detail;
-                        copy.appendChild(detail);
-                    }
+                    link.textContent = shortenRepoName(item.repo) || cleanGhDetail(type, item.detail);
+                    const detail = document.createElement('span');
+                    detail.className = 'detail';
+                    const base = cleanGhDetail(type, item.detail);
+                    detail.textContent = item._count > 1 ? `${base} · ${item._count}x` : base;
+                    copy.append(link, detail);
                     li.append(kind, copy);
                     feed.appendChild(li);
                 });
@@ -1553,8 +1638,8 @@
                         const isBuriti = org.login === 'JGTECNOLOGIA' || org.display_name === 'BURI-TI';
                         img.src = isBuriti ? './assets/logo-buriti.png' : org.avatar;
                         img.alt = '';
-                        img.width = 32;
-                        img.height = 32;
+                        img.width = 38;
+                        img.height = 38;
                         const copy = document.createElement('div');
                         const strong = document.createElement('strong');
                         strong.textContent = isBuriti ? 'BURI-TI' : (org.display_name || org.login);
