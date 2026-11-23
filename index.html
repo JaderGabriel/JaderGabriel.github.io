@@ -474,6 +474,183 @@
         .project-links a { color: var(--brand); text-decoration: none; }
         .project-links a:hover { color: var(--snow); }
 
+        /* —— GitHub activity —— */
+        .gh-panel {
+            display: grid;
+            gap: 1.25rem;
+            padding: 1.35rem 1.2rem 1.4rem;
+            background:
+                radial-gradient(ellipse 50% 55% at 100% 0%, rgba(61, 206, 176, 0.1), transparent 55%),
+                linear-gradient(160deg, rgba(18, 26, 36, 0.96), rgba(10, 15, 22, 0.88));
+            border: 1px solid var(--line);
+        }
+        @media (min-width: 900px) {
+            .gh-panel {
+                grid-template-columns: 1.15fr 0.85fr;
+                gap: 1.5rem;
+                padding: 1.5rem 1.45rem;
+            }
+        }
+        .gh-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.65rem;
+        }
+        @media (min-width: 560px) {
+            .gh-metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        }
+        .gh-metric {
+            padding: 0.85rem 0.8rem;
+            background: rgba(7, 11, 16, 0.45);
+            border: 1px solid var(--line);
+        }
+        .gh-metric b {
+            display: block;
+            font-family: Syne, sans-serif;
+            font-size: 1.35rem;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 0.35rem;
+        }
+        .gh-metric span {
+            display: block;
+            color: var(--mist);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .gh-heat-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin: 1.1rem 0 0.55rem;
+        }
+        .gh-heat-head p {
+            color: var(--mist);
+            font-size: 0.82rem;
+        }
+        .gh-heat-head a {
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .gh-heat-head a:hover { color: var(--snow); }
+        .gh-heatmap {
+            display: grid;
+            grid-auto-flow: column;
+            grid-template-rows: repeat(7, 0.72rem);
+            grid-auto-columns: 0.72rem;
+            gap: 0.22rem;
+            overflow-x: auto;
+            padding-bottom: 0.25rem;
+        }
+        .gh-cell {
+            width: 0.72rem;
+            height: 0.72rem;
+            background: rgba(180, 205, 230, 0.08);
+            border-radius: 0.1rem;
+        }
+        .gh-cell.l1 { background: rgba(61, 206, 176, 0.28); }
+        .gh-cell.l2 { background: rgba(61, 206, 176, 0.48); }
+        .gh-cell.l3 { background: rgba(61, 206, 176, 0.72); }
+        .gh-cell.l4 { background: var(--teal); }
+        .gh-updated {
+            margin-top: 0.7rem;
+            color: var(--mist);
+            font-size: 0.75rem;
+        }
+        .gh-side {
+            display: grid;
+            gap: 1rem;
+            align-content: start;
+        }
+        .gh-block-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--mist);
+            margin-bottom: 0.55rem;
+        }
+        .gh-feed {
+            list-style: none;
+            display: grid;
+            gap: 0.45rem;
+        }
+        .gh-feed li {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 0.55rem;
+            align-items: baseline;
+            padding: 0.45rem 0;
+            border-top: 1px solid var(--line);
+            font-size: 0.84rem;
+        }
+        .gh-feed li:first-child { border-top: 0; padding-top: 0; }
+        .gh-feed .kind {
+            color: var(--brand);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            min-width: 3.4rem;
+        }
+        .gh-feed a {
+            color: var(--snow);
+            text-decoration: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .gh-feed a:hover { color: var(--teal); }
+        .gh-feed time {
+            color: var(--mist);
+            font-size: 0.72rem;
+            white-space: nowrap;
+        }
+        .gh-orgs {
+            display: grid;
+            gap: 0.55rem;
+        }
+        .gh-org {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.65rem 0.7rem;
+            border: 1px solid var(--line);
+            background: rgba(7, 11, 16, 0.4);
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.25s, transform 0.25s var(--ease);
+        }
+        .gh-org:hover {
+            border-color: rgba(61, 206, 176, 0.45);
+            transform: translateY(-1px);
+            color: inherit;
+        }
+        .gh-org img {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.3rem;
+            border: 1px solid var(--line);
+        }
+        .gh-org strong {
+            display: block;
+            font-family: Syne, sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: -0.02em;
+        }
+        .gh-org span {
+            display: block;
+            color: var(--mist);
+            font-size: 0.76rem;
+            line-height: 1.3;
+        }
+
         /* —— Skills —— */
         #competencias .section-head { margin-bottom: 1.5rem; }
         .skills {
@@ -653,6 +830,7 @@
                 <a href="#fluxo">Fluxo</a>
                 <a href="#experiencia">Experiência</a>
                 <a href="#projetos">Projetos</a>
+                <a href="#atividade">GitHub</a>
                 <a href="#competencias">Competências</a>
                 <a href="#contato">Contato</a>
             </div>
@@ -839,6 +1017,42 @@
         </div>
     </section>
 
+    <section id="atividade">
+        <div class="shell">
+            <div class="section-head">
+                <p class="kicker">Open source</p>
+                <h2>Atividade no GitHub</h2>
+                <p>Pushes, PRs e organizações — atualizado automaticamente a partir da API pública do Git.</p>
+            </div>
+            <div class="gh-panel" id="gh-activity" data-source="./data/github-activity.json" aria-live="polite">
+                <div>
+                    <div class="gh-metrics">
+                        <div class="gh-metric"><b id="gh-pushes">—</b><span>Pushes · 30 dias</span></div>
+                        <div class="gh-metric"><b id="gh-prs-merged">—</b><span>PRs merged</span></div>
+                        <div class="gh-metric"><b id="gh-prs-open">—</b><span>PRs abertos</span></div>
+                        <div class="gh-metric"><b id="gh-repos">—</b><span>Repos públicos</span></div>
+                    </div>
+                    <div class="gh-heat-head">
+                        <p>Intensidade pública recente</p>
+                        <a id="gh-profile-link" href="https://github.com/JaderGabriel" target="_blank" rel="noopener">Ver perfil</a>
+                    </div>
+                    <div class="gh-heatmap" id="gh-heatmap" aria-hidden="true"></div>
+                    <p class="gh-updated" id="gh-updated">A carregar atividade…</p>
+                </div>
+                <div class="gh-side">
+                    <div>
+                        <p class="gh-block-title">Recente</p>
+                        <ul class="gh-feed" id="gh-feed"></ul>
+                    </div>
+                    <div>
+                        <p class="gh-block-title">Organizações · owner</p>
+                        <div class="gh-orgs" id="gh-orgs"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="competencias">
         <div class="shell">
             <div class="section-head">
@@ -999,6 +1213,130 @@
             items.forEach((el) => io.observe(el));
         };
         document.querySelectorAll('[data-reveal]').forEach(reveal);
+
+        const ghKindLabel = {
+            push: 'Push',
+            pr: 'PR',
+            review: 'Review',
+            issue: 'Issue',
+            create: 'Create',
+            star: 'Star',
+            fork: 'Fork',
+            comment: 'Comment',
+        };
+
+        function formatGhDate(iso) {
+            if (!iso) return '';
+            const d = new Date(iso);
+            if (Number.isNaN(d.getTime())) return '';
+            return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short' });
+        }
+
+        function formatGhUpdated(iso) {
+            if (!iso) return 'Atualização indisponível';
+            const d = new Date(iso);
+            if (Number.isNaN(d.getTime())) return 'Atualização indisponível';
+            return `Atualizado em ${d.toLocaleString('pt-BR', {
+                day: '2-digit', month: 'short', year: 'numeric',
+                hour: '2-digit', minute: '2-digit',
+            })}`;
+        }
+
+        function renderGithubActivity(data) {
+            const setText = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = value;
+            };
+            const w30 = data.window_30d || {};
+            const totals = data.totals || {};
+            const profile = data.profile || {};
+            setText('gh-pushes', w30.pushes ?? '—');
+            setText('gh-prs-merged', totals.prs_merged ?? '—');
+            setText('gh-prs-open', totals.prs_open ?? '—');
+            setText('gh-repos', profile.public_repos ?? '—');
+            setText('gh-updated', formatGhUpdated(data.updated_at));
+
+            const profileLink = document.getElementById('gh-profile-link');
+            if (profileLink && data.profile_url) profileLink.href = data.profile_url;
+
+            const heat = document.getElementById('gh-heatmap');
+            if (heat) {
+                heat.innerHTML = '';
+                (data.heatmap || []).forEach((day) => {
+                    const cell = document.createElement('span');
+                    cell.className = `gh-cell${day.level ? ` l${day.level}` : ''}`;
+                    cell.title = `${day.date}: ${day.count} evento(s)`;
+                    heat.appendChild(cell);
+                });
+            }
+
+            const feed = document.getElementById('gh-feed');
+            if (feed) {
+                feed.innerHTML = '';
+                (data.recent || []).slice(0, 6).forEach((item) => {
+                    const li = document.createElement('li');
+                    const kind = document.createElement('span');
+                    kind.className = 'kind';
+                    kind.textContent = ghKindLabel[item.type] || item.type || 'Git';
+                    const link = document.createElement('a');
+                    link.href = item.url || data.profile_url || '#';
+                    link.target = '_blank';
+                    link.rel = 'noopener';
+                    link.textContent = item.repo || item.detail || 'atividade';
+                    if (item.detail && item.repo) link.title = item.detail;
+                    const time = document.createElement('time');
+                    time.dateTime = item.at || '';
+                    time.textContent = formatGhDate(item.at);
+                    li.append(kind, link, time);
+                    feed.appendChild(li);
+                });
+                if (!feed.children.length) {
+                    const li = document.createElement('li');
+                    li.textContent = 'Sem eventos públicos recentes.';
+                    feed.appendChild(li);
+                }
+            }
+
+            const orgs = document.getElementById('gh-orgs');
+            if (orgs) {
+                orgs.innerHTML = '';
+                (data.orgs || []).forEach((org) => {
+                    const a = document.createElement('a');
+                    a.className = 'gh-org';
+                    a.href = org.url;
+                    a.target = '_blank';
+                    a.rel = 'noopener';
+                    const img = document.createElement('img');
+                    img.src = org.avatar;
+                    img.alt = '';
+                    img.width = 32;
+                    img.height = 32;
+                    const copy = document.createElement('div');
+                    const strong = document.createElement('strong');
+                    strong.textContent = org.login;
+                    const span = document.createElement('span');
+                    span.textContent = org.description || 'Owner';
+                    copy.append(strong, span);
+                    a.append(img, copy);
+                    orgs.appendChild(a);
+                });
+            }
+        }
+
+        async function loadGithubActivity() {
+            const root = document.getElementById('gh-activity');
+            if (!root) return;
+            const source = root.dataset.source || './data/github-activity.json';
+            try {
+                const res = await fetch(`${source}?t=${Date.now()}`, { cache: 'no-store' });
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                renderGithubActivity(await res.json());
+            } catch (err) {
+                const updated = document.getElementById('gh-updated');
+                if (updated) updated.textContent = 'Não foi possível carregar a atividade do GitHub.';
+            }
+        }
+        loadGithubActivity();
     </script>
 </body>
 </html>
