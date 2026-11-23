@@ -260,20 +260,67 @@
             letter-spacing: 0.01em;
         }
         .btn-channel {
-            background: rgba(18, 26, 36, 0.85);
-            color: var(--snow);
+            width: 2.85rem;
+            height: 2.85rem;
+            padding: 0;
+            background: rgba(18, 26, 36, 0.9);
             border: 1px solid var(--line);
+            color: var(--snow);
         }
         .btn-channel:hover {
-            border-color: rgba(61, 206, 176, 0.5);
-            color: var(--teal);
+            transform: translateY(-2px);
             background: rgba(18, 26, 36, 1);
         }
         .btn-channel svg {
-            width: 0.95rem;
-            height: 0.95rem;
+            width: 1.35rem;
+            height: 1.35rem;
             flex: 0 0 auto;
             fill: currentColor;
+        }
+        .btn-channel--mail {
+            color: #f4a261;
+            border-color: rgba(244, 162, 97, 0.35);
+        }
+        .btn-channel--mail:hover {
+            color: #ffc089;
+            border-color: rgba(244, 162, 97, 0.7);
+            box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.12);
+        }
+        .btn-channel--whatsapp {
+            color: #25d366;
+            border-color: rgba(37, 211, 102, 0.35);
+        }
+        .btn-channel--whatsapp:hover {
+            color: #4ae082;
+            border-color: rgba(37, 211, 102, 0.7);
+            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.12);
+        }
+        .btn-channel--linkedin {
+            color: #4da3ff;
+            border-color: rgba(10, 102, 194, 0.4);
+        }
+        .btn-channel--linkedin:hover {
+            color: #7cbcff;
+            border-color: rgba(77, 163, 255, 0.75);
+            box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.16);
+        }
+        .btn-channel--github {
+            color: #e6edf3;
+            border-color: rgba(230, 237, 243, 0.28);
+        }
+        .btn-channel--github:hover {
+            color: #fff;
+            border-color: rgba(230, 237, 243, 0.6);
+            box-shadow: 0 0 0 3px rgba(230, 237, 243, 0.1);
+        }
+        .btn-channel--site {
+            color: var(--brand);
+            border-color: rgba(255, 106, 74, 0.4);
+        }
+        .btn-channel--site:hover {
+            color: #ff856b;
+            border-color: rgba(255, 106, 74, 0.75);
+            box-shadow: 0 0 0 3px rgba(255, 106, 74, 0.14);
         }
 
         /* —— Sections —— */
@@ -851,21 +898,17 @@
                     <a class="btn btn-ghost" href="https://buriti.dev.br/#contato">Proposta comercial</a>
                 </div>
                 <div class="hero-meta" aria-label="Canais de contacto">
-                    <a class="btn btn-sm btn-channel" href="mailto:jadergabriel8@gmail.com">
+                    <a class="btn btn-channel btn-channel--mail" href="mailto:jadergabriel8@gmail.com" aria-label="E-mail" title="E-mail">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.75A1.75 1.75 0 0 1 4.75 4h14.5A1.75 1.75 0 0 1 21 5.75v12.5A1.75 1.75 0 0 1 19.25 20H4.75A1.75 1.75 0 0 1 3 18.25Zm1.75-.25a.25.25 0 0 0-.25.25v.3l7.1 4.44a.75.75 0 0 0 .8 0l7.1-4.44v-.3a.25.25 0 0 0-.25-.25Zm15 2.4-6.55 4.1 6.55 4.1Zm-15 8.2 6.55-4.1-6.55-4.1Zm8.05-2.84L4.75 18.5h14.5Z"/></svg>
-                        E-mail
                     </a>
-                    <a class="btn btn-sm btn-channel" href="https://wa.me/5538991758416" target="_blank" rel="noopener">
+                    <a class="btn btn-channel btn-channel--whatsapp" href="https://wa.me/5538991758416" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.55 14.86L2 22l5.3-1.4A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 0 1 6.85 12.4l-.25.4.3 1.78-1.82-.3-.38.23a8.1 8.1 0 0 1-12.1-6.9 8.1 8.1 0 0 1 7.4-8.61Zm4.66 10.4c-.2-.1-1.2-.6-1.38-.66-.19-.07-.33-.1-.47.1-.14.2-.54.66-.66.8-.12.13-.24.15-.45.05-.2-.1-.86-.32-1.63-.99-.6-.53-1-1.19-1.12-1.4-.12-.2-.01-.31.09-.41.09-.09.2-.24.3-.36.1-.12.13-.2.2-.34.07-.13.03-.25-.02-.35-.05-.1-.47-1.13-.64-1.55-.17-.4-.34-.35-.47-.35h-.4c-.14 0-.36.05-.55.25-.19.2-.72.7-.72 1.7 0 1 .74 1.97.84 2.1.1.14 1.45 2.2 3.52 3.09.49.21.88.34 1.18.43.5.16.95.14 1.3.08.4-.07 1.2-.49 1.37-.96.17-.47.17-.87.12-.96-.05-.08-.19-.13-.4-.23Z"/></svg>
-                        WhatsApp
                     </a>
-                    <a class="btn btn-sm btn-channel" href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener">
+                    <a class="btn btn-channel btn-channel--linkedin" href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3.5 9.75h3V20.5h-3Zm5.25 0h2.88v1.46h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v6.25h-3v-5.54c0-1.32-.02-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.92v5.64h-3Z"/></svg>
-                        LinkedIn
                     </a>
-                    <a class="btn btn-sm btn-channel" href="https://github.com/JaderGabriel" target="_blank" rel="noopener">
+                    <a class="btn btn-channel btn-channel--github" href="https://github.com/JaderGabriel" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.47-1.1-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.8c.85 0 1.71.11 2.51.33 1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
-                        GitHub
                     </a>
                 </div>
             </div>
@@ -1145,25 +1188,20 @@
             <div class="contact-side">
                 <p>Canais</p>
                 <div class="contact-channels">
-                    <a class="btn btn-sm btn-channel" href="mailto:jadergabriel8@gmail.com">
+                    <a class="btn btn-channel btn-channel--mail" href="mailto:jadergabriel8@gmail.com" aria-label="E-mail" title="E-mail">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.75A1.75 1.75 0 0 1 4.75 4h14.5A1.75 1.75 0 0 1 21 5.75v12.5A1.75 1.75 0 0 1 19.25 20H4.75A1.75 1.75 0 0 1 3 18.25Zm1.75-.25a.25.25 0 0 0-.25.25v.3l7.1 4.44a.75.75 0 0 0 .8 0l7.1-4.44v-.3a.25.25 0 0 0-.25-.25Zm15 2.4-6.55 4.1 6.55 4.1Zm-15 8.2 6.55-4.1-6.55-4.1Zm8.05-2.84L4.75 18.5h14.5Z"/></svg>
-                        E-mail
                     </a>
-                    <a class="btn btn-sm btn-channel" href="https://wa.me/5538991758416" target="_blank" rel="noopener">
+                    <a class="btn btn-channel btn-channel--whatsapp" href="https://wa.me/5538991758416" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.55 14.86L2 22l5.3-1.4A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 0 1 6.85 12.4l-.25.4.3 1.78-1.82-.3-.38.23a8.1 8.1 0 0 1-12.1-6.9 8.1 8.1 0 0 1 7.4-8.61Zm4.66 10.4c-.2-.1-1.2-.6-1.38-.66-.19-.07-.33-.1-.47.1-.14.2-.54.66-.66.8-.12.13-.24.15-.45.05-.2-.1-.86-.32-1.63-.99-.6-.53-1-1.19-1.12-1.4-.12-.2-.01-.31.09-.41.09-.09.2-.24.3-.36.1-.12.13-.2.2-.34.07-.13.03-.25-.02-.35-.05-.1-.47-1.13-.64-1.55-.17-.4-.34-.35-.47-.35h-.4c-.14 0-.36.05-.55.25-.19.2-.72.7-.72 1.7 0 1 .74 1.97.84 2.1.1.14 1.45 2.2 3.52 3.09.49.21.88.34 1.18.43.5.16.95.14 1.3.08.4-.07 1.2-.49 1.37-.96.17-.47.17-.87.12-.96-.05-.08-.19-.13-.4-.23Z"/></svg>
-                        WhatsApp
                     </a>
-                    <a class="btn btn-sm btn-channel" href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener">
+                    <a class="btn btn-channel btn-channel--linkedin" href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3.5 9.75h3V20.5h-3Zm5.25 0h2.88v1.46h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v6.25h-3v-5.54c0-1.32-.02-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.92v5.64h-3Z"/></svg>
-                        LinkedIn
                     </a>
-                    <a class="btn btn-sm btn-channel" href="https://github.com/JaderGabriel" target="_blank" rel="noopener">
+                    <a class="btn btn-channel btn-channel--github" href="https://github.com/JaderGabriel" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.47-1.1-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.8c.85 0 1.71.11 2.51.33 1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
-                        GitHub
                     </a>
-                    <a class="btn btn-sm btn-channel" href="https://buriti.dev.br" target="_blank" rel="noopener">
+                    <a class="btn btn-channel btn-channel--site" href="https://buriti.dev.br" target="_blank" rel="noopener" aria-label="Site BURI-TI" title="Site BURI-TI">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.4 9h-3.1a15.4 15.4 0 0 0-1.3-5.2A8.05 8.05 0 0 1 19.4 11ZM12 3.95c.9 1.1 1.7 3.1 2.1 5.55H9.9C10.3 7.05 11.1 5.05 12 3.95ZM4.6 13h3.1c.2 1.9.7 3.7 1.3 5.2A8.05 8.05 0 0 1 4.6 13Zm3.1-2H4.6a8.05 8.05 0 0 1 4.4-5.2A15.4 15.4 0 0 0 7.7 11Zm1.2 2h6.2c-.4 2.45-1.2 4.45-2.1 5.55-.9-1.1-1.7-3.1-2.1-5.55Zm6.2-2H9.9c.4-2.45 1.2-4.45 2.1-5.55.9 1.1 1.7 3.1 2.1 5.55Zm.9 7.2c.6-1.5 1.1-3.3 1.3-5.2h3.1a8.05 8.05 0 0 1-4.4 5.2Z"/></svg>
-                        Site BURI-TI
                     </a>
                 </div>
             </div>
