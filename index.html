@@ -29,7 +29,7 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+        html { scroll-behavior: smooth; scroll-padding-top: 4.75rem; }
         body {
             font-family: Figtree, system-ui, sans-serif;
             color: var(--snow);
@@ -39,6 +39,7 @@
             font-size: 1.05rem;
             line-height: 1.6;
             min-height: 100vh;
+            padding-top: 3.75rem;
         }
         a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
         a:hover { color: var(--snow); }
@@ -47,27 +48,72 @@
 
         /* —— Nav —— */
         .nav {
-            position: sticky; top: 0; z-index: 40;
-            backdrop-filter: blur(16px);
-            background: rgba(7, 11, 16, 0.72);
-            border-bottom: 1px solid var(--line);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+            background: #f4f7fb;
+            border-bottom: 1px solid rgba(15, 28, 42, 0.1);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.65) inset;
         }
         .nav-row {
             display: flex; align-items: center; justify-content: space-between;
             gap: 1rem; min-height: 3.75rem;
         }
         .nav-brand {
-            display: inline-flex; align-items: center; gap: 0.55rem;
-            color: var(--snow); text-decoration: none; font-weight: 700;
-            font-family: Syne, sans-serif; letter-spacing: -0.02em;
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 2.35rem; height: 2.35rem;
+            text-decoration: none;
+            border: 1px solid rgba(15, 28, 42, 0.1);
+            background: #fff;
+            transition: transform 0.25s var(--ease), border-color 0.25s;
         }
-        .nav-brand img { width: 1.55rem; height: 1.55rem; border-radius: 0.3rem; }
+        .nav-brand:hover {
+            transform: translateY(-1px);
+            border-color: rgba(255, 106, 74, 0.45);
+        }
+        .nav-brand img { width: 1.45rem; height: 1.45rem; border-radius: 0.2rem; }
         .nav-links { display: flex; flex-wrap: wrap; gap: 0.35rem 1.05rem; }
         .nav-links a {
-            color: var(--mist); text-decoration: none;
+            color: #445668;
+            text-decoration: none;
             font-size: 0.88rem; font-weight: 600;
         }
-        .nav-links a:hover { color: var(--snow); }
+        .nav-links a:hover { color: #0f1c2a; }
+
+        /* —— Back to top —— */
+        .to-top {
+            position: fixed;
+            right: max(1rem, calc((100vw - 1120px) / 2));
+            bottom: 1.25rem;
+            z-index: 45;
+            width: 2.85rem;
+            height: 2.85rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 106, 74, 0.45);
+            background: rgba(18, 26, 36, 0.92);
+            color: var(--brand);
+            text-decoration: none;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(0.5rem);
+            transition: opacity 0.25s var(--ease), transform 0.25s var(--ease),
+                        background 0.25s, border-color 0.25s, color 0.25s;
+        }
+        .to-top.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: none;
+        }
+        .to-top:hover {
+            background: var(--brand);
+            color: #140805;
+            border-color: var(--brand);
+        }
+        .to-top svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: currentColor;
+        }
 
         /* —— Hero —— */
         .hero {
@@ -867,11 +913,10 @@
     </style>
 </head>
 <body>
-    <nav class="nav">
+    <nav class="nav" aria-label="Principal">
         <div class="shell nav-row">
-            <a class="nav-brand" href="#topo">
+            <a class="nav-brand" href="#topo" aria-label="BURI-TI · início" title="Início">
                 <img src="./assets/logo-buriti.png" alt="" width="24" height="24">
-                Jader Gabriel
             </a>
             <div class="nav-links">
                 <a href="#fluxo">Fluxo</a>
@@ -1215,6 +1260,10 @@
         </div>
     </footer>
 
+    <a class="to-top" id="to-top" href="#topo" aria-label="Voltar ao topo" title="Voltar ao topo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5 5.5 11h4v8.5h5V11h4L12 4.5Z"/></svg>
+    </a>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="./cv-pdf.js"></script>
     <script>
@@ -1233,6 +1282,14 @@
         }
         document.getElementById('btn-pdf').addEventListener('click', (e) => runPdf(e.currentTarget));
         document.getElementById('btn-pdf-footer').addEventListener('click', (e) => runPdf(e.currentTarget));
+
+        const toTop = document.getElementById('to-top');
+        const syncToTop = () => {
+            if (!toTop) return;
+            toTop.classList.toggle('is-visible', window.scrollY > 420);
+        };
+        window.addEventListener('scroll', syncToTop, { passive: true });
+        syncToTop();
 
         const reveal = (root) => {
             const items = root.querySelectorAll('.flow-step, .job');
