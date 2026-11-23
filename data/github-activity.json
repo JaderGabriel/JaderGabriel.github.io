@@ -1,15 +1,15 @@
 {
   "user": "JaderGabriel",
   "profile_url": "https://github.com/JaderGabriel",
-  "updated_at": "2026-11-23T13:44:40Z",
+  "updated_at": "2026-11-23T13:51:36Z",
   "profile": {
     "public_repos": 35,
     "followers": 7,
     "following": 15
   },
   "totals": {
-    "prs": 6,
-    "prs_merged": 4,
+    "prs": 17,
+    "prs_merged": 13,
     "prs_open": 1
   },
   "window_30d": {
@@ -550,6 +550,7 @@
   "orgs": [
     {
       "login": "i-Educar",
+      "display_name": "i-Educar",
       "url": "https://github.com/i-Educar",
       "description": "Independent initiatives around the i-Educar free software ecosystem.",
       "avatar": "https://avatars.githubusercontent.com/u/317414325?v=4",
@@ -558,18 +559,11 @@
     },
     {
       "login": "JGTECNOLOGIA",
+      "display_name": "BURI-TI",
       "url": "https://github.com/JGTECNOLOGIA",
-      "description": "Organização GitHub",
-      "avatar": "https://avatars.githubusercontent.com/u/147164900?v=4",
+      "description": "Tecnologia para Pessoas",
+      "avatar": "./assets/logo-buriti.png",
       "public_repos": 0,
-      "role": "owner"
-    },
-    {
-      "login": "SistemasUnimontesCODS",
-      "url": "https://github.com/SistemasUnimontesCODS",
-      "description": "Organização GitHub",
-      "avatar": "https://avatars.githubusercontent.com/u/6947442?v=4",
-      "public_repos": 1,
       "role": "owner"
     }
   ]

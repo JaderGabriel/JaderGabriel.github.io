@@ -67,7 +67,15 @@ def fetch_events(max_pages: int = 3) -> list:
     return events
 
 
-OWNER_ORGS = ["i-Educar", "JGTECNOLOGIA", "SistemasUnimontesCODS"]
+OWNER_ORGS = ["i-Educar", "JGTECNOLOGIA"]
+EXCLUDED_ORGS = {"SistemasUnimontesCODS"}
+ORG_OVERRIDES = {
+    "JGTECNOLOGIA": {
+        "display_name": "BURI-TI",
+        "avatar": "./assets/logo-buriti.png",
+        "description": "Tecnologia para Pessoas",
+    },
+}
 
 
 def fetch_owner_orgs() -> list[dict]:
@@ -77,6 +85,8 @@ def fetch_owner_orgs() -> list[dict]:
         try:
             for item in get_json("https://api.github.com/user/orgs"):
                 login = item["login"]
+                if login in EXCLUDED_ORGS:
+                    continue
                 membership = get_json(
                     f"https://api.github.com/orgs/{login}/memberships/{USER}"
                 )
@@ -87,13 +97,19 @@ def fetch_owner_orgs() -> list[dict]:
 
     orgs: list[dict] = []
     for login in logins:
+        if login in EXCLUDED_ORGS:
+            continue
         org = get_json(f"https://api.github.com/orgs/{login}")
+        override = ORG_OVERRIDES.get(login, {})
         orgs.append(
             {
                 "login": org["login"],
+                "display_name": override.get("display_name", org["login"]),
                 "url": org["html_url"],
-                "description": org.get("description") or "Organização GitHub",
-                "avatar": org.get("avatar_url"),
+                "description": override.get("description")
+                or org.get("description")
+                or "Organização GitHub",
+                "avatar": override.get("avatar") or org.get("avatar_url"),
                 "public_repos": org.get("public_repos", 0),
                 "role": "owner",
             }

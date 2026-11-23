@@ -597,13 +597,37 @@
             background: rgba(7, 11, 16, 0.45);
             border: 1px solid var(--line);
         }
+        .gh-metric-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+        }
+        .gh-metric-ico {
+            width: 1.55rem;
+            height: 1.55rem;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--line);
+            background: rgba(18, 26, 36, 0.9);
+            color: var(--teal);
+        }
+        .gh-metric-ico svg {
+            width: 0.95rem;
+            height: 0.95rem;
+            fill: currentColor;
+        }
+        .gh-metric-ico.is-push { color: #7cbcff; }
+        .gh-metric-ico.is-star { color: #f2c14e; }
+        .gh-metric-ico.is-pr { color: #a78bfa; }
+        .gh-metric-ico.is-repo { color: var(--brand); }
         .gh-metric b {
             display: block;
             font-family: Syne, sans-serif;
             font-size: 1.35rem;
             letter-spacing: -0.03em;
             line-height: 1;
-            margin-bottom: 0.35rem;
         }
         .gh-metric span {
             display: block;
@@ -669,6 +693,18 @@
             color: var(--mist);
             margin-bottom: 0.55rem;
         }
+        .gh-recent-card {
+            padding: 1rem 0.95rem 1.05rem;
+            background:
+                radial-gradient(ellipse 70% 80% at 0% 0%, rgba(255, 106, 74, 0.14), transparent 55%),
+                rgba(7, 11, 16, 0.55);
+            border: 1px solid rgba(255, 106, 74, 0.28);
+            box-shadow: 0 0 0 1px rgba(255, 106, 74, 0.05);
+        }
+        .gh-recent-card .gh-block-title {
+            color: var(--brand);
+            margin-bottom: 0.75rem;
+        }
         .gh-feed {
             list-style: none;
             display: grid;
@@ -676,21 +712,45 @@
         }
         .gh-feed li {
             display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 0.55rem;
-            align-items: baseline;
-            padding: 0.45rem 0;
-            border-top: 1px solid var(--line);
-            font-size: 0.84rem;
+            grid-template-columns: auto minmax(0, 1fr);
+            gap: 0.7rem;
+            align-items: center;
+            padding: 0.62rem 0.65rem;
+            background: rgba(18, 26, 36, 0.72);
+            border: 1px solid var(--line);
+            font-size: 0.86rem;
+            transition: border-color 0.25s, transform 0.25s var(--ease);
         }
-        .gh-feed li:first-child { border-top: 0; padding-top: 0; }
+        .gh-feed li:hover {
+            border-color: rgba(61, 206, 176, 0.4);
+            transform: translateX(2px);
+        }
         .gh-feed .kind {
-            color: var(--brand);
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            min-width: 3.4rem;
+            width: 2rem;
+            height: 2rem;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--line);
+            background: rgba(7, 11, 16, 0.7);
+            color: var(--teal);
+        }
+        .gh-feed .kind svg {
+            width: 1rem;
+            height: 1rem;
+            fill: currentColor;
+        }
+        .gh-feed .kind.is-push { color: #7cbcff; }
+        .gh-feed .kind.is-star { color: #f2c14e; }
+        .gh-feed .kind.is-pr,
+        .gh-feed .kind.is-review { color: #a78bfa; }
+        .gh-feed .kind.is-issue,
+        .gh-feed .kind.is-comment { color: var(--brand); }
+        .gh-feed .kind.is-create,
+        .gh-feed .kind.is-fork { color: var(--teal); }
+        .gh-feed .feed-copy {
+            min-width: 0;
+            display: grid;
+            gap: 0.12rem;
         }
         .gh-feed a {
             color: var(--snow);
@@ -698,11 +758,14 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            font-weight: 600;
         }
         .gh-feed a:hover { color: var(--teal); }
-        .gh-feed time {
+        .gh-feed .detail {
             color: var(--mist);
-            font-size: 0.72rem;
+            font-size: 0.74rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
             white-space: nowrap;
         }
         .gh-orgs {
@@ -1115,10 +1178,42 @@
             <div class="gh-panel" id="gh-activity" data-source="./data/github-activity.json" aria-live="polite">
                 <div>
                     <div class="gh-metrics">
-                        <div class="gh-metric"><b id="gh-pushes">—</b><span>Pushes · 30 dias</span></div>
-                        <div class="gh-metric"><b id="gh-prs-merged">—</b><span>PRs merged</span></div>
-                        <div class="gh-metric"><b id="gh-prs-open">—</b><span>PRs abertos</span></div>
-                        <div class="gh-metric"><b id="gh-repos">—</b><span>Repos públicos</span></div>
+                        <div class="gh-metric">
+                            <div class="gh-metric-top">
+                                <span class="gh-metric-ico is-push" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2v13.2l3.6-3.6L17 13l-5 5-5-5 1.4-1.4 3.6 3.6V2h2Zm-7 18h14v2H5v-2Z"/></svg>
+                                </span>
+                                <b id="gh-pushes">—</b>
+                            </div>
+                            <span>Pushes · 30 dias</span>
+                        </div>
+                        <div class="gh-metric">
+                            <div class="gh-metric-top">
+                                <span class="gh-metric-ico is-star" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24"><path d="m12 3.2 2.5 5.1 5.6.8-4 3.9.9 5.6L12 16.8 6.9 18.6l.9-5.6-4-3.9 5.6-.8L12 3.2Z"/></svg>
+                                </span>
+                                <b id="gh-stars">—</b>
+                            </div>
+                            <span>Stars · 30 dias</span>
+                        </div>
+                        <div class="gh-metric">
+                            <div class="gh-metric-top">
+                                <span class="gh-metric-ico is-pr" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24"><path d="M6.5 4.5a2 2 0 1 1-1.5 3.32V16.2a2 2 0 1 1-1.5 0V7.82A2 2 0 0 1 6.5 4.5Zm11 0a2 2 0 0 1 1.5 3.32v2.93c0 1.6-.84 2.5-2.2 3.2l-3.3 1.7v2.05a2 2 0 1 1-1.5 0v-2.55c0-.5.25-.95.67-1.17l3.53-1.82c.72-.37 1.1-.75 1.1-1.41V7.82A2 2 0 0 1 17.5 4.5Z"/></svg>
+                                </span>
+                                <b id="gh-prs-merged">—</b>
+                            </div>
+                            <span>PRs merged</span>
+                        </div>
+                        <div class="gh-metric">
+                            <div class="gh-metric-top">
+                                <span class="gh-metric-ico is-repo" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24"><path d="M5 3.5h10.5A2.5 2.5 0 0 1 18 6v13.2l-3.2-1.6L12 19.2l-2.8-1.6L6 19.2V6A2.5 2.5 0 0 1 8.5 3.5H5Zm3.5 1.5A1 1 0 0 0 7.5 6v10.05l1.7-.97L12 16.55l2.8-1.47 1.7.97V6a1 1 0 0 0-1-1H8.5Z"/></svg>
+                                </span>
+                                <b id="gh-prs-open">—</b>
+                            </div>
+                            <span>PRs abertos</span>
+                        </div>
                     </div>
                     <div class="gh-heat-head">
                         <p>Intensidade pública recente</p>
@@ -1128,7 +1223,7 @@
                     <p class="gh-updated" id="gh-updated">A carregar atividade…</p>
                 </div>
                 <div class="gh-side">
-                    <div>
+                    <div class="gh-recent-card">
                         <p class="gh-block-title">Recente</p>
                         <ul class="gh-feed" id="gh-feed"></ul>
                     </div>
@@ -1320,12 +1415,16 @@
             comment: 'Comment',
         };
 
-        function formatGhDate(iso) {
-            if (!iso) return '';
-            const d = new Date(iso);
-            if (Number.isNaN(d.getTime())) return '';
-            return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short' });
-        }
+        const ghKindIcon = {
+            push: '<path d="M12 2v13.2l3.6-3.6L17 13l-5 5-5-5 1.4-1.4 3.6 3.6V2h2Zm-7 18h14v2H5v-2Z"/>',
+            star: '<path d="m12 3.2 2.5 5.1 5.6.8-4 3.9.9 5.6L12 16.8 6.9 18.6l.9-5.6-4-3.9 5.6-.8L12 3.2Z"/>',
+            pr: '<path d="M6.5 4.5a2 2 0 1 1-1.5 3.32V16.2a2 2 0 1 1-1.5 0V7.82A2 2 0 0 1 6.5 4.5Zm11 0a2 2 0 0 1 1.5 3.32v2.93c0 1.6-.84 2.5-2.2 3.2l-3.3 1.7v2.05a2 2 0 1 1-1.5 0v-2.55c0-.5.25-.95.67-1.17l3.53-1.82c.72-.37 1.1-.75 1.1-1.41V7.82A2 2 0 0 1 17.5 4.5Z"/>',
+            review: '<path d="M6.5 4.5a2 2 0 1 1-1.5 3.32V16.2a2 2 0 1 1-1.5 0V7.82A2 2 0 0 1 6.5 4.5Zm11 0a2 2 0 0 1 1.5 3.32v2.93c0 1.6-.84 2.5-2.2 3.2l-3.3 1.7v2.05a2 2 0 1 1-1.5 0v-2.55c0-.5.25-.95.67-1.17l3.53-1.82c.72-.37 1.1-.75 1.1-1.41V7.82A2 2 0 0 1 17.5 4.5Z"/>',
+            issue: '<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1 5h2v6h-2V7Zm0 8h2v2h-2v-2Z"/>',
+            create: '<path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/>',
+            fork: '<path d="M7 4a2 2 0 1 1-1.5 3.32v3.36A3 3 0 0 0 8.5 13.5H11v2.18a2 2 0 1 0 2 0V13.5h2.5A3 3 0 0 0 18.5 10.7V7.32A2 2 0 1 0 17 4a2 2 0 0 0-1.5 3.32v3.36c0 .37-.3.67-.67.67H13.5V9.5h-3v1.85H9.17A.67.67 0 0 1 8.5 10.7V7.32A2 2 0 0 0 7 4Z"/>',
+            comment: '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H10l-4.2 3.15c-.7.52-1.7.03-1.7-.82V5.5Z"/>',
+        };
 
         function formatGhUpdated(iso) {
             if (!iso) return 'Atualização indisponível';
@@ -1344,11 +1443,10 @@
             };
             const w30 = data.window_30d || {};
             const totals = data.totals || {};
-            const profile = data.profile || {};
             setText('gh-pushes', w30.pushes ?? '—');
+            setText('gh-stars', w30.stars ?? '—');
             setText('gh-prs-merged', totals.prs_merged ?? '—');
             setText('gh-prs-open', totals.prs_open ?? '—');
-            setText('gh-repos', profile.public_repos ?? '—');
             setText('gh-updated', formatGhUpdated(data.updated_at));
 
             const profileLink = document.getElementById('gh-profile-link');
@@ -1368,21 +1466,28 @@
             const feed = document.getElementById('gh-feed');
             if (feed) {
                 feed.innerHTML = '';
-                (data.recent || []).slice(0, 6).forEach((item) => {
+                (data.recent || []).slice(0, 7).forEach((item) => {
+                    const type = item.type || 'push';
                     const li = document.createElement('li');
                     const kind = document.createElement('span');
-                    kind.className = 'kind';
-                    kind.textContent = ghKindLabel[item.type] || item.type || 'Git';
+                    kind.className = `kind is-${type}`;
+                    kind.title = ghKindLabel[type] || type;
+                    kind.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${ghKindIcon[type] || ghKindIcon.push}</svg>`;
+                    const copy = document.createElement('div');
+                    copy.className = 'feed-copy';
                     const link = document.createElement('a');
                     link.href = item.url || data.profile_url || '#';
                     link.target = '_blank';
                     link.rel = 'noopener';
                     link.textContent = item.repo || item.detail || 'atividade';
-                    if (item.detail && item.repo) link.title = item.detail;
-                    const time = document.createElement('time');
-                    time.dateTime = item.at || '';
-                    time.textContent = formatGhDate(item.at);
-                    li.append(kind, link, time);
+                    copy.appendChild(link);
+                    if (item.detail) {
+                        const detail = document.createElement('span');
+                        detail.className = 'detail';
+                        detail.textContent = item.detail;
+                        copy.appendChild(detail);
+                    }
+                    li.append(kind, copy);
                     feed.appendChild(li);
                 });
                 if (!feed.children.length) {
@@ -1395,26 +1500,31 @@
             const orgs = document.getElementById('gh-orgs');
             if (orgs) {
                 orgs.innerHTML = '';
-                (data.orgs || []).forEach((org) => {
-                    const a = document.createElement('a');
-                    a.className = 'gh-org';
-                    a.href = org.url;
-                    a.target = '_blank';
-                    a.rel = 'noopener';
-                    const img = document.createElement('img');
-                    img.src = org.avatar;
-                    img.alt = '';
-                    img.width = 32;
-                    img.height = 32;
-                    const copy = document.createElement('div');
-                    const strong = document.createElement('strong');
-                    strong.textContent = org.login;
-                    const span = document.createElement('span');
-                    span.textContent = org.description || 'Owner';
-                    copy.append(strong, span);
-                    a.append(img, copy);
-                    orgs.appendChild(a);
-                });
+                (data.orgs || [])
+                    .filter((org) => org.login !== 'SistemasUnimontesCODS')
+                    .forEach((org) => {
+                        const a = document.createElement('a');
+                        a.className = 'gh-org';
+                        a.href = org.url;
+                        a.target = '_blank';
+                        a.rel = 'noopener';
+                        const img = document.createElement('img');
+                        const isBuriti = org.login === 'JGTECNOLOGIA' || org.display_name === 'BURI-TI';
+                        img.src = isBuriti ? './assets/logo-buriti.png' : org.avatar;
+                        img.alt = '';
+                        img.width = 32;
+                        img.height = 32;
+                        const copy = document.createElement('div');
+                        const strong = document.createElement('strong');
+                        strong.textContent = isBuriti ? 'BURI-TI' : (org.display_name || org.login);
+                        const span = document.createElement('span');
+                        span.textContent = isBuriti
+                            ? (org.description || 'Tecnologia para Pessoas')
+                            : (org.description || 'Owner');
+                        copy.append(strong, span);
+                        a.append(img, copy);
+                        orgs.appendChild(a);
+                    });
             }
         }
 
