@@ -5,223 +5,521 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jader Gabriel da Silva Alves — Analista de Sistemas e Projetos</title>
     <meta name="description" content="Analista de sistemas e projetos. PHP, Laravel, Moodle (LMS/AVA), educação corporativa, i-Educar, Power BI, SQL e integrações. Currículo e portfólio.">
-    <meta name="keywords" content="Analista de Sistemas, Desenvolvedor Full Stack, PHP, Laravel, Moodle, LMS, AVA, Educação Corporativa, i-Educar, Power BI, Business Intelligence, SQL, WordPress, Ruby on Rails, Gestão de Projetos, AWS, Linux">
+    <meta name="theme-color" content="#070b10">
     <link rel="icon" href="./assets/logo-buriti.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #101820;
-            --muted: #4d5d6d;
-            --line: #d5dee8;
-            --paper: #eef2f6;
-            --white: #fff;
-            --brand: #c74634;
-            --brand-d: #9a3224;
-            --navy: #0c1c2e;
+            --bg: #070b10;
+            --bg-2: #0d141c;
+            --panel: #121a24;
+            --line: rgba(180, 205, 230, 0.12);
+            --snow: #eef3f8;
+            --mist: #8fa3b8;
+            --brand: #ff6a4a;
+            --brand-soft: rgba(255, 106, 74, 0.16);
+            --teal: #3dceb0;
+            --teal-soft: rgba(61, 206, 176, 0.14);
+            --glow: radial-gradient(ellipse 70% 55% at 78% 18%, rgba(255, 106, 74, 0.18), transparent 55%),
+                    radial-gradient(ellipse 55% 45% at 12% 72%, rgba(61, 206, 176, 0.12), transparent 50%),
+                    linear-gradient(165deg, #070b10 0%, #0c1520 48%, #081018 100%);
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
-        body {
-            font-family: "Source Sans 3", system-ui, sans-serif;
-            color: var(--ink);
-            background: var(--paper);
-            font-size: 1.02rem;
-            line-height: 1.55;
-        }
-        a { color: var(--brand-d); }
-        img { display: block; max-width: 100%; }
-        .shell { width: min(1280px, calc(100% - 2.5rem)); margin: 0 auto; }
 
-        nav {
-            position: sticky; top: 0; z-index: 30;
-            background: rgba(238,242,246,.94);
-            backdrop-filter: blur(12px);
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+        body {
+            font-family: Figtree, system-ui, sans-serif;
+            color: var(--snow);
+            background: var(--bg);
+            background-image: var(--glow);
+            background-attachment: fixed;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+        a:hover { color: var(--snow); }
+        img { display: block; max-width: 100%; }
+        .shell { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
+
+        /* —— Nav —— */
+        .nav {
+            position: sticky; top: 0; z-index: 40;
+            backdrop-filter: blur(16px);
+            background: rgba(7, 11, 16, 0.72);
             border-bottom: 1px solid var(--line);
         }
         .nav-row {
             display: flex; align-items: center; justify-content: space-between;
-            gap: 1rem; min-height: 3.5rem;
+            gap: 1rem; min-height: 3.75rem;
         }
-        .nav-row a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 600; }
-        .nav-row a:hover { color: var(--ink); }
-        .nav-brand { color: var(--ink) !important; font-weight: 700; }
-        .nav-links { display: flex; flex-wrap: wrap; gap: .85rem 1.15rem; }
+        .nav-brand {
+            display: inline-flex; align-items: center; gap: 0.55rem;
+            color: var(--snow); text-decoration: none; font-weight: 700;
+            font-family: Syne, sans-serif; letter-spacing: -0.02em;
+        }
+        .nav-brand img { width: 1.55rem; height: 1.55rem; border-radius: 0.3rem; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 0.35rem 1.05rem; }
+        .nav-links a {
+            color: var(--mist); text-decoration: none;
+            font-size: 0.88rem; font-weight: 600;
+        }
+        .nav-links a:hover { color: var(--snow); }
 
-        .hero { padding: 2.2rem 0 1.8rem; }
-        .hero-grid {
-            display: grid; gap: 1.6rem 2.2rem;
-            grid-template-columns: auto minmax(0, 1fr);
-            align-items: start;
+        /* —— Hero —— */
+        .hero {
+            position: relative;
+            min-height: min(92vh, 54rem);
+            display: grid;
+            align-items: end;
+            overflow: hidden;
+            border-bottom: 1px solid var(--line);
         }
-        .hero-photo {
-            width: 88px; height: 117px; overflow: hidden; flex-shrink: 0;
-            border: 1px solid var(--line); background: var(--white);
+        .hero-media {
+            position: absolute; inset: 0;
+            background:
+                linear-gradient(100deg, rgba(7, 11, 16, 0.97) 0%, rgba(7, 11, 16, 0.86) 42%, rgba(7, 11, 16, 0.35) 68%, rgba(7, 11, 16, 0.55) 100%),
+                url("./assets/jader-gabriel.jpg") right 18% center / cover no-repeat;
+            transform: scale(1.04);
+            animation: heroDrift 18s var(--ease) infinite alternate;
         }
-        .hero-photo img { width: 88px; height: 117px; object-fit: cover; object-position: top center; }
-        h1 {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-size: clamp(1.7rem, 2.4vw, 2.35rem);
-            line-height: 1.15; letter-spacing: -.02em;
+        @keyframes heroDrift {
+            from { transform: scale(1.04) translate3d(0, 0, 0); }
+            to { transform: scale(1.08) translate3d(-1.2%, 0.8%, 0); }
         }
-        .role { margin-top: .25rem; color: var(--muted); font-weight: 600; }
-        .contacts { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin-top: .55rem; font-size: .9rem; color: var(--muted); }
-        .contacts a { text-decoration: none; }
-        .lead { margin-top: .9rem; max-width: 78ch; font-size: 1.05rem; }
-        .keywords { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
-        .kw {
-            font-size: .78rem; font-weight: 700; letter-spacing: .02em;
-            border: 1px solid var(--line); background: var(--white);
-            padding: .22rem .55rem;
+        .hero-body {
+            position: relative; z-index: 1;
+            padding: 5.5rem 0 3.2rem;
+            width: min(1120px, calc(100% - 2rem));
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+        .brand-mark {
+            font-family: Syne, sans-serif;
+            font-size: clamp(2.6rem, 8vw, 4.6rem);
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -0.045em;
+            color: var(--snow);
+            margin-bottom: 1.1rem;
+            animation: rise 0.9s var(--ease) both;
+        }
+        .brand-mark span {
+            display: block;
+            color: var(--brand);
+            font-size: 0.38em;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.55rem;
+        }
+        .hero h1 {
+            font-family: Syne, sans-serif;
+            font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            max-width: 22ch;
+            animation: rise 0.9s var(--ease) 0.08s both;
+        }
+        .hero-lead {
+            margin-top: 0.85rem;
+            color: var(--mist);
+            max-width: 36ch;
+            font-size: 1.02rem;
+            animation: rise 0.9s var(--ease) 0.16s both;
+        }
+        .hero-cta {
+            display: flex; flex-wrap: wrap; gap: 0.65rem;
+            margin-top: 1.5rem;
+            animation: rise 0.9s var(--ease) 0.24s both;
+        }
+        .hero-meta {
+            display: flex; flex-wrap: wrap; gap: 0.45rem 1rem;
+            margin-top: 1.4rem;
+            color: var(--mist);
+            font-size: 0.88rem;
+            animation: rise 0.9s var(--ease) 0.3s both;
+        }
+        .hero-meta a { color: var(--mist); text-decoration: none; }
+        .hero-meta a:hover { color: var(--brand); }
+
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(1.1rem); }
+            to { opacity: 1; transform: none; }
         }
 
-        .layout { display: grid; gap: 1.5rem; padding-bottom: 2.4rem; }
-        @media (min-width: 960px) {
-            .hero-grid { grid-template-columns: 88px minmax(0, 1.5fr) minmax(240px, .7fr); align-items: center; }
-            .layout { grid-template-columns: 280px minmax(0, 1fr); align-items: start; }
-            .side { position: sticky; top: 4.2rem; }
-        }
-
-        .panel { background: var(--white); border: 1px solid var(--line); padding: 1.15rem 1.2rem; }
-        .kicker {
-            font-size: .7rem; font-weight: 700; letter-spacing: .14em;
-            text-transform: uppercase; color: var(--brand); margin-bottom: .35rem;
-        }
-        h2 {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-size: 1.35rem; line-height: 1.2; margin-bottom: .85rem;
-        }
-        h3 { font-size: 1.02rem; }
-        .side h2 { font-size: 1.05rem; margin-bottom: .65rem; }
-        .side h3 { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: .85rem 0 .4rem; }
-        .side h3:first-of-type { margin-top: 0; }
-        .side ul { list-style: none; display: grid; gap: .28rem; font-size: .88rem; color: var(--muted); }
-        .metrics { display: grid; gap: .7rem; }
-        .metric { border-top: 2px solid var(--brand); padding-top: .4rem; }
-        .metric b { display: block; font-family: "Source Serif 4", serif; font-size: 1.05rem; }
-        .metric span { display: block; color: var(--muted); font-size: .8rem; margin-top: .12rem; }
-
-        .block + .block { margin-top: 1.15rem; }
-        .job { padding: 1rem 0; border-top: 1px solid var(--line); }
-        .job:first-of-type { border-top: 0; padding-top: 0; }
-        .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .2rem 1rem; margin-bottom: .2rem; }
-        .when { color: var(--brand); font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
-        .org { color: var(--muted); font-size: .9rem; margin-bottom: .35rem; }
-        .job ul { margin-left: 1.1rem; }
-        .job li + li { margin-top: .28rem; }
-
-        .projects { display: grid; gap: .85rem; }
-        @media (min-width: 800px) { .projects { grid-template-columns: 1fr 1fr; } }
-        .project p { color: var(--muted); font-size: .92rem; margin-top: .3rem; }
-        .project-links { margin-top: .45rem; display: flex; gap: .8rem; font-size: .86rem; }
-        .tag { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-
+        /* —— Buttons —— */
         .btn {
             display: inline-flex; align-items: center; justify-content: center;
-            border: 0; cursor: pointer; text-decoration: none;
-            font: 700 .92rem "Source Sans 3", sans-serif;
-            padding: .75rem 1.15rem; background: var(--brand); color: #fff;
+            gap: 0.4rem; border: 0; cursor: pointer;
+            font: 700 0.92rem Figtree, sans-serif;
+            padding: 0.78rem 1.2rem;
+            text-decoration: none;
+            transition: transform 0.25s var(--ease), background 0.25s, color 0.25s, border-color 0.25s;
         }
-        .btn:hover { background: var(--brand-d); }
-        .btn[disabled] { opacity: .6; cursor: wait; }
-        .btn-navy { background: var(--navy); }
-        .btn-navy:hover { background: #16324d; }
-        .btn-row { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .9rem; }
-        .status { margin-top: .5rem; font-size: .82rem; color: var(--muted); min-height: 1.15em; }
-        footer { border-top: 1px solid var(--line); padding: 1rem 0 1.6rem; color: var(--muted); font-size: .8rem; }
+        .btn:hover { transform: translateY(-1px); }
+        .btn[disabled] { opacity: 0.55; cursor: wait; transform: none; }
+        .btn-primary { background: var(--brand); color: #140805; }
+        .btn-primary:hover { background: #ff856b; color: #140805; }
+        .btn-ghost {
+            background: transparent; color: var(--snow);
+            border: 1px solid rgba(238, 243, 248, 0.28);
+        }
+        .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
 
-        /* PDF is generated with vector text in cv-pdf.js — no on-screen template. */
+        /* —— Sections —— */
+        section { padding: 4.2rem 0; }
+        .section-head { max-width: 38rem; margin-bottom: 2rem; }
+        .kicker {
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--brand); margin-bottom: 0.45rem;
+        }
+        h2 {
+            font-family: Syne, sans-serif;
+            font-size: clamp(1.55rem, 3vw, 2.15rem);
+            letter-spacing: -0.03em; line-height: 1.15;
+        }
+        .section-head p {
+            margin-top: 0.65rem; color: var(--mist); max-width: 48ch;
+        }
+
+        /* —— Workflow —— */
+        .flow {
+            display: grid;
+            gap: 0;
+            position: relative;
+        }
+        @media (min-width: 860px) {
+            .flow {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 0;
+            }
+            .flow::before {
+                content: "";
+                position: absolute;
+                top: 1.55rem; left: 8%; right: 8%; height: 1px;
+                background: linear-gradient(90deg, transparent, var(--teal), var(--brand), var(--teal), transparent);
+                opacity: 0.55;
+                transform-origin: left;
+                animation: drawLine 1.4s var(--ease) 0.3s both;
+            }
+        }
+        @keyframes drawLine {
+            from { transform: scaleX(0); opacity: 0; }
+            to { transform: scaleX(1); opacity: 0.55; }
+        }
+        .flow-step {
+            position: relative;
+            padding: 0 0.65rem 1.4rem;
+            opacity: 0;
+            transform: translateY(0.8rem);
+            transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+        }
+        .flow-step.is-in { opacity: 1; transform: none; }
+        .flow-step:nth-child(2) { transition-delay: 0.08s; }
+        .flow-step:nth-child(3) { transition-delay: 0.16s; }
+        .flow-step:nth-child(4) { transition-delay: 0.24s; }
+        .flow-step:nth-child(5) { transition-delay: 0.32s; }
+        .flow-num {
+            width: 2.9rem; height: 2.9rem;
+            display: grid; place-items: center;
+            border-radius: 999px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            color: var(--teal);
+            font-family: Syne, sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 0.9rem;
+            box-shadow: 0 0 0 6px rgba(7, 11, 16, 0.85);
+        }
+        .flow-step h3 {
+            font-family: Syne, sans-serif;
+            font-size: 1.05rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.35rem;
+        }
+        .flow-step p { color: var(--mist); font-size: 0.92rem; max-width: 18ch; }
+
+        /* —— Experience timeline —— */
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 0;
+            padding-left: 1.35rem;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 0.28rem; top: 0.4rem; bottom: 0.4rem;
+            width: 1px;
+            background: linear-gradient(180deg, var(--brand), var(--teal), transparent);
+        }
+        .job {
+            position: relative;
+            padding: 0 0 1.75rem 1.1rem;
+            opacity: 0;
+            transform: translateY(0.7rem);
+            transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+        }
+        .job.is-in { opacity: 1; transform: none; }
+        .job::before {
+            content: "";
+            position: absolute;
+            left: -1.2rem; top: 0.45rem;
+            width: 0.7rem; height: 0.7rem;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--brand);
+            box-shadow: 0 0 0 4px rgba(255, 106, 74, 0.12);
+        }
+        .job-head {
+            display: flex; flex-wrap: wrap;
+            justify-content: space-between; gap: 0.25rem 1rem;
+            margin-bottom: 0.2rem;
+        }
+        .job h3 {
+            font-family: Syne, sans-serif;
+            font-size: 1.12rem;
+            letter-spacing: -0.02em;
+        }
+        .when {
+            color: var(--brand);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .org { color: var(--mist); font-size: 0.92rem; margin-bottom: 0.45rem; }
+        .job ul { margin-left: 1.05rem; color: #c5d2df; }
+        .job li + li { margin-top: 0.3rem; }
+
+        /* —— Projects —— */
+        .projects {
+            display: grid;
+            gap: 0.85rem;
+        }
+        @media (min-width: 760px) {
+            .projects { grid-template-columns: 1fr 1fr; }
+        }
+        .project {
+            display: flex; flex-direction: column;
+            gap: 0.45rem;
+            padding: 1.2rem 1.15rem 1.15rem;
+            background: linear-gradient(160deg, rgba(18, 26, 36, 0.95), rgba(12, 18, 26, 0.8));
+            border: 1px solid var(--line);
+            text-decoration: none;
+            color: inherit;
+            min-height: 11rem;
+            transition: border-color 0.25s, transform 0.25s var(--ease), background 0.25s;
+        }
+        a.project:hover {
+            border-color: rgba(61, 206, 176, 0.45);
+            transform: translateY(-2px);
+            color: inherit;
+        }
+        .project .tag {
+            font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--teal);
+        }
+        .project h3 {
+            font-family: Syne, sans-serif;
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+        }
+        .project p { color: var(--mist); font-size: 0.94rem; flex: 1; }
+        .project-links {
+            display: flex; gap: 0.85rem;
+            font-size: 0.86rem; font-weight: 600;
+            margin-top: 0.35rem;
+        }
+        .project-links a { color: var(--brand); text-decoration: none; }
+        .project-links a:hover { color: var(--snow); }
+
+        /* —— Skills —— */
+        .skills {
+            display: grid;
+            gap: 1rem;
+        }
+        @media (min-width: 760px) {
+            .skills { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        }
+        .skill {
+            padding-top: 0.85rem;
+            border-top: 2px solid transparent;
+            border-image: linear-gradient(90deg, var(--brand), var(--teal)) 1;
+        }
+        .skill h3 {
+            font-family: Syne, sans-serif;
+            font-size: 0.95rem;
+            margin-bottom: 0.55rem;
+        }
+        .skill ul {
+            list-style: none;
+            display: grid;
+            gap: 0.3rem;
+            color: var(--mist);
+            font-size: 0.9rem;
+        }
+
+        /* —— Contact —— */
+        .contact {
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            background:
+                radial-gradient(ellipse 60% 80% at 90% 50%, var(--brand-soft), transparent 55%),
+                radial-gradient(ellipse 50% 70% at 0% 80%, var(--teal-soft), transparent 50%),
+                var(--bg-2);
+        }
+        .contact-grid {
+            display: grid;
+            gap: 1.5rem;
+            align-items: end;
+        }
+        @media (min-width: 760px) {
+            .contact-grid { grid-template-columns: 1.3fr 0.7fr; }
+        }
+        .contact .status {
+            margin-top: 0.65rem;
+            min-height: 1.2em;
+            font-size: 0.85rem;
+            color: var(--mist);
+        }
+        .contact-side {
+            color: var(--mist);
+            font-size: 0.95rem;
+        }
+        .contact-side a {
+            display: block;
+            color: var(--snow);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 0.35rem;
+        }
+        .contact-side a:hover { color: var(--brand); }
+
+        footer {
+            padding: 1.4rem 0 2rem;
+            color: var(--mist);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 720px) {
+            .nav-links { display: none; }
+            .hero { min-height: 78vh; }
+            .hero-media {
+                background:
+                    linear-gradient(180deg, rgba(7, 11, 16, 0.45) 0%, rgba(7, 11, 16, 0.92) 58%, #070b10 100%),
+                    url("./assets/jader-gabriel.jpg") center 18% / cover no-repeat;
+            }
+            .hero-body { padding: 4.5rem 0 2.4rem; max-width: none; }
+            .flow-step { padding-left: 0; border-left: 1px solid var(--line); margin-left: 0.9rem; padding-left: 1.1rem; }
+            .flow-num { margin-left: -2.35rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+            .hero-media { transform: none; }
+            .flow-step, .job { opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body>
-    <nav>
+    <nav class="nav">
         <div class="shell nav-row">
-            <a class="nav-brand" href="#topo">Jader Gabriel</a>
+            <a class="nav-brand" href="#topo">
+                <img src="./assets/logo-buriti.png" alt="" width="24" height="24">
+                Jader Gabriel
+            </a>
             <div class="nav-links">
+                <a href="#fluxo">Fluxo</a>
                 <a href="#experiencia">Experiência</a>
                 <a href="#projetos">Projetos</a>
                 <a href="#competencias">Competências</a>
-                <a href="#contato">Currículo e contato</a>
+                <a href="#contato">Contato</a>
             </div>
         </div>
     </nav>
 
-    <header class="shell hero" id="topo">
-        <div class="hero-grid">
-            <div class="hero-photo">
-                <img src="./assets/jader-gabriel-cv.jpg" alt="Foto de Jader Gabriel da Silva Alves" width="88" height="117">
+    <header class="hero" id="topo">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-body">
+            <p class="brand-mark"><span>BURI-TI</span>Jader Gabriel</p>
+            <h1>Do diagnóstico à operação em TI para educação</h1>
+            <p class="hero-lead">
+                Código, dados e capacitação no mesmo ciclo — Laravel, Moodle, i-Educar e Power BI.
+            </p>
+            <div class="hero-cta">
+                <button class="btn btn-primary" type="button" id="btn-pdf">Gerar currículo em PDF</button>
+                <a class="btn btn-ghost" href="https://buriti.dev.br/#contato">Proposta comercial</a>
             </div>
-            <div>
-                <h1>Jader Gabriel da Silva Alves</h1>
-                <p class="role">Analista de Sistemas e Projetos · Desenvolvedor Full Stack · Fundador da BURI-TI</p>
-                <p class="contacts">
-                    <a href="mailto:jadergabriel8@gmail.com">jadergabriel8@gmail.com</a>
-                    <a href="https://wa.me/5538991758416" target="_blank" rel="noopener">+55 38 99175-8416</a>
-                    <a href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://github.com/JaderGabriel" target="_blank" rel="noopener">GitHub</a>
-                    <span>Pirapora / Buritizeiro · MG</span>
-                </p>
-                <p class="lead">
-                    Atuação em <strong>TI aplicada à educação</strong>: desenvolvimento PHP/Laravel, implantação e operação de
-                    <strong>Moodle (LMS/AVA)</strong>, educação corporativa em escala, <strong>i-Educar</strong>,
-                    <strong>Power BI</strong> e integrações. Entrega do diagnóstico à operação, com código, dados e capacitação no mesmo ciclo.
-                </p>
-                <div class="keywords" aria-label="Palavras-chave">
-                    <span class="kw">PHP</span><span class="kw">Laravel</span><span class="kw">Moodle / LMS / AVA</span>
-                    <span class="kw">Educação corporativa</span><span class="kw">i-Educar</span>
-                    <span class="kw">Power BI</span><span class="kw">SQL</span><span class="kw">Ruby on Rails</span>
-                    <span class="kw">Gestão de projetos</span>
-                </div>
-            </div>
-            <div class="metrics">
-                <div class="metric"><b>+10 anos</b><span>software, dados e operação de TI</span></div>
-                <div class="metric"><b>Moodle em escala</b><span>jornadas corporativas e operação de AVA</span></div>
-                <div class="metric"><b>Ecossistema i-Educar</b><span>BI, relatórios, frequência e Educacenso</span></div>
-            </div>
+            <p class="hero-meta">
+                <a href="mailto:jadergabriel8@gmail.com">jadergabriel8@gmail.com</a>
+                <a href="https://wa.me/5538991758416" target="_blank" rel="noopener">+55 38 99175-8416</a>
+                <a href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/JaderGabriel" target="_blank" rel="noopener">GitHub</a>
+                <span>Pirapora / Buritizeiro · MG</span>
+            </p>
         </div>
     </header>
 
-    <div class="shell layout">
-        <aside class="side" id="competencias">
-            <div class="panel">
-                <p class="kicker">Competências</p>
-                <h2>TI · Educação · Projetos</h2>
-                <h3>Tecnologia da informação</h3>
-                <ul>
-                    <li>PHP, Laravel, Blade, APIs REST</li>
-                    <li>SQL, MySQL, PostgreSQL, ETL</li>
-                    <li>JavaScript, WordPress, Ruby on Rails</li>
-                    <li>Linux, AWS, Docker, Git, Composer</li>
-                    <li>Power BI, dashboards, Datadog</li>
-                </ul>
-                <h3>Educação e aprendizagem</h3>
-                <ul>
-                    <li>Moodle (LMS / AVA): implantação e gestão</li>
-                    <li>Educação corporativa em escala</li>
-                    <li>i-Educar, Educacenso/INEP</li>
-                    <li>Capacitação de gestores e equipes</li>
-                </ul>
-                <h3>Projetos e entrega</h3>
-                <ul>
-                    <li>Análise de requisitos e escopo</li>
-                    <li>Gestão ágil de entregas</li>
-                    <li>Integrações (biometria, catracas, APIs)</li>
-                    <li>Pacotes open source e entregas NDA</li>
-                </ul>
-                <h3>Formação</h3>
-                <ul>
-                    <li>Especialização em Tecnologias Aplicadas à Educação — IFNMG (2020–2022)</li>
-                    <li>Bacharelado em Sistemas de Informação — UNIMONTES (2011–2015)</li>
-                </ul>
+    <section id="fluxo">
+        <div class="shell">
+            <div class="section-head">
+                <p class="kicker">Método</p>
+                <h2>Fluxo de trabalho</h2>
+                <p>Uma entrega contínua: entender o problema, construir, medir, ensinar quem opera e manter no ar.</p>
             </div>
-        </aside>
+            <div class="flow" data-reveal>
+                <article class="flow-step">
+                    <div class="flow-num">01</div>
+                    <h3>Diagnóstico</h3>
+                    <p>Requisitos, escopo e leitura do contexto educacional.</p>
+                </article>
+                <article class="flow-step">
+                    <div class="flow-num">02</div>
+                    <h3>Desenvolvimento</h3>
+                    <p>PHP/Laravel, integrações e pacotes sob medida.</p>
+                </article>
+                <article class="flow-step">
+                    <div class="flow-num">03</div>
+                    <h3>Dados &amp; BI</h3>
+                    <p>Indicadores, Power BI, Educacenso e operação de bases.</p>
+                </article>
+                <article class="flow-step">
+                    <div class="flow-num">04</div>
+                    <h3>Capacitação</h3>
+                    <p>Gestores e equipes no Moodle e nos sistemas entregues.</p>
+                </article>
+                <article class="flow-step">
+                    <div class="flow-num">05</div>
+                    <h3>Operação</h3>
+                    <p>Suporte, monitoramento e evolução contínua em produção.</p>
+                </article>
+            </div>
+        </div>
+    </section>
 
-        <main>
-            <section class="panel block" id="experiencia">
-                <p class="kicker">Experiência profissional</p>
+    <section id="experiencia">
+        <div class="shell">
+            <div class="section-head">
+                <p class="kicker">Trajetória</p>
                 <h2>O que foi feito</h2>
-
+                <p>+10 anos entre software, dados e operação de TI — com foco em educação e aprendizagem corporativa.</p>
+            </div>
+            <div class="timeline" data-reveal>
                 <article class="job">
                     <div class="job-head">
                         <h3>CEO e analista de sistemas e projetos</h3>
@@ -234,7 +532,6 @@
                         <li>Publica e mantém pacotes educacionais (relatórios, monitoramento, importação Educacenso, frequência).</li>
                     </ul>
                 </article>
-
                 <article class="job">
                     <div class="job-head">
                         <h3>Product owner e consultor de TI</h3>
@@ -245,7 +542,6 @@
                         <li>Gestão, desenvolvimento, implantação e suporte a equipes no uso de software livre para indicadores educacionais.</li>
                     </ul>
                 </article>
-
                 <article class="job">
                     <div class="job-head">
                         <h3>Consultor sênior — Moodle</h3>
@@ -256,7 +552,6 @@
                         <li>Consultoria, suporte e apoio ao uso do Moodle como ferramenta de ensino-aprendizagem.</li>
                     </ul>
                 </article>
-
                 <article class="job">
                     <div class="job-head">
                         <h3>Gerente de TI e analista de educação corporativa</h3>
@@ -269,7 +564,6 @@
                         <li>Gestão de projetos, code review, testes e reporting gerencial contínuo.</li>
                     </ul>
                 </article>
-
                 <article class="job">
                     <div class="job-head">
                         <h3>Assistente educacional</h3>
@@ -280,7 +574,6 @@
                         <li>Apoiou a implantação de sistemas educacionais e ambientes virtuais de aprendizagem na rede municipal.</li>
                     </ul>
                 </article>
-
                 <article class="job">
                     <div class="job-head">
                         <h3>Consultor Moodle e plataformas web</h3>
@@ -292,53 +585,123 @@
                         <li>Capacitação de gestores e instrutores; integrações entre conteúdo, matrícula e dados.</li>
                     </ul>
                 </article>
-            </section>
+            </div>
+        </div>
+    </section>
 
-            <section class="panel block" id="projetos">
-                <p class="kicker">Projetos entregues</p>
-                <h2>Portfólio de TI e educação</h2>
-                <div class="projects">
-                    <article class="project">
-                        <p class="tag">Open source · i-Educar</p>
-                        <h3>Relatórios Avançados</h3>
-                        <p>Pacote Laravel/PHP: PDF (Dompdf), Excel, menus temáticos e validação pública por QR Code (certificados, boletins, atas).</p>
-                        <div class="project-links"><a href="https://github.com/JaderGabriel/i-educar-advreport-package" target="_blank" rel="noopener">GitHub</a></div>
-                    </article>
-                    <article class="project">
-                        <p class="tag">BI · Laravel</p>
-                        <h3>Servlitcys</h3>
-                        <p>Plataforma de análise educacional por município, ligada a bases i-Educar e CadÚnico (MySQL ou PostgreSQL).</p>
-                        <div class="project-links">
-                            <a href="https://github.com/JaderGabriel/serventec-servlitcys" target="_blank" rel="noopener">GitHub</a>
-                            <a href="https://analise.serventecassessoria.com.br" target="_blank" rel="noopener">Produção</a>
-                        </div>
-                    </article>
-                    <article class="project">
-                        <p class="tag">Dados e operação</p>
-                        <h3>Power BI, Pulse, GIDE e Educacenso</h3>
-                        <p>Indicadores gerenciais, monitoramento em produção, frequência/biometria e importação INEP para o i-Educar.</p>
-                        <div class="project-links"><a href="https://github.com/JaderGabriel" target="_blank" rel="noopener">Repositórios</a></div>
-                    </article>
-                    <article class="project">
-                        <p class="tag">LMS · confidencial</p>
-                        <h3>Odin e entregas NDA</h3>
-                        <p>Gestão de ambiente Moodle e customizações Laravel/i-Educar em repositório privado — stack e resultado descritos, código não exposto.</p>
-                    </article>
+    <section id="projetos">
+        <div class="shell">
+            <div class="section-head">
+                <p class="kicker">Portfólio</p>
+                <h2>Projetos entregues</h2>
+                <p>Open source no ecossistema i-Educar, BI educacional e entregas confidenciais em Moodle.</p>
+            </div>
+            <div class="projects">
+                <article class="project">
+                    <p class="tag">Open source · i-Educar</p>
+                    <h3>Relatórios Avançados</h3>
+                    <p>Pacote Laravel/PHP: PDF (Dompdf), Excel, menus temáticos e validação pública por QR Code (certificados, boletins, atas).</p>
+                    <div class="project-links">
+                        <a href="https://github.com/JaderGabriel/i-educar-advreport-package" target="_blank" rel="noopener">GitHub</a>
+                    </div>
+                </article>
+                <article class="project">
+                    <p class="tag">BI · Laravel</p>
+                    <h3>Servlitcys</h3>
+                    <p>Plataforma de análise educacional por município, ligada a bases i-Educar e CadÚnico (MySQL ou PostgreSQL).</p>
+                    <div class="project-links">
+                        <a href="https://github.com/JaderGabriel/serventec-servlitcys" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://analise.serventecassessoria.com.br" target="_blank" rel="noopener">Produção</a>
+                    </div>
+                </article>
+                <article class="project">
+                    <p class="tag">Dados e operação</p>
+                    <h3>Power BI, Pulse, GIDE e Educacenso</h3>
+                    <p>Indicadores gerenciais, monitoramento em produção, frequência/biometria e importação INEP para o i-Educar.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/JaderGabriel" target="_blank" rel="noopener">Repositórios</a>
+                    </div>
+                </article>
+                <article class="project">
+                    <p class="tag">LMS · confidencial</p>
+                    <h3>Odin e entregas NDA</h3>
+                    <p>Gestão de ambiente Moodle e customizações Laravel/i-Educar em repositório privado — stack e resultado descritos, código não exposto.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="competencias">
+        <div class="shell">
+            <div class="section-head">
+                <p class="kicker">Stack</p>
+                <h2>Competências</h2>
+                <p>TI, educação e entrega de projetos no mesmo perfil.</p>
+            </div>
+            <div class="skills">
+                <div class="skill">
+                    <h3>Tecnologia</h3>
+                    <ul>
+                        <li>PHP, Laravel, Blade, APIs REST</li>
+                        <li>SQL, MySQL, PostgreSQL, ETL</li>
+                        <li>JavaScript, WordPress, Ruby on Rails</li>
+                        <li>Linux, AWS, Docker, Git, Composer</li>
+                        <li>Power BI, dashboards, Datadog</li>
+                    </ul>
                 </div>
-            </section>
+                <div class="skill">
+                    <h3>Educação</h3>
+                    <ul>
+                        <li>Moodle (LMS / AVA)</li>
+                        <li>Educação corporativa em escala</li>
+                        <li>i-Educar, Educacenso/INEP</li>
+                        <li>Capacitação de gestores e equipes</li>
+                    </ul>
+                </div>
+                <div class="skill">
+                    <h3>Projetos</h3>
+                    <ul>
+                        <li>Análise de requisitos e escopo</li>
+                        <li>Gestão ágil de entregas</li>
+                        <li>Integrações (biometria, catracas, APIs)</li>
+                        <li>Pacotes open source e entregas NDA</li>
+                    </ul>
+                </div>
+                <div class="skill">
+                    <h3>Formação</h3>
+                    <ul>
+                        <li>Especialização em Tecnologias Aplicadas à Educação — IFNMG (2020–2022)</li>
+                        <li>Bacharelado em Sistemas de Informação — UNIMONTES (2011–2015)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <section class="panel block" id="contato">
-                <p class="kicker">Contato</p>
+    <section class="contact" id="contato">
+        <div class="shell contact-grid">
+            <div>
+                <p class="kicker">Próximo passo</p>
                 <h2>Currículo e contato</h2>
-                <p>Arquivo com informações relevantes.</p>
-                <div class="btn-row">
-                    <button class="btn" type="button" id="btn-pdf">Gerar currículo em PDF</button>
-                    <a class="btn btn-navy" href="https://buriti.dev.br/#contato">Proposta comercial</a>
+                <p style="margin-top:0.65rem;color:var(--mist);max-width:42ch;">
+                    Baixe o PDF com foto e contactos, ou fale sobre uma proposta comercial na BURI-TI.
+                </p>
+                <div class="hero-cta" style="margin-top:1.25rem;">
+                    <button class="btn btn-primary" type="button" id="btn-pdf-footer">Gerar currículo em PDF</button>
+                    <a class="btn btn-ghost" href="https://buriti.dev.br/#contato">Proposta comercial</a>
                 </div>
                 <p class="status" id="pdf-status"></p>
-            </section>
-        </main>
-    </div>
+            </div>
+            <div class="contact-side">
+                <p>Canais diretos</p>
+                <a href="mailto:jadergabriel8@gmail.com">jadergabriel8@gmail.com</a>
+                <a href="https://wa.me/5538991758416" target="_blank" rel="noopener">WhatsApp · +55 38 99175-8416</a>
+                <a href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener">linkedin.com/in/jadergabriel</a>
+                <a href="https://github.com/JaderGabriel" target="_blank" rel="noopener">github.com/JaderGabriel</a>
+                <a href="https://buriti.dev.br" target="_blank" rel="noopener">buriti.dev.br</a>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="shell">Jader Gabriel da Silva Alves · BURI-TI — Tecnologia para Pessoas · jadergabriel.github.io</div>
@@ -347,9 +710,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="./cv-pdf.js"></script>
     <script>
-        const button = document.getElementById('btn-pdf');
         const status = document.getElementById('pdf-status');
-        button.addEventListener('click', async () => {
+        async function runPdf(button) {
             status.textContent = 'Gerando PDF…';
             button.disabled = true;
             try {
@@ -360,7 +722,27 @@
             } finally {
                 button.disabled = false;
             }
-        });
+        }
+        document.getElementById('btn-pdf').addEventListener('click', (e) => runPdf(e.currentTarget));
+        document.getElementById('btn-pdf-footer').addEventListener('click', (e) => runPdf(e.currentTarget));
+
+        const reveal = (root) => {
+            const items = root.querySelectorAll('.flow-step, .job');
+            if (!('IntersectionObserver' in window)) {
+                items.forEach((el) => el.classList.add('is-in'));
+                return;
+            }
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-in');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+            items.forEach((el) => io.observe(el));
+        };
+        document.querySelectorAll('[data-reveal]').forEach(reveal);
     </script>
 </body>
 </html>
