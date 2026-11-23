@@ -29,7 +29,7 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; scroll-padding-top: 4.75rem; }
+        html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
         body {
             font-family: Figtree, system-ui, sans-serif;
             color: var(--snow);
@@ -39,7 +39,7 @@
             font-size: 1.05rem;
             line-height: 1.6;
             min-height: 100vh;
-            padding-top: 3.75rem;
+            padding-top: 4.1rem;
         }
         a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
         a:hover { color: var(--snow); }
@@ -49,34 +49,38 @@
         /* —— Nav —— */
         .nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-            background: #f4f7fb;
-            border-bottom: 1px solid rgba(15, 28, 42, 0.1);
-            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.65) inset;
+            background: #070b10;
+            border-bottom: 1px solid rgba(180, 205, 230, 0.1);
         }
         .nav-row {
             display: flex; align-items: center; justify-content: space-between;
-            gap: 1rem; min-height: 3.75rem;
+            gap: 1rem; min-height: 4.1rem;
         }
         .nav-brand {
             display: inline-flex; align-items: center; justify-content: center;
-            width: 2.35rem; height: 2.35rem;
             text-decoration: none;
-            border: 1px solid rgba(15, 28, 42, 0.1);
-            background: #fff;
-            transition: transform 0.25s var(--ease), border-color 0.25s;
+            background: transparent;
+            border: 0;
+            padding: 0;
+            transition: transform 0.25s var(--ease), opacity 0.25s;
         }
         .nav-brand:hover {
             transform: translateY(-1px);
-            border-color: rgba(255, 106, 74, 0.45);
+            opacity: 0.92;
         }
-        .nav-brand img { width: 1.45rem; height: 1.45rem; border-radius: 0.2rem; }
+        .nav-brand img {
+            width: 2.65rem;
+            height: 2.65rem;
+            object-fit: contain;
+            display: block;
+        }
         .nav-links { display: flex; flex-wrap: wrap; gap: 0.35rem 1.05rem; }
         .nav-links a {
-            color: #445668;
+            color: var(--mist);
             text-decoration: none;
             font-size: 0.88rem; font-weight: 600;
         }
-        .nav-links a:hover { color: #0f1c2a; }
+        .nav-links a:hover { color: var(--snow); }
 
         /* —— Back to top —— */
         .to-top {
@@ -979,7 +983,7 @@
     <nav class="nav" aria-label="Principal">
         <div class="shell nav-row">
             <a class="nav-brand" href="#topo" aria-label="BURI-TI · início" title="Início">
-                <img src="./assets/logo-buriti.png" alt="" width="24" height="24">
+                <img src="./assets/logo-buriti.png" alt="" width="42" height="42">
             </a>
             <div class="nav-links">
                 <a href="#fluxo">Fluxo</a>
