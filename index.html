@@ -154,14 +154,16 @@
             animation: rise 0.9s var(--ease) 0.24s both;
         }
         .hero-meta {
-            display: flex; flex-wrap: wrap; gap: 0.45rem 1rem;
+            display: flex; flex-wrap: wrap; gap: 0.5rem;
             margin-top: 1.35rem;
-            color: var(--mist);
-            font-size: 0.88rem;
             animation: rise 0.9s var(--ease) 0.3s both;
         }
-        .hero-meta a { color: var(--mist); text-decoration: none; }
-        .hero-meta a:hover { color: var(--brand); }
+        .hero-meta .locale {
+            display: inline-flex; align-items: center;
+            color: var(--mist);
+            font-size: 0.86rem;
+            padding: 0 0.15rem;
+        }
 
         .hero-id {
             justify-self: start;
@@ -260,6 +262,21 @@
             border: 1px solid rgba(238, 243, 248, 0.28);
         }
         .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+        .btn-sm {
+            padding: 0.48rem 0.9rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.01em;
+        }
+        .btn-channel {
+            background: rgba(18, 26, 36, 0.85);
+            color: var(--snow);
+            border: 1px solid var(--line);
+        }
+        .btn-channel:hover {
+            border-color: rgba(61, 206, 176, 0.5);
+            color: var(--teal);
+            background: rgba(18, 26, 36, 1);
+        }
 
         /* —— Sections —— */
         section { padding: 4.2rem 0; }
@@ -436,27 +453,63 @@
         /* —— Skills —— */
         .skills {
             display: grid;
-            gap: 1rem;
+            gap: 1.75rem;
         }
-        @media (min-width: 760px) {
-            .skills { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        @media (min-width: 800px) {
+            .skills { grid-template-columns: 1fr 1fr; gap: 1.5rem 2.5rem; }
         }
         .skill {
-            padding-top: 0.85rem;
-            border-top: 2px solid transparent;
-            border-image: linear-gradient(90deg, var(--brand), var(--teal)) 1;
+            display: grid;
+            gap: 0.7rem;
+            padding: 0;
+            border: 0;
+        }
+        .skill-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding-bottom: 0.55rem;
+            border-bottom: 1px solid var(--line);
         }
         .skill h3 {
             font-family: Syne, sans-serif;
-            font-size: 0.95rem;
-            margin-bottom: 0.55rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin: 0;
         }
-        .skill ul {
-            list-style: none;
-            display: grid;
-            gap: 0.3rem;
+        .skill-count {
+            font-size: 0.72rem;
+            font-weight: 600;
             color: var(--mist);
-            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+        }
+        .skill-tags {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .skill-tags li {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.38rem 0.7rem;
+            background: rgba(18, 26, 36, 0.9);
+            border: 1px solid var(--line);
+            color: var(--snow);
+            font-size: 0.8rem;
+            font-weight: 500;
+            line-height: 1.25;
+            max-width: 100%;
+        }
+        .skill-tags li.wide {
+            flex: 1 1 100%;
+            color: var(--mist);
+            font-size: 0.78rem;
+            font-weight: 500;
         }
 
         /* —— Contact —— */
@@ -472,11 +525,11 @@
         }
         .contact-grid {
             display: grid;
-            gap: 1.5rem;
+            gap: 1.75rem;
             align-items: end;
         }
         @media (min-width: 760px) {
-            .contact-grid { grid-template-columns: 1.3fr 0.7fr; }
+            .contact-grid { grid-template-columns: 1.25fr 0.75fr; }
         }
         .contact .status {
             margin-top: 0.65rem;
@@ -486,21 +539,37 @@
         }
         .contact-side {
             color: var(--mist);
-            font-size: 0.95rem;
+            font-size: 0.88rem;
         }
-        .contact-side a {
-            display: block;
-            color: var(--snow);
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 0.35rem;
+        .contact-side > p {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--mist);
+            margin-bottom: 0.75rem;
         }
-        .contact-side a:hover { color: var(--brand); }
+        .contact-channels {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
 
         footer {
-            padding: 1.4rem 0 2rem;
+            padding: 1.6rem 0 2.2rem;
             color: var(--mist);
             font-size: 0.8rem;
+            text-align: center;
+        }
+        footer .shell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        footer strong {
+            color: var(--snow);
+            font-weight: 600;
         }
 
         @media (max-width: 720px) {
@@ -552,13 +621,13 @@
                     <button class="btn btn-primary" type="button" id="btn-pdf">Gerar currículo em PDF</button>
                     <a class="btn btn-ghost" href="https://buriti.dev.br/#contato">Proposta comercial</a>
                 </div>
-                <p class="hero-meta">
-                    <a href="mailto:jadergabriel8@gmail.com">jadergabriel8@gmail.com</a>
-                    <a href="https://wa.me/5538991758416" target="_blank" rel="noopener">+55 38 99175-8416</a>
-                    <a href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://github.com/JaderGabriel" target="_blank" rel="noopener">GitHub</a>
-                    <span>Pirapora / Buritizeiro · MG</span>
-                </p>
+                <div class="hero-meta">
+                    <a class="btn btn-sm btn-channel" href="mailto:jadergabriel8@gmail.com">E-mail</a>
+                    <a class="btn btn-sm btn-channel" href="https://wa.me/5538991758416" target="_blank" rel="noopener">WhatsApp</a>
+                    <a class="btn btn-sm btn-channel" href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a class="btn btn-sm btn-channel" href="https://github.com/JaderGabriel" target="_blank" rel="noopener">GitHub</a>
+                    <span class="locale">Pirapora / Buritizeiro · MG</span>
+                </div>
             </div>
             <aside class="hero-id" aria-label="Identidade profissional">
                 <div class="hero-id-top">
@@ -744,38 +813,66 @@
             </div>
             <div class="skills">
                 <div class="skill">
-                    <h3>Tecnologia</h3>
-                    <ul>
-                        <li>PHP, Laravel, Blade, APIs REST</li>
-                        <li>SQL, MySQL, PostgreSQL, ETL</li>
-                        <li>JavaScript, WordPress, Ruby on Rails</li>
-                        <li>Linux, AWS, Docker, Git, Composer</li>
-                        <li>Power BI, dashboards, Datadog</li>
+                    <div class="skill-head">
+                        <h3>Tecnologia</h3>
+                        <span class="skill-count">stack</span>
+                    </div>
+                    <ul class="skill-tags">
+                        <li>PHP</li>
+                        <li>Laravel</li>
+                        <li>Blade</li>
+                        <li>APIs REST</li>
+                        <li>SQL</li>
+                        <li>MySQL</li>
+                        <li>PostgreSQL</li>
+                        <li>ETL</li>
+                        <li>JavaScript</li>
+                        <li>WordPress</li>
+                        <li>Ruby on Rails</li>
+                        <li>Linux</li>
+                        <li>AWS</li>
+                        <li>Docker</li>
+                        <li>Git</li>
+                        <li>Composer</li>
+                        <li>Power BI</li>
+                        <li>Datadog</li>
                     </ul>
                 </div>
                 <div class="skill">
-                    <h3>Educação</h3>
-                    <ul>
-                        <li>Moodle (LMS / AVA)</li>
-                        <li>Educação corporativa em escala</li>
-                        <li>i-Educar, Educacenso/INEP</li>
-                        <li>Capacitação de gestores e equipes</li>
+                    <div class="skill-head">
+                        <h3>Educação</h3>
+                        <span class="skill-count">domínio</span>
+                    </div>
+                    <ul class="skill-tags">
+                        <li>Moodle LMS / AVA</li>
+                        <li>Educação corporativa</li>
+                        <li>i-Educar</li>
+                        <li>Educacenso / INEP</li>
+                        <li>Capacitação de equipes</li>
                     </ul>
                 </div>
                 <div class="skill">
-                    <h3>Projetos</h3>
-                    <ul>
-                        <li>Análise de requisitos e escopo</li>
-                        <li>Gestão ágil de entregas</li>
-                        <li>Integrações (biometria, catracas, APIs)</li>
-                        <li>Pacotes open source e entregas NDA</li>
+                    <div class="skill-head">
+                        <h3>Projetos</h3>
+                        <span class="skill-count">entrega</span>
+                    </div>
+                    <ul class="skill-tags">
+                        <li>Requisitos e escopo</li>
+                        <li>Gestão ágil</li>
+                        <li>Integrações</li>
+                        <li>Biometria</li>
+                        <li>Open source</li>
+                        <li>Entregas NDA</li>
                     </ul>
                 </div>
                 <div class="skill">
-                    <h3>Formação</h3>
-                    <ul>
-                        <li>Especialização em Tecnologias Aplicadas à Educação — IFNMG (2020–2022)</li>
-                        <li>Bacharelado em Sistemas de Informação — UNIMONTES (2011–2015)</li>
+                    <div class="skill-head">
+                        <h3>Formação</h3>
+                        <span class="skill-count">acadêmico</span>
+                    </div>
+                    <ul class="skill-tags">
+                        <li class="wide">Especialização · Tecnologias Aplicadas à Educação · IFNMG · 2020–2022</li>
+                        <li class="wide">Bacharelado · Sistemas de Informação · UNIMONTES · 2011–2015</li>
                     </ul>
                 </div>
             </div>
@@ -797,18 +894,23 @@
                 <p class="status" id="pdf-status"></p>
             </div>
             <div class="contact-side">
-                <p>Canais diretos</p>
-                <a href="mailto:jadergabriel8@gmail.com">jadergabriel8@gmail.com</a>
-                <a href="https://wa.me/5538991758416" target="_blank" rel="noopener">WhatsApp · +55 38 99175-8416</a>
-                <a href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener">linkedin.com/in/jadergabriel</a>
-                <a href="https://github.com/JaderGabriel" target="_blank" rel="noopener">github.com/JaderGabriel</a>
-                <a href="https://buriti.dev.br" target="_blank" rel="noopener">buriti.dev.br</a>
+                <p>Canais</p>
+                <div class="contact-channels">
+                    <a class="btn btn-sm btn-channel" href="mailto:jadergabriel8@gmail.com">E-mail</a>
+                    <a class="btn btn-sm btn-channel" href="https://wa.me/5538991758416" target="_blank" rel="noopener">WhatsApp</a>
+                    <a class="btn btn-sm btn-channel" href="https://www.linkedin.com/in/jadergabriel/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a class="btn btn-sm btn-channel" href="https://github.com/JaderGabriel" target="_blank" rel="noopener">GitHub</a>
+                    <a class="btn btn-sm btn-channel" href="https://buriti.dev.br" target="_blank" rel="noopener">Site BURI-TI</a>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="shell">Jader Gabriel da Silva Alves · BURI-TI — Tecnologia para Pessoas · jadergabriel.github.io</div>
+        <div class="shell">
+            <strong>Jader Gabriel da Silva Alves</strong>
+            <span>BURI-TI — Tecnologia para Pessoas</span>
+        </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
