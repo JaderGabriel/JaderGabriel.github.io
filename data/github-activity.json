@@ -1,7 +1,7 @@
 {
   "user": "JaderGabriel",
   "profile_url": "https://github.com/JaderGabriel",
-  "updated_at": "2026-11-23T13:51:59Z",
+  "updated_at": "2026-11-24T03:56:39Z",
   "profile": {
     "public_repos": 35,
     "followers": 7,
@@ -13,7 +13,7 @@
     "prs_open": 1
   },
   "window_30d": {
-    "pushes": 61,
+    "pushes": 69,
     "commits": 0,
     "prs": 0,
     "reviews": 0,
@@ -21,16 +21,11 @@
     "stars": 2
   },
   "window_7d": {
-    "pushes": 0,
+    "pushes": 8,
     "prs": 0,
     "reviews": 0
   },
   "heatmap": [
-    {
-      "date": "2026-09-01",
-      "count": 0,
-      "level": 0
-    },
     {
       "date": "2026-09-02",
       "count": 0,
@@ -443,11 +438,79 @@
     },
     {
       "date": "2026-11-23",
+      "count": 9,
+      "level": 4
+    },
+    {
+      "date": "2026-11-24",
       "count": 0,
       "level": 0
     }
   ],
   "recent": [
+    {
+      "type": "push",
+      "repo": "i-Educar/i-educar.github.io",
+      "url": "https://github.com/i-Educar/i-educar.github.io",
+      "at": "2026-11-23T23:13:29Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "push",
+      "repo": "i-Educar/i-educar.github.io",
+      "url": "https://github.com/i-Educar/i-educar.github.io",
+      "at": "2026-11-23T23:03:55Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "push",
+      "repo": "i-Educar/i-educar.github.io",
+      "url": "https://github.com/i-Educar/i-educar.github.io",
+      "at": "2026-11-23T22:54:24Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "push",
+      "repo": "i-Educar/i-educar.github.io",
+      "url": "https://github.com/i-Educar/i-educar.github.io",
+      "at": "2026-11-23T23:05:01Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "create",
+      "repo": "i-Educar/i-educar-advreport-package",
+      "url": "https://github.com/i-Educar/i-educar-advreport-package",
+      "at": "2026-11-23T14:38:46Z",
+      "detail": "branch"
+    },
+    {
+      "type": "push",
+      "repo": "JaderGabriel/JaderGabriel.github.io",
+      "url": "https://github.com/JaderGabriel/JaderGabriel.github.io",
+      "at": "2026-11-23T13:55:28Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "push",
+      "repo": "JaderGabriel/JaderGabriel.github.io",
+      "url": "https://github.com/JaderGabriel/JaderGabriel.github.io",
+      "at": "2026-11-23T13:56:35Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "push",
+      "repo": "JaderGabriel/JaderGabriel.github.io",
+      "url": "https://github.com/JaderGabriel/JaderGabriel.github.io",
+      "at": "2026-11-23T13:59:23Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "push",
+      "repo": "JaderGabriel/JaderGabriel.github.io",
+      "url": "https://github.com/JaderGabriel/JaderGabriel.github.io",
+      "at": "2026-11-23T13:20:40Z",
+      "detail": "0 commit(s)"
+    },
     {
       "type": "star",
       "repo": "LibreSign/libresign",
@@ -481,69 +544,6 @@
       "repo": "JaderGabriel/buriti",
       "url": "https://github.com/JaderGabriel/buriti",
       "at": "2026-10-29T17:33:21Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/buriti",
-      "url": "https://github.com/JaderGabriel/buriti",
-      "at": "2026-10-29T16:36:54Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/buriti",
-      "url": "https://github.com/JaderGabriel/buriti",
-      "at": "2026-10-29T18:16:43Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/buriti",
-      "url": "https://github.com/JaderGabriel/buriti",
-      "at": "2026-10-29T18:41:31Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/buriti",
-      "url": "https://github.com/JaderGabriel/buriti",
-      "at": "2026-10-29T19:00:09Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/buriti",
-      "url": "https://github.com/JaderGabriel/buriti",
-      "at": "2026-10-29T17:49:30Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/buriti",
-      "url": "https://github.com/JaderGabriel/buriti",
-      "at": "2026-10-29T16:22:51Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/buriti",
-      "url": "https://github.com/JaderGabriel/buriti",
-      "at": "2026-10-29T16:44:21Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/buriti",
-      "url": "https://github.com/JaderGabriel/buriti",
-      "at": "2026-10-29T01:01:49Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/buriti",
-      "url": "https://github.com/JaderGabriel/buriti",
-      "at": "2026-10-29T13:39:13Z",
       "detail": "0 commit(s)"
     }
   ],
