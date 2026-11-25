@@ -1,7 +1,7 @@
 {
   "user": "JaderGabriel",
   "profile_url": "https://github.com/JaderGabriel",
-  "updated_at": "2026-11-24T17:35:38Z",
+  "updated_at": "2026-11-25T02:21:35Z",
   "profile": {
     "public_repos": 35,
     "followers": 7,
@@ -13,7 +13,7 @@
     "prs_open": 1
   },
   "window_30d": {
-    "pushes": 96,
+    "pushes": 99,
     "commits": 0,
     "prs": 0,
     "reviews": 0,
@@ -21,16 +21,11 @@
     "stars": 2
   },
   "window_7d": {
-    "pushes": 35,
+    "pushes": 38,
     "prs": 0,
     "reviews": 0
   },
   "heatmap": [
-    {
-      "date": "2026-09-02",
-      "count": 0,
-      "level": 0
-    },
     {
       "date": "2026-09-03",
       "count": 0,
@@ -438,16 +433,42 @@
     },
     {
       "date": "2026-11-23",
-      "count": 23,
+      "count": 24,
       "level": 4
     },
     {
       "date": "2026-11-24",
-      "count": 13,
+      "count": 15,
       "level": 4
+    },
+    {
+      "date": "2026-11-25",
+      "count": 0,
+      "level": 0
     }
   ],
   "recent": [
+    {
+      "type": "push",
+      "repo": "JaderGabriel/JaderGabriel.github.io",
+      "url": "https://github.com/JaderGabriel/JaderGabriel.github.io",
+      "at": "2026-11-23T13:31:00Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "push",
+      "repo": "i-Educar/i-educar.github.io",
+      "url": "https://github.com/i-Educar/i-educar.github.io",
+      "at": "2026-11-24T04:16:02Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "push",
+      "repo": "i-Educar/i-educar.github.io",
+      "url": "https://github.com/i-Educar/i-educar.github.io",
+      "at": "2026-11-24T04:05:34Z",
+      "detail": "0 commit(s)"
+    },
     {
       "type": "push",
       "repo": "i-Educar/i-educar.github.io",
@@ -524,27 +545,6 @@
       "url": "https://github.com/i-Educar/i-educar.github.io",
       "at": "2026-11-23T23:07:17Z",
       "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/JaderGabriel.github.io",
-      "url": "https://github.com/JaderGabriel/JaderGabriel.github.io",
-      "at": "2026-11-23T13:23:40Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar.github.io",
-      "url": "https://github.com/i-Educar/i-educar.github.io",
-      "at": "2026-11-23T23:09:16Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar.github.io",
-      "url": "https://github.com/i-Educar/i-educar.github.io",
-      "at": "2026-11-23T22:56:26Z",
-      "detail": "0 commit(s)"
     }
   ],
   "orgs": [
@@ -554,7 +554,7 @@
       "url": "https://github.com/i-Educar",
       "description": "Independent initiatives around the i-Educar free software ecosystem.",
       "avatar": "https://avatars.githubusercontent.com/u/317414325?v=4",
-      "public_repos": 4,
+      "public_repos": 21,
       "role": "owner"
     },
     {
