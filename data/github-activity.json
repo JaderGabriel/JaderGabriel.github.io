@@ -1,11 +1,11 @@
 {
   "user": "JaderGabriel",
   "profile_url": "https://github.com/JaderGabriel",
-  "updated_at": "2026-11-25T02:21:35Z",
+  "updated_at": "2026-11-25T17:07:09Z",
   "profile": {
     "public_repos": 35,
     "followers": 7,
-    "following": 15
+    "following": 16
   },
   "totals": {
     "prs": 6,
@@ -13,7 +13,7 @@
     "prs_open": 1
   },
   "window_30d": {
-    "pushes": 99,
+    "pushes": 106,
     "commits": 0,
     "prs": 0,
     "reviews": 0,
@@ -21,7 +21,7 @@
     "stars": 2
   },
   "window_7d": {
-    "pushes": 38,
+    "pushes": 45,
     "prs": 0,
     "reviews": 0
   },
@@ -433,21 +433,105 @@
     },
     {
       "date": "2026-11-23",
-      "count": 24,
+      "count": 27,
       "level": 4
     },
     {
       "date": "2026-11-24",
-      "count": 15,
+      "count": 23,
       "level": 4
     },
     {
       "date": "2026-11-25",
-      "count": 0,
-      "level": 0
+      "count": 1,
+      "level": 1
     }
   ],
   "recent": [
+    {
+      "type": "push",
+      "repo": "i-Educar/i-educar-escolar-aderencia-package",
+      "url": "https://github.com/i-Educar/i-educar-escolar-aderencia-package",
+      "at": "2026-11-24T21:27:54Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "push",
+      "repo": "i-Educar/i-educar-escolar-aderencia-package",
+      "url": "https://github.com/i-Educar/i-educar-escolar-aderencia-package",
+      "at": "2026-11-24T21:28:27Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "create",
+      "repo": "i-Educar/i-educar-horario-automatico-package",
+      "url": "https://github.com/i-Educar/i-educar-horario-automatico-package",
+      "at": "2026-11-24T21:21:48Z",
+      "detail": "branch"
+    },
+    {
+      "type": "create",
+      "repo": "i-Educar/i-educar-contratacoes-temporarias-package",
+      "url": "https://github.com/i-Educar/i-educar-contratacoes-temporarias-package",
+      "at": "2026-11-24T21:21:17Z",
+      "detail": "branch"
+    },
+    {
+      "type": "push",
+      "repo": "i-Educar/i-educar-alimentacao-escolar-package",
+      "url": "https://github.com/i-Educar/i-educar-alimentacao-escolar-package",
+      "at": "2026-11-25T00:08:37Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "push",
+      "repo": "i-Educar/i-educar-solicitacao-servicos-package",
+      "url": "https://github.com/i-Educar/i-educar-solicitacao-servicos-package",
+      "at": "2026-11-24T23:33:58Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "create",
+      "repo": "i-Educar/i-educar-transporte-escolar-v2-package",
+      "url": "https://github.com/i-Educar/i-educar-transporte-escolar-v2-package",
+      "at": "2026-11-24T23:19:48Z",
+      "detail": "branch"
+    },
+    {
+      "type": "create",
+      "repo": "i-Educar/i-educar-escolar-aderencia-package",
+      "url": "https://github.com/i-Educar/i-educar-escolar-aderencia-package",
+      "at": "2026-11-24T21:22:03Z",
+      "detail": "branch"
+    },
+    {
+      "type": "create",
+      "repo": "i-Educar/i-educar-almoxarifado-escolar-package",
+      "url": "https://github.com/i-Educar/i-educar-almoxarifado-escolar-package",
+      "at": "2026-11-24T21:21:01Z",
+      "detail": "branch"
+    },
+    {
+      "type": "push",
+      "repo": "i-Educar/i-educar-advreport-package",
+      "url": "https://github.com/i-Educar/i-educar-advreport-package",
+      "at": "2026-11-23T14:42:54Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "push",
+      "repo": "JaderGabriel/JaderGabriel.github.io",
+      "url": "https://github.com/JaderGabriel/JaderGabriel.github.io",
+      "at": "2026-11-23T13:39:48Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "push",
+      "repo": "JaderGabriel/JaderGabriel.github.io",
+      "url": "https://github.com/JaderGabriel/JaderGabriel.github.io",
+      "at": "2026-11-23T13:25:43Z",
+      "detail": "0 commit(s)"
+    },
     {
       "type": "push",
       "repo": "JaderGabriel/JaderGabriel.github.io",
@@ -460,90 +544,6 @@
       "repo": "i-Educar/i-educar.github.io",
       "url": "https://github.com/i-Educar/i-educar.github.io",
       "at": "2026-11-24T04:16:02Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar.github.io",
-      "url": "https://github.com/i-Educar/i-educar.github.io",
-      "at": "2026-11-24T04:05:34Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar.github.io",
-      "url": "https://github.com/i-Educar/i-educar.github.io",
-      "at": "2026-11-24T04:34:12Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar.github.io",
-      "url": "https://github.com/i-Educar/i-educar.github.io",
-      "at": "2026-11-24T02:27:16Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar.github.io",
-      "url": "https://github.com/i-Educar/i-educar.github.io",
-      "at": "2026-11-24T04:24:43Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar.github.io",
-      "url": "https://github.com/i-Educar/i-educar.github.io",
-      "at": "2026-11-24T04:22:54Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar.github.io",
-      "url": "https://github.com/i-Educar/i-educar.github.io",
-      "at": "2026-11-24T04:10:12Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar.github.io",
-      "url": "https://github.com/i-Educar/i-educar.github.io",
-      "at": "2026-11-24T04:19:53Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/JaderGabriel.github.io",
-      "url": "https://github.com/JaderGabriel/JaderGabriel.github.io",
-      "at": "2026-11-23T14:34:03Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar.github.io",
-      "url": "https://github.com/i-Educar/i-educar.github.io",
-      "at": "2026-11-24T02:09:20Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/JaderGabriel.github.io",
-      "url": "https://github.com/JaderGabriel/JaderGabriel.github.io",
-      "at": "2026-11-23T13:49:32Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "JaderGabriel/JaderGabriel.github.io",
-      "url": "https://github.com/JaderGabriel/JaderGabriel.github.io",
-      "at": "2026-11-23T13:48:08Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar.github.io",
-      "url": "https://github.com/i-Educar/i-educar.github.io",
-      "at": "2026-11-23T23:07:17Z",
       "detail": "0 commit(s)"
     }
   ],
