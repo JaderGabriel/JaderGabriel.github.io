@@ -1,28 +1,28 @@
 {
   "user": "JaderGabriel",
   "profile_url": "https://github.com/JaderGabriel",
-  "updated_at": "2026-11-26T01:46:00Z",
+  "updated_at": "2026-11-26T16:48:13Z",
   "profile": {
     "public_repos": 35,
     "followers": 7,
     "following": 16
   },
   "totals": {
-    "prs": 6,
-    "prs_merged": 4,
+    "prs": 9,
+    "prs_merged": 7,
     "prs_open": 1
   },
   "window_30d": {
-    "pushes": 110,
+    "pushes": 108,
     "commits": 0,
-    "prs": 0,
+    "prs": 6,
     "reviews": 0,
     "issues": 0,
     "stars": 2
   },
   "window_7d": {
-    "pushes": 55,
-    "prs": 0,
+    "pushes": 75,
+    "prs": 6,
     "reviews": 0
   },
   "heatmap": [
@@ -288,7 +288,7 @@
     },
     {
       "date": "2026-10-26",
-      "count": 3,
+      "count": 2,
       "level": 2
     },
     {
@@ -433,118 +433,118 @@
     },
     {
       "date": "2026-11-24",
-      "count": 36,
+      "count": 55,
       "level": 4
     },
     {
       "date": "2026-11-25",
-      "count": 3,
-      "level": 2
+      "count": 13,
+      "level": 4
     },
     {
       "date": "2026-11-26",
-      "count": 0,
-      "level": 0
+      "count": 6,
+      "level": 3
     }
   ],
   "recent": [
     {
       "type": "push",
-      "repo": "JaderGabriel/i-educar-educacenso-import-package",
-      "url": "https://github.com/JaderGabriel/i-educar-educacenso-import-package",
-      "at": "2026-11-24T21:28:02Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "create",
-      "repo": "i-Educar/i-educar-biblioteca-package",
-      "url": "https://github.com/i-Educar/i-educar-biblioteca-package",
-      "at": "2026-11-24T21:21:09Z",
-      "detail": "branch"
-    },
-    {
-      "type": "create",
-      "repo": "JaderGabriel/pre-matricula-digital",
-      "url": "https://github.com/JaderGabriel/pre-matricula-digital",
-      "at": "2026-11-24T21:28:16Z",
-      "detail": "branch"
-    },
-    {
-      "type": "create",
       "repo": "i-Educar/i-educar-solicitacao-servicos-package",
       "url": "https://github.com/i-Educar/i-educar-solicitacao-servicos-package",
-      "at": "2026-11-24T21:21:55Z",
-      "detail": "branch"
+      "at": "2026-11-25T17:27:21Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "pr",
+      "repo": "i-Educar/i-educar",
+      "url": "https://github.com/i-Educar/i-educar",
+      "at": "2026-11-26T14:55:45Z",
+      "detail": "merged #7"
+    },
+    {
+      "type": "pr",
+      "repo": "i-Educar/i-educar",
+      "url": "https://github.com/i-Educar/i-educar",
+      "at": "2026-11-26T14:55:40Z",
+      "detail": "opened #7"
+    },
+    {
+      "type": "pr",
+      "repo": "i-Educar/i-educar",
+      "url": "https://github.com/i-Educar/i-educar",
+      "at": "2026-11-26T14:52:04Z",
+      "detail": "merged #6"
+    },
+    {
+      "type": "pr",
+      "repo": "i-Educar/i-educar",
+      "url": "https://github.com/i-Educar/i-educar",
+      "at": "2026-11-26T14:51:45Z",
+      "detail": "opened #6"
+    },
+    {
+      "type": "pr",
+      "repo": "i-Educar/i-educar",
+      "url": "https://github.com/i-Educar/i-educar",
+      "at": "2026-11-26T14:47:50Z",
+      "detail": "merged #5"
+    },
+    {
+      "type": "pr",
+      "repo": "i-Educar/i-educar",
+      "url": "https://github.com/i-Educar/i-educar",
+      "at": "2026-11-26T14:47:25Z",
+      "detail": "opened #5"
     },
     {
       "type": "push",
-      "repo": "i-Educar/i-educar.github.io",
-      "url": "https://github.com/i-Educar/i-educar.github.io",
-      "at": "2026-11-24T01:38:29Z",
+      "repo": "i-Educar/i-educar-apps-api-package",
+      "url": "https://github.com/i-Educar/i-educar-apps-api-package",
+      "at": "2026-11-25T00:23:51Z",
       "detail": "0 commit(s)"
     },
     {
       "type": "push",
-      "repo": "i-Educar/i-educar-advreport-package",
-      "url": "https://github.com/i-Educar/i-educar-advreport-package",
-      "at": "2026-11-25T00:50:50Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar-eventos-formacao-package",
-      "url": "https://github.com/i-Educar/i-educar-eventos-formacao-package",
-      "at": "2026-11-24T23:47:47Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar-laguna-core",
-      "url": "https://github.com/i-Educar/i-educar-laguna-core",
-      "at": "2026-11-24T23:45:29Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar-laguna-core",
-      "url": "https://github.com/i-Educar/i-educar-laguna-core",
-      "at": "2026-11-25T00:10:15Z",
+      "repo": "i-Educar/i-educar-transporte-escolar-v2-package",
+      "url": "https://github.com/i-Educar/i-educar-transporte-escolar-v2-package",
+      "at": "2026-11-25T00:09:30Z",
       "detail": "0 commit(s)"
     },
     {
       "type": "push",
       "repo": "i-Educar/i-educar-apps-api-package",
       "url": "https://github.com/i-Educar/i-educar-apps-api-package",
-      "at": "2026-11-24T23:34:02Z",
+      "at": "2026-11-24T23:44:42Z",
+      "detail": "0 commit(s)"
+    },
+    {
+      "type": "create",
+      "repo": "i-Educar/i-educar-laguna-ambiente-package",
+      "url": "https://github.com/i-Educar/i-educar-laguna-ambiente-package",
+      "at": "2026-11-25T00:28:56Z",
+      "detail": "branch"
+    },
+    {
+      "type": "push",
+      "repo": "i-Educar/i-educar-alimentacao-escolar-package",
+      "url": "https://github.com/i-Educar/i-educar-alimentacao-escolar-package",
+      "at": "2026-11-24T23:33:35Z",
       "detail": "0 commit(s)"
     },
     {
       "type": "create",
       "repo": "i-Educar/i-diario",
       "url": "https://github.com/i-Educar/i-diario",
-      "at": "2026-11-24T23:32:53Z",
+      "at": "2026-11-24T23:32:30Z",
       "detail": "branch"
     },
     {
       "type": "create",
       "repo": "i-Educar/i-diario",
       "url": "https://github.com/i-Educar/i-diario",
-      "at": "2026-11-24T23:32:27Z",
+      "at": "2026-11-24T23:32:28Z",
       "detail": "branch"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar-contratacoes-temporarias-package",
-      "url": "https://github.com/i-Educar/i-educar-contratacoes-temporarias-package",
-      "at": "2026-11-24T23:47:41Z",
-      "detail": "0 commit(s)"
-    },
-    {
-      "type": "push",
-      "repo": "i-Educar/i-educar-servidor-educacional-package",
-      "url": "https://github.com/i-Educar/i-educar-servidor-educacional-package",
-      "at": "2026-11-24T23:33:40Z",
-      "detail": "0 commit(s)"
     }
   ],
   "orgs": [
@@ -552,9 +552,9 @@
       "login": "i-Educar",
       "display_name": "i-Educar",
       "url": "https://github.com/i-Educar",
-      "description": "Independent initiatives around the i-Educar free software ecosystem.",
+      "description": "Ecossistema i-Educar · módulos Buriti · PoC Laguna PE-77/2026 · Software Público GPL v2",
       "avatar": "https://avatars.githubusercontent.com/u/317414325?v=4",
-      "public_repos": 25,
+      "public_repos": 26,
       "role": "owner"
     },
     {
